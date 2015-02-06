@@ -10,19 +10,19 @@ namespace Mpir.NET
     {
         #region Data
 
-        public IntPtr val;
-        private bool disposed = false;
+        internal IntPtr Val;
+        private bool _disposed;
         
         #endregion
 
         #region Creation and destruction
 
-        public gmp_randstate_t()                             { val = mpir.gmp_randinit_default();            }
-        public gmp_randstate_t(mpz_t a, uint c, ulong m2exp) { val = mpir.gmp_randinit_lc_2exp(a, c, m2exp); }
-        public gmp_randstate_t(gmp_randstate_t op)           { val = mpir.gmp_randinit_set(op);              }
+        public gmp_randstate_t()                             { Val = mpir.gmp_randinit_default();            }
+        public gmp_randstate_t(mpz a, uint c, ulong m2exp) { Val = mpir.gmp_randinit_lc_2exp(a, c, m2exp); }
+        public gmp_randstate_t(gmp_randstate_t op)           { Val = mpir.gmp_randinit_set(op);              }
 
         public static gmp_randstate_t randinit_mt() { return new gmp_randstate_t(true); }
-        private gmp_randstate_t(bool dummy) { val = mpir.gmp_randinit_mt(); }
+        private gmp_randstate_t(bool dummy) { Val = mpir.gmp_randinit_mt(); }
 
         ~gmp_randstate_t()
         {
@@ -38,10 +38,10 @@ namespace Mpir.NET
         protected virtual void Dispose(bool disposing)
         {
             // There are no managed resources, so <disposing> is not used.
-            if (!disposed) {
+            if (!_disposed) {
                 // dispose unmanaged resources
                 mpir.gmp_randclear(this);
-                disposed = true;   
+                _disposed = true;   
             }
         }
 

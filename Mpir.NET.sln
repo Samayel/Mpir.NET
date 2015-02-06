@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F1B4F0F-2998-4D74-865B-9122611C2B14}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,10 +38,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp", "docs\csharp\cshar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpir.NET", "src\Mpir.NET\Mpir.NET.csproj", "{B396CEDE-C6AE-44B3-9889-18BAFA317E6A}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Mpir.NET.Tests", "tests\Mpir.NET.Tests\Mpir.NET.Tests.fsproj", "{34974454-8ECA-4439-9B8F-69C4CA01B263}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsMpir.NET", "src\FsMpir.NET\FsMpir.NET.fsproj", "{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{390C6CDE-5CBC-4EF1-BE4E-496189D4CC11}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\install.ps1 = nuget\install.ps1
@@ -63,14 +59,6 @@ Global
 		{B396CEDE-C6AE-44B3-9889-18BAFA317E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B396CEDE-C6AE-44B3-9889-18BAFA317E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B396CEDE-C6AE-44B3-9889-18BAFA317E6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +67,5 @@ Global
 		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{E83B056A-43F2-4C15-AFA4-18AB1350C8AF} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
-		{34974454-8ECA-4439-9B8F-69C4CA01B263} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 EndGlobal

@@ -289,8 +289,10 @@ function XMPIR_CoreType($type)
         case 'str_pointer':
             return "char*";
         case 'mp_bitcnt_t':
+        case 'mpir_ui':
             return "unsigned long long";
         case 'mp_exp_t':
+        case 'mpir_si':
             return "signed long long";
         case 'mpz_handle':
             return "mpz_wrapper*";

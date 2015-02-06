@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mpir.NET</name>
+    </assembly>
+    <members>
+        <member name="M:Mpir.NET.mpz.FromByteArray(System.Byte[],System.Int32)">
+            Import the integer in the byte array bytes.
+            Endianess is specified by order, which is 1 for big endian or -1 
+            for little endian.
+        </member>
+        <member name="M:Mpir.NET.mpz.ImportByOffset(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            Import the integer in the byte array bytes, starting at startOffset
+            and ending at endOffset.
+            Endianess is specified by order, which is 1 for big endian or -1 
+            for little endian.
+        </member>
+        <member name="M:Mpir.NET.mpz.ToByteArray(System.Int32)">
+            Export to the value to a byte array.
+            Endianess is specified by order, which is 1 for big endian or -1 
+            for little endian.
+        </member>
+    </members>
+</doc>

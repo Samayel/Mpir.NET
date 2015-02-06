@@ -8,7 +8,7 @@
     <ProjectGuid>{B396CEDE-C6AE-44B3-9889-18BAFA317E6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mpir</RootNamespace>
+    <RootNamespace>Mpir.NET</RootNamespace>
     <AssemblyName>Mpir.NET</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,13 +45,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Math\Constant.cs" />
     <Compile Include="DynamicLoader.cs" />
     <Compile Include="gmp_randstate_t.cs" />
-    <Compile Include="mpf_t.cs" />
+    <Compile Include="Math\Constant.e.cs">
+      <DependentUpon>Constant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\Constant.Pi.cs">
+      <DependentUpon>Constant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\Prime.cs" />
+    <Compile Include="Type\mpf.cs" />
     <Compile Include="mpir.cs" />
-    <Compile Include="mpq_t.cs" />
-    <Compile Include="mpz_t.cs" />
-    <Compile Include="xmpir.cs" />
+    <Compile Include="Type\mpq.cs" />
+    <Compile Include="Type\mpz.cs" />
+    <Compile Include="Type\xmpf.cs">
+      <DependentUpon>mpf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Type\xmpq.cs">
+      <DependentUpon>mpq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Type\xmpz.cs">
+      <DependentUpon>mpz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xmpir.cs">
+      <DependentUpon>mpir.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="xmpir32.dll">

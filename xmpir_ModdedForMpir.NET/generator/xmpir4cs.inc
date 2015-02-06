@@ -232,6 +232,8 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'double':
         case 'mp_bitcnt_t':
         case 'mp_exp_t':
+        case 'mpir_ui':
+        case 'mpir_si':
             $s = "$p[name]";
             break;
         case 'str_pointer':
@@ -242,7 +244,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'mpf_handle':
         case 'mpfr_handle':
         case 'gmp_randstate_handle':
-            $s = "$p[name].val";
+            $s = "$p[name].Val";
             break;
 
         // Added by JR: intptr.
@@ -326,8 +328,10 @@ function CSharpMPIR_CSharpRawType($type)
         case 'double':
             return "double";
         case 'mp_bitcnt_t':
+        case 'mpir_ui':
             return "ulong";
         case 'mp_exp_t':
+        case 'mpir_si':
             return "long";
         case 'str_pointer':
         case 'mpz_handle':
@@ -366,17 +370,19 @@ function CSharpMPIR_CSharpType($type)
         case 'str_pointer':
             return "string";
         case 'mp_bitcnt_t':
+        case 'mpir_ui':
             return "ulong";
         case 'mp_exp_t':
+        case 'mpir_si':
             return "long";
         case 'mpz_handle':
-            return "mpz_t";
+            return "mpz";
         case 'mpq_handle':
-            return "mpq_t";
+            return "mpq";
         case 'mpf_handle':
-            return "mpf_t";
+            return "mpf";
         case 'mpfr_handle':
-            return "mpfr_t";
+            return "mpfr";
         case 'gmp_randstate_handle':
             return "gmp_randstate_t";
 

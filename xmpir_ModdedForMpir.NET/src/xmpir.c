@@ -98,13 +98,13 @@ DLLEXPORT int xmpir_mpz_init(mpz_wrapper** result)
     mpz_init((*result)->val);
     return XMPIR_OK;
 }
-DLLEXPORT int xmpir_mpz_init2(mpz_wrapper** result, unsigned long long __n)
+DLLEXPORT int xmpir_mpz_init2(mpz_wrapper** result, unsigned long long __prec)
 {
-    volatile mp_bitcnt_t n;
-    n = __n;
-    if( n!=__n ) return XMPIR_32_64_ERROR;
+    volatile mp_bitcnt_t prec;
+    prec = __prec;
+    if( prec!=__prec ) return XMPIR_32_64_ERROR;
     *result = (mpz_wrapper*)malloc(sizeof(mpz_wrapper));
-    mpz_init2((*result)->val, n);
+    mpz_init2((*result)->val, prec);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpz_init_set(mpz_wrapper** result, mpz_wrapper* op)
@@ -143,8 +143,17 @@ DLLEXPORT int xmpir_mpq_init(mpq_wrapper** result)
     mpq_init((*result)->val);
     return XMPIR_OK;
 }
-DLLEXPORT int xmpir_mpf_init2(mpf_wrapper** result, unsigned int prec)
+DLLEXPORT int xmpir_mpf_init(mpf_wrapper** result)
 {
+    *result = (mpf_wrapper*)malloc(sizeof(mpf_wrapper));
+    mpf_init((*result)->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpf_init2(mpf_wrapper** result, unsigned long long __prec)
+{
+    volatile mp_bitcnt_t prec;
+    prec = __prec;
+    if( prec!=__prec ) return XMPIR_32_64_ERROR;
     *result = (mpf_wrapper*)malloc(sizeof(mpf_wrapper));
     mpf_init2((*result)->val, prec);
     return XMPIR_OK;
@@ -336,6 +345,11 @@ DLLEXPORT int xmpir_mpz_get_si(signed int* result, mpz_wrapper* op)
 DLLEXPORT int xmpir_mpz_get_d(double* result, mpz_wrapper* op)
 {
     *result = mpz_get_d(op->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_get_d_2exp(double* result, signed int* expptr, mpz_wrapper* op)
+{
+    *result = mpz_get_d_2exp(expptr, op->val);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpz_get_string(char** result, unsigned int _base, mpz_wrapper* op)
@@ -655,6 +669,11 @@ DLLEXPORT int xmpir_mpz_root(signed int* result, mpz_wrapper* rop, mpz_wrapper* 
     *result = mpz_root(rop->val, op->val, n);
     return XMPIR_OK;
 }
+DLLEXPORT int xmpir_mpz_nthroot(mpz_wrapper* rop, mpz_wrapper* op, unsigned int n)
+{
+    mpz_nthroot(rop->val, op->val, n);
+    return XMPIR_OK;
+}
 DLLEXPORT int xmpir_mpz_rootrem(mpz_wrapper* root, mpz_wrapper* rem, mpz_wrapper* u, unsigned int n)
 {
     mpz_rootrem(root->val, rem->val, u->val, n);
@@ -763,6 +782,21 @@ DLLEXPORT int xmpir_mpz_remove(unsigned long long* __result, mpz_wrapper* rop, m
 DLLEXPORT int xmpir_mpz_fac_ui(mpz_wrapper* rop, unsigned int op)
 {
     mpz_fac_ui(rop->val, op);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_2fac_ui(mpz_wrapper* rop, unsigned int op)
+{
+    mpz_2fac_ui(rop->val, op);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_mfac_uiui(mpz_wrapper* rop, unsigned int op, unsigned int m)
+{
+    mpz_mfac_uiui(rop->val, op, m);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_primorial_ui(mpz_wrapper* rop, unsigned int op)
+{
+    mpz_primorial_ui(rop->val, op);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpz_bin_ui(mpz_wrapper* rop, mpz_wrapper* n, unsigned int k)
@@ -954,7 +988,7 @@ DLLEXPORT int xmpir_mpz_even_p(signed int* result, mpz_wrapper* op)
     *result = mpz_even_p(op->val);
     return XMPIR_OK;
 }
-DLLEXPORT int xmpir_mpz_sizeinbase(unsigned int* result, mpz_wrapper* op, unsigned int base)
+DLLEXPORT int xmpir_mpz_sizeinbase(unsigned long long* result, mpz_wrapper* op, unsigned int base)
 {
     *result = mpz_sizeinbase(op->val, base);
     return XMPIR_OK;
@@ -1168,11 +1202,9 @@ DLLEXPORT int xmpir_mpf_get_d(double* result, mpf_wrapper* op)
     *result = mpf_get_d(op->val);
     return XMPIR_OK;
 }
-DLLEXPORT int xmpir_mpf_get_d_2exp(double* result, signed long long* __expptr, mpf_wrapper* op)
+DLLEXPORT int xmpir_mpf_get_d_2exp(double* result, signed int* expptr, mpf_wrapper* op)
 {
-    mp_exp_t expptr;
-    *result = mpf_get_d_2exp(&expptr, op->val);
-    *__expptr = expptr;
+    *result = mpf_get_d_2exp(expptr, op->val);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpf_get_si(signed int* result, mpf_wrapper* op)

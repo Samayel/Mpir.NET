@@ -162,51 +162,13 @@ MA 02110-1301, USA. */
     (count) = __builtin_ctzl (x);               \
   } while (0)
 #endif
-
-#ifdef _MSC_VER
-
-#  include <intrin.h>
-
-#  define COUNT_LEADING_ZEROS_NEED_CLZ_TAB
-
-#  if !defined( _WIN64 )
-
-#    pragma intrinsic(_BitScanForward)
-#    pragma intrinsic(_BitScanReverse)
-#    pragma intrinsic(__emulu)
-#    pragma intrinsic(_byteswap_ulong)
-
-#    define count_leading_zeros(c,x)        \
-      do { unsigned long _z;		    	\
-        ASSERT ((x) != 0);                  \
-        _BitScanReverse(&_z, (x));          \
-        c = 31 - _z;                        \
-      } while (0)
-#    define count_trailing_zeros(c,x)       \
-      do { unsigned long _z;		    	\
-        ASSERT ((x) != 0);                  \
-        _BitScanForward(&_z, (x));          \
-		c = _z;								\
-      } while (0)
-#    define umul_ppmm(xh, xl, m0, m1)       \
-      do { unsigned __int64 _t;             \
-        _t = __emulu( (m0), (m1));          \
-        xl = _t & 0xffffffff;               \
-        xh = _t >> 32;                      \
-      } while (0)
-
-#    if !defined( BSWAP_LIMB )
-#      define BSWAP_LIMB
-#      define BSWAP_LIMB(dst, src)  dst = _byteswap_ulong(src)
-#    endif
-
-#  endif    /* _WIN64 */
-
-#endif      /* _MSC_VER */
+/* An empty file, although later we put the generic case in here */
 /* longlong.h -- definitions for mixed size 32/64 bit arithmetic.
 
 Copyright 1991, 1992, 1993, 1994, 1996, 1997, 1999, 2000, 2001, 2002, 2003,
 2004, 2005 Free Software Foundation, Inc.
+
+Copyright 2013 William Hart
 
 This file is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -317,6 +279,34 @@ extern UWtype mpn_udiv_qrnnd_r _PROTO ((UWtype, UWtype, UWtype, UWtype *));
     (sh) = (ah) - (bh) - ((al) < (bl));                                 \
     (sl) = __x;								\
   } while (0)
+#endif
+
+#if !defined (add_333)
+#define add_333(sh, sm, sl, ah, am, al, bh, bm, bl)  \
+   do { \
+      UWtype __cy1, __cy2; \
+      __cy1 = ((al) + (bl) < (al)); \
+      (sl) = (al) + (bl); \
+      __cy2 = ((am) + (bm) < (am)); \
+      (sm) = (am) + (bm); \
+      __cy2 += ((sm) + __cy1 < (sm)); \
+      (sm) = (sm) + __cy1; \
+      (sh) = (ah) + (bh) + __cy2; \
+   } while (0)
+#endif
+
+#if !defined(sub_333)
+#define sub_333(sh, sm, sl, ah, am, al, bh, bm, bl)  \
+   do { \
+      UWtype __cy1, __cy2; \
+      __cy1 = ((al) < (bl)); \
+      (sl) = (al) - (bl); \
+      __cy2 = ((am) < (bm)); \
+      (sm) = (am) - (bm); \
+      __cy2 += ((sm) < __cy1); \
+      (sm) = (sm) - __cy1; \
+      (sh) = (ah) - (bh) - __cy2; \
+   } while (0)
 #endif
 
 /* If we lack umul_ppmm but have smul_ppmm, define umul_ppmm in terms of
