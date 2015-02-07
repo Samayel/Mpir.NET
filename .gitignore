@@ -68,6 +68,7 @@ ipch/
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+*.DotSettings
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -176,7 +177,3 @@ TestResults.xml
 
 # Nuget outputs
 nuget/*.nupkg
-xmpir_ModdedForMpir.NET/mpir-precompiled/win32/mpir.lib
-xmpir_ModdedForMpir.NET/mpir-precompiled/win64/mpir.lib
-xmpir_ModdedForMpir.NET/wrapper/xmpir32.dll
-xmpir_ModdedForMpir.NET/wrapper/xmpir64.dll
