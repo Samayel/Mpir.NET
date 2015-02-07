@@ -2216,7 +2216,7 @@ public static partial class mpir
     }
     public static int mpq_set_str(mpq rop, string str, uint _base)
     {
-        int __retval;
+       int __retval;
         int result;
         byte[] __ba_str = System.Text.Encoding.UTF8.GetBytes(str+"\0");
         IntPtr __str;
@@ -2707,3 +2707,4 @@ public static partial class mpir
 
 }
 }
+
