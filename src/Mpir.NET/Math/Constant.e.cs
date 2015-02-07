@@ -14,7 +14,7 @@ namespace Mpir.NET
 		 *
 		 * This is done using Taylor series of exp(1) with binary splitting
 		 */
-		public static mpz eZ(int digits)
+		public static mpz eZ(mpz digits)
 		{
 			if (digits < 0)
 				throw new ArgumentOutOfRangeException("digits");
@@ -47,7 +47,7 @@ namespace Mpir.NET
 			};
 
 			//how many terms to compute
-			Func<long, long, long, long> search = null;
+			Func<mpz, mpz, mpz, mpz> search = null;
 			search = (a, b, x) =>
 			{
 				if (b - a < 100) return b;
@@ -65,7 +65,7 @@ namespace Mpir.NET
 				 *             = n log n - n + 1
 				 *             > n log n - n
 				 */
-				return (System.Math.Log10(m) * m - m) < x
+				return ((m.Length(10) - 2) * m - m) < x
 					? search(m, b, x)
 					: search(a, m, x);
 			};
@@ -78,12 +78,12 @@ namespace Mpir.NET
 			return one + (one * PQ.P) / PQ.Q;
 		}
 
-		public static mpq eQ(int digits)
+		public static mpq eQ(mpz digits)
 		{
-			return new mpq(eZ(digits), mpz.Power(10, digits));
+			return new mpq(eZ(digits), mpz.Ten.Power(digits));
 		}
 
-		public static mpf eF(int digits)
+		public static mpf eF(mpz digits)
 		{
 			return eQ(digits).ToMpf();
 		}

@@ -742,9 +742,9 @@ namespace Mpir.NET
 			// b^e = b^(q*ui + r) = (b^ui)^q * b^r
 
 			mpz r;
-			mpz q = exponent.AsImmutable().TDivQR(UInt32.MaxValue, out r);
+			var q = exponent.AsImmutable().TDivQR(UInt32.MaxValue, out r);
 
-			bool isBaseTwo = Equals(Two);
+			var isBaseTwo = Equals(Two);
 
 			var b_ui = isBaseTwo
 				? MultiplyBy2Exp(UInt32.MaxValue - 1)
@@ -773,6 +773,11 @@ namespace Mpir.NET
 				throw new ArgumentOutOfRangeException("exponent");
 
 			return Power((uint) exponent);
+		}
+
+		public static mpz Power(mpz x, mpz exponent)
+		{
+			return x.AsImmutable().Power(exponent);
 		}
 
 		public static mpz Power(uint x, uint exponent)

@@ -14,7 +14,7 @@ namespace Mpir.NET
 		 *
 		 * This is done using Chudnovsky's series with binary splitting
 		 */
-		public static mpz PiZ(int digits)
+		public static mpz PiZ(mpz digits)
 		{
 			if (digits < 0)
 				throw new ArgumentOutOfRangeException("digits");
@@ -75,23 +75,23 @@ namespace Mpir.NET
 			};
 
 			//how many terms to compute
-			var DIGITS_PER_TERM = System.Math.Log10(C3_OVER_24 / 6 / 2 / 6);
-			var N = (int) (digits / DIGITS_PER_TERM + 1);
+			var DIGITS_PER_TERM = Math.Log10(C3_OVER_24 / 6 / 2 / 6);
+			var N = (digits.ToMpf() / DIGITS_PER_TERM).ToMpz() + 10;
 
 			// Calclate P(0,N) and Q(0,N)
 			var PQT = bs(0, N);
-			var one_squared = mpz.Ten.Power(2 * ((uint) digits));
+			var one_squared = mpz.Ten.Power(2 * digits);
 			var sqrtC = (10005 * one_squared).Sqrt();
 
 			return (PQT.Q * 426880 * sqrtC) / PQT.T;
 		}
 
-		public static mpq PiQ(int digits)
+		public static mpq PiQ(mpz digits)
 		{
-			return new mpq(PiZ(digits), mpz.Power(10, digits));
+			return new mpq(PiZ(digits), mpz.Ten.Power(digits));
 		}
 
-		public static mpf PiF(int digits)
+		public static mpf PiF(mpz digits)
 		{
 			return PiQ(digits).ToMpf();
 		}
