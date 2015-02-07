@@ -886,15 +886,34 @@ namespace Mpir.NET
 
 		#region prime
 
-		public bool IsProbablyPrime(uint repetitions)
+		public bool IsProbablePrime(randstate state, int prob, uint div)
+		{
+			return mpir.mpz_probable_prime_p(this, state, prob, div) != 0;
+		}
+
+		public bool IsLikelyPrime(randstate state, uint div)
+		{
+			return mpir.mpz_likely_prime_p(this, state, div) != 0;
+		}
+
+		[Obsolete("This function is obsolete. It will disappear from future MPIR releases.")]
+		public bool IsProbablePrime(uint repetitions)
 		{
 			return mpir.mpz_probab_prime_p(this, repetitions) != 0;
 		}
 
+		[Obsolete("This function is obsolete. It will disappear from future MPIR releases.")]
 		public virtual mpz NextPrime()
 		{
 			var z = new mpz();
 			mpir.mpz_nextprime(z, this);
+			return z;
+		}
+
+		public virtual mpz NextPrimeCandidate(randstate state)
+		{
+			var z = new mpz();
+			mpir.mpz_next_prime_candidate(z, this, state);
 			return z;
 		}
 
@@ -1253,6 +1272,31 @@ namespace Mpir.NET
 		}
 
 		#endregion
+
+		#endregion
+
+		#region Random Number Functions
+
+		public static mpz GetUniformlyDistributedRandomBits(randstate state, ulong size)
+		{
+			var z = new mpz();
+			mpir.mpz_urandomb(z, state, size);
+			return z;
+		}
+
+		public static mpz GetUniformlyDistributedRandomNumber(randstate state, mpz limit)
+		{
+			var z = new mpz();
+			mpir.mpz_urandomm(z, state, limit);
+			return z;
+		}
+
+		public static mpz GetBiasedRandomBits(randstate state, ulong size)
+		{
+			var z = new mpz();
+			mpir.mpz_rrandomb(z, state, size);
+			return z;
+		}
 
 		#endregion
 

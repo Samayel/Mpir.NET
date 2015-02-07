@@ -163,7 +163,7 @@ EOS;
             $precall = $tmp['precall'];
             if( $definition['type']=='void' )
                 $call = "    $definition[name](".implode(", ", $tmp['params']).");\n";
-            elseif( $definition['type']=='mp_bitcnt_t' || $definition['type']=='mp_exp_t')
+            elseif( $definition['type']=='mp_bitcnt_t' || $definition['type']=='mp_size_t' || $definition['type']=='mp_exp_t')
                 $call = "    *__result = $definition[name](".implode(", ", $tmp['params']).");\n";
             else
                 $call = "    *result = $definition[name](".implode(", ", $tmp['params']).");\n";
@@ -204,7 +204,7 @@ function XMPIR_GenerateCExports($name, $type, $params)
             $s .= "*";
         if( $p['passingtype']!='in' and $p['passingtype']!='out' and $p['type']=='str_pointer' )
             exit("\nString pointers may be passed as 'in' or 'out' parameters only! 'ref' and 'inout' are not allowed!\n");
-        if( $p['type']=='mp_bitcnt_t' || $p['type']=='mp_exp_t')
+        if( $p['type']=='mp_bitcnt_t' || $p['type']=='mp_size_t' || $p['type']=='mp_exp_t')
             $p['name'] = "__$p[name]";
         $arr[] = "$s $p[name]";        
     }
@@ -245,9 +245,9 @@ function XMPIR_GenerateCall($params)
             else
                 exit("\nXMPIR_GenerateWinCore(): multiple precision type can't be output parameter!\n");
         }
-        elseif( $p['type']=='mp_bitcnt_t' || $p['type']=='mp_exp_t')
+        elseif( $p['type']=='mp_bitcnt_t' || $p['type']=='mp_size_t' || $p['type']=='mp_exp_t')
         {
-            // mp_bitcnt_t or mp_exp_t - use proxy variable to catch situations when input doesn't fit into mp_bitcnt_t/mp_exp_t
+            // mp_bitcnt_t, mp_size_t or mp_exp_t - use proxy variable to catch situations when input doesn't fit into mp_bitcnt_t/mp_size_t/mp_exp_t
             if( $p['passingtype']=='in' )
             {
                 $result['precall'] = "    volatile $p[type] $p[name];\n$result[precall]    $p[name] = __$p[name];\n    if( $p[name]!=__$p[name] ) return XMPIR_32_64_ERROR;\n";
@@ -291,6 +291,7 @@ function XMPIR_CoreType($type)
         case 'mp_bitcnt_t':
         case 'mpir_ui':
             return "unsigned long long";
+        case 'mp_size_t':
         case 'mp_exp_t':
         case 'mpir_si':
             return "signed long long";

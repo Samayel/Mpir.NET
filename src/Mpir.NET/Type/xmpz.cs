@@ -368,6 +368,12 @@ namespace Mpir.NET
 			return this;
 		}
 
+		public override mpz NextPrimeCandidate(randstate state)
+		{
+			mpir.mpz_next_prime_candidate(this, this, state);
+			return this;
+		}
+
 		#endregion
 
 		#region gcd

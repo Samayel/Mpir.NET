@@ -372,6 +372,24 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Random Number Functions
+
+		public static mpf GetUniformlyDistributedRandomBits(randstate state, ulong nbits)
+		{
+			var f = new mpf(Math.Max(DefaultPrecision, nbits));
+			mpir.mpf_urandomb(f, state, nbits);
+			return f;
+		}
+
+		public static mpf GetBiasedRandomBits(randstate state, long maxSize, long exp)
+		{
+			var f = new mpf();
+			mpir.mpf_rrandomb(f, state, maxSize, exp);
+			return f;
+		}
+
+		#endregion
+
 		#region Comparing
 
 		public override int GetHashCode()

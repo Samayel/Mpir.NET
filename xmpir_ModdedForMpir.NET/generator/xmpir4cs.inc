@@ -231,6 +231,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'sint32':
         case 'double':
         case 'mp_bitcnt_t':
+        case 'mp_size_t':
         case 'mp_exp_t':
         case 'mpir_ui':
         case 'mpir_si':
@@ -330,6 +331,7 @@ function CSharpMPIR_CSharpRawType($type)
         case 'mp_bitcnt_t':
         case 'mpir_ui':
             return "ulong";
+        case 'mp_size_t':
         case 'mp_exp_t':
         case 'mpir_si':
             return "long";
@@ -372,6 +374,7 @@ function CSharpMPIR_CSharpType($type)
         case 'mp_bitcnt_t':
         case 'mpir_ui':
             return "ulong";
+        case 'mp_size_t':
         case 'mp_exp_t':
         case 'mpir_si':
             return "long";
@@ -384,7 +387,7 @@ function CSharpMPIR_CSharpType($type)
         case 'mpfr_handle':
             return "mpfr";
         case 'gmp_randstate_handle':
-            return "gmp_randstate_t";
+            return "randstate";
 
         // intptr added by JR.
         case 'mpz_intptr':

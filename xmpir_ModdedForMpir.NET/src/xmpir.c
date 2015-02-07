@@ -242,6 +242,15 @@ DLLEXPORT int xmpir_gmp_randinit_lc_2exp(gmp_randstate_wrapper** result, mpz_wra
     gmp_randinit_lc_2exp((*result)->val, a->val, c, m2exp);
     return XMPIR_OK;
 }
+DLLEXPORT int xmpir_gmp_randinit_lc_2exp_size(gmp_randstate_wrapper** result, unsigned long long __size)
+{
+    volatile mp_bitcnt_t size;
+    size = __size;
+    if( size!=__size ) return XMPIR_32_64_ERROR;
+    *result = (gmp_randstate_wrapper*)malloc(sizeof(gmp_randstate_wrapper));
+    gmp_randinit_lc_2exp_size((*result)->val, size);
+    return XMPIR_OK;
+}
 DLLEXPORT int xmpir_gmp_randinit_set(gmp_randstate_wrapper** result, gmp_randstate_wrapper* op)
 {
     *result = (gmp_randstate_wrapper*)malloc(sizeof(gmp_randstate_wrapper));
@@ -699,6 +708,16 @@ DLLEXPORT int xmpir_mpz_perfect_square_p(signed int* result, mpz_wrapper* op)
     *result = mpz_perfect_square_p(op->val);
     return XMPIR_OK;
 }
+DLLEXPORT int xmpir_mpz_probable_prime_p(signed int* result, mpz_wrapper* n, gmp_randstate_wrapper* state, signed int prob, unsigned int div)
+{
+    *result = mpz_probable_prime_p(n->val, state->val, prob, div);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_likely_prime_p(signed int* result, mpz_wrapper* n, gmp_randstate_wrapper* state, unsigned int div)
+{
+    *result = mpz_likely_prime_p(n->val, state->val, div);
+    return XMPIR_OK;
+}
 DLLEXPORT int xmpir_mpz_probab_prime_p(signed int* result, mpz_wrapper* n, unsigned int reps)
 {
     *result = mpz_probab_prime_p(n->val, reps);
@@ -707,6 +726,11 @@ DLLEXPORT int xmpir_mpz_probab_prime_p(signed int* result, mpz_wrapper* n, unsig
 DLLEXPORT int xmpir_mpz_nextprime(mpz_wrapper* rop, mpz_wrapper* op)
 {
     mpz_nextprime(rop->val, op->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpz_next_prime_candidate(mpz_wrapper* rop, mpz_wrapper* op, gmp_randstate_wrapper* state)
+{
+    mpz_next_prime_candidate(rop->val, op->val, state->val);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpz_gcd(mpz_wrapper* rop, mpz_wrapper* op1, mpz_wrapper* op2)
@@ -1389,5 +1413,16 @@ DLLEXPORT int xmpir_mpf_urandomb(mpf_wrapper* rop, gmp_randstate_wrapper* state,
     nbits = __nbits;
     if( nbits!=__nbits ) return XMPIR_32_64_ERROR;
     mpf_urandomb(rop->val, state->val, nbits);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpf_rrandomb(mpf_wrapper* rop, gmp_randstate_wrapper* state, signed long long __max_size, signed long long __exp)
+{
+    volatile mp_exp_t exp;
+    volatile mp_size_t max_size;
+    max_size = __max_size;
+    if( max_size!=__max_size ) return XMPIR_32_64_ERROR;
+    exp = __exp;
+    if( exp!=__exp ) return XMPIR_32_64_ERROR;
+    mpf_rrandomb(rop->val, state->val, max_size, exp);
     return XMPIR_OK;
 }

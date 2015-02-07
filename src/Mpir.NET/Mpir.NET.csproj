@@ -47,7 +47,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Math\Constant.cs" />
     <Compile Include="DynamicLoader.cs" />
-    <Compile Include="gmp_randstate_t.cs" />
+    <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
       <DependentUpon>Constant.cs</DependentUpon>
     </Compile>

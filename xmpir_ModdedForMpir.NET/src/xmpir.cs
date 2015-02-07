@@ -73,6 +73,7 @@ public static partial class mpir
     private static IntPtr __ptr__xmpir_gmp_randinit_default = GetProcAddressSafe(hxmpir, "xmpir_gmp_randinit_default");
     private static IntPtr __ptr__xmpir_gmp_randinit_mt = GetProcAddressSafe(hxmpir, "xmpir_gmp_randinit_mt");
     private static IntPtr __ptr__xmpir_gmp_randinit_lc_2exp = GetProcAddressSafe(hxmpir, "xmpir_gmp_randinit_lc_2exp");
+    private static IntPtr __ptr__xmpir_gmp_randinit_lc_2exp_size = GetProcAddressSafe(hxmpir, "xmpir_gmp_randinit_lc_2exp_size");
     private static IntPtr __ptr__xmpir_gmp_randinit_set = GetProcAddressSafe(hxmpir, "xmpir_gmp_randinit_set");
     private static IntPtr __ptr__xmpir_gmp_randclear = GetProcAddressSafe(hxmpir, "xmpir_gmp_randclear");
     private static IntPtr __ptr__xmpir_gmp_randseed = GetProcAddressSafe(hxmpir, "xmpir_gmp_randseed");
@@ -158,8 +159,11 @@ public static partial class mpir
     private static IntPtr __ptr__xmpir_mpz_sqrtrem = GetProcAddressSafe(hxmpir, "xmpir_mpz_sqrtrem");
     private static IntPtr __ptr__xmpir_mpz_perfect_power_p = GetProcAddressSafe(hxmpir, "xmpir_mpz_perfect_power_p");
     private static IntPtr __ptr__xmpir_mpz_perfect_square_p = GetProcAddressSafe(hxmpir, "xmpir_mpz_perfect_square_p");
+    private static IntPtr __ptr__xmpir_mpz_probable_prime_p = GetProcAddressSafe(hxmpir, "xmpir_mpz_probable_prime_p");
+    private static IntPtr __ptr__xmpir_mpz_likely_prime_p = GetProcAddressSafe(hxmpir, "xmpir_mpz_likely_prime_p");
     private static IntPtr __ptr__xmpir_mpz_probab_prime_p = GetProcAddressSafe(hxmpir, "xmpir_mpz_probab_prime_p");
     private static IntPtr __ptr__xmpir_mpz_nextprime = GetProcAddressSafe(hxmpir, "xmpir_mpz_nextprime");
+    private static IntPtr __ptr__xmpir_mpz_next_prime_candidate = GetProcAddressSafe(hxmpir, "xmpir_mpz_next_prime_candidate");
     private static IntPtr __ptr__xmpir_mpz_gcd = GetProcAddressSafe(hxmpir, "xmpir_mpz_gcd");
     private static IntPtr __ptr__xmpir_mpz_gcd_ui = GetProcAddressSafe(hxmpir, "xmpir_mpz_gcd_ui");
     private static IntPtr __ptr__xmpir_mpz_gcdext = GetProcAddressSafe(hxmpir, "xmpir_mpz_gcdext");
@@ -287,6 +291,7 @@ public static partial class mpir
     private static IntPtr __ptr__xmpir_mpf_fits_uint_p = GetProcAddressSafe(hxmpir, "xmpir_mpf_fits_uint_p");
     private static IntPtr __ptr__xmpir_mpf_fits_sint_p = GetProcAddressSafe(hxmpir, "xmpir_mpf_fits_sint_p");
     private static IntPtr __ptr__xmpir_mpf_urandomb = GetProcAddressSafe(hxmpir, "xmpir_mpf_urandomb");
+    private static IntPtr __ptr__xmpir_mpf_rrandomb = GetProcAddressSafe(hxmpir, "xmpir_mpf_rrandomb");
 
 
 
@@ -341,6 +346,8 @@ public static partial class mpir
     private delegate int __xmpir_gmp_randinit_mt(out IntPtr result);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_lc_2exp(out IntPtr result, IntPtr a, uint c, ulong m2exp);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_gmp_randinit_lc_2exp_size(out IntPtr result, ulong size);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_set(out IntPtr result, IntPtr op);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -512,9 +519,15 @@ public static partial class mpir
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_perfect_square_p(out int result, IntPtr op);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpz_probable_prime_p(out int result, IntPtr n, IntPtr state, int prob, uint div);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpz_likely_prime_p(out int result, IntPtr n, IntPtr state, uint div);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_probab_prime_p(out int result, IntPtr n, uint reps);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_nextprime(IntPtr rop, IntPtr op);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpz_next_prime_candidate(IntPtr rop, IntPtr op, IntPtr state);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_gcd(IntPtr rop, IntPtr op1, IntPtr op2);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -769,6 +782,8 @@ public static partial class mpir
     private delegate int __xmpir_mpf_fits_sint_p(out int result, IntPtr op);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_urandomb(IntPtr rop, IntPtr state, ulong nbits);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpf_rrandomb(IntPtr rop, IntPtr state, long max_size, long exp);
 
 
 
@@ -799,6 +814,7 @@ public static partial class mpir
     private static __xmpir_gmp_randinit_default xmpir_gmp_randinit_default = (__xmpir_gmp_randinit_default)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randinit_default, typeof(__xmpir_gmp_randinit_default));
     private static __xmpir_gmp_randinit_mt xmpir_gmp_randinit_mt = (__xmpir_gmp_randinit_mt)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randinit_mt, typeof(__xmpir_gmp_randinit_mt));
     private static __xmpir_gmp_randinit_lc_2exp xmpir_gmp_randinit_lc_2exp = (__xmpir_gmp_randinit_lc_2exp)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randinit_lc_2exp, typeof(__xmpir_gmp_randinit_lc_2exp));
+    private static __xmpir_gmp_randinit_lc_2exp_size xmpir_gmp_randinit_lc_2exp_size = (__xmpir_gmp_randinit_lc_2exp_size)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randinit_lc_2exp_size, typeof(__xmpir_gmp_randinit_lc_2exp_size));
     private static __xmpir_gmp_randinit_set xmpir_gmp_randinit_set = (__xmpir_gmp_randinit_set)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randinit_set, typeof(__xmpir_gmp_randinit_set));
     private static __xmpir_gmp_randclear xmpir_gmp_randclear = (__xmpir_gmp_randclear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randclear, typeof(__xmpir_gmp_randclear));
     private static __xmpir_gmp_randseed xmpir_gmp_randseed = (__xmpir_gmp_randseed)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_gmp_randseed, typeof(__xmpir_gmp_randseed));
@@ -884,8 +900,11 @@ public static partial class mpir
     private static __xmpir_mpz_sqrtrem xmpir_mpz_sqrtrem = (__xmpir_mpz_sqrtrem)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_sqrtrem, typeof(__xmpir_mpz_sqrtrem));
     private static __xmpir_mpz_perfect_power_p xmpir_mpz_perfect_power_p = (__xmpir_mpz_perfect_power_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_perfect_power_p, typeof(__xmpir_mpz_perfect_power_p));
     private static __xmpir_mpz_perfect_square_p xmpir_mpz_perfect_square_p = (__xmpir_mpz_perfect_square_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_perfect_square_p, typeof(__xmpir_mpz_perfect_square_p));
+    private static __xmpir_mpz_probable_prime_p xmpir_mpz_probable_prime_p = (__xmpir_mpz_probable_prime_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_probable_prime_p, typeof(__xmpir_mpz_probable_prime_p));
+    private static __xmpir_mpz_likely_prime_p xmpir_mpz_likely_prime_p = (__xmpir_mpz_likely_prime_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_likely_prime_p, typeof(__xmpir_mpz_likely_prime_p));
     private static __xmpir_mpz_probab_prime_p xmpir_mpz_probab_prime_p = (__xmpir_mpz_probab_prime_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_probab_prime_p, typeof(__xmpir_mpz_probab_prime_p));
     private static __xmpir_mpz_nextprime xmpir_mpz_nextprime = (__xmpir_mpz_nextprime)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_nextprime, typeof(__xmpir_mpz_nextprime));
+    private static __xmpir_mpz_next_prime_candidate xmpir_mpz_next_prime_candidate = (__xmpir_mpz_next_prime_candidate)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_next_prime_candidate, typeof(__xmpir_mpz_next_prime_candidate));
     private static __xmpir_mpz_gcd xmpir_mpz_gcd = (__xmpir_mpz_gcd)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_gcd, typeof(__xmpir_mpz_gcd));
     private static __xmpir_mpz_gcd_ui xmpir_mpz_gcd_ui = (__xmpir_mpz_gcd_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_gcd_ui, typeof(__xmpir_mpz_gcd_ui));
     private static __xmpir_mpz_gcdext xmpir_mpz_gcdext = (__xmpir_mpz_gcdext)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_gcdext, typeof(__xmpir_mpz_gcdext));
@@ -1013,6 +1032,7 @@ public static partial class mpir
     private static __xmpir_mpf_fits_uint_p xmpir_mpf_fits_uint_p = (__xmpir_mpf_fits_uint_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpf_fits_uint_p, typeof(__xmpir_mpf_fits_uint_p));
     private static __xmpir_mpf_fits_sint_p xmpir_mpf_fits_sint_p = (__xmpir_mpf_fits_sint_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpf_fits_sint_p, typeof(__xmpir_mpf_fits_sint_p));
     private static __xmpir_mpf_urandomb xmpir_mpf_urandomb = (__xmpir_mpf_urandomb)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpf_urandomb, typeof(__xmpir_mpf_urandomb));
+    private static __xmpir_mpf_rrandomb xmpir_mpf_rrandomb = (__xmpir_mpf_rrandomb)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpf_rrandomb, typeof(__xmpir_mpf_rrandomb));
 
     
     
@@ -1217,7 +1237,15 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
-    public static gmp_randstate_intptr gmp_randinit_set(gmp_randstate_t op)
+    public static gmp_randstate_intptr gmp_randinit_lc_2exp_size(ulong size)
+    {
+        int __retval;
+        gmp_randstate_intptr result;
+        __retval= xmpir_gmp_randinit_lc_2exp_size(out result, size);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static gmp_randstate_intptr gmp_randinit_set(randstate op)
     {
         int __retval;
         gmp_randstate_intptr result;
@@ -1225,25 +1253,25 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
-    public static void gmp_randclear(gmp_randstate_t v)
+    public static void gmp_randclear(randstate v)
     {
         int __retval;
         __retval= xmpir_gmp_randclear(v.Val);
         if( __retval!=0 ) HandleError(__retval);
     }
-    public static void gmp_randseed(gmp_randstate_t state, mpz seed)
+    public static void gmp_randseed(randstate state, mpz seed)
     {
         int __retval;
         __retval= xmpir_gmp_randseed(state.Val, seed.Val);
         if( __retval!=0 ) HandleError(__retval);
     }
-    public static void gmp_randseed_ui(gmp_randstate_t state, uint seed)
+    public static void gmp_randseed_ui(randstate state, uint seed)
     {
         int __retval;
         __retval= xmpir_gmp_randseed_ui(state.Val, seed);
         if( __retval!=0 ) HandleError(__retval);
     }
-    public static uint gmp_urandomb_ui(gmp_randstate_t state, uint n)
+    public static uint gmp_urandomb_ui(randstate state, uint n)
     {
         int __retval;
         uint result;
@@ -1251,7 +1279,7 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
-    public static uint gmp_urandomm_ui(gmp_randstate_t state, uint n)
+    public static uint gmp_urandomm_ui(randstate state, uint n)
     {
         int __retval;
         uint result;
@@ -1802,6 +1830,22 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
+    public static int mpz_probable_prime_p(mpz n, randstate state, int prob, uint div)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpz_probable_prime_p(out result, n.Val, state.Val, prob, div);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpz_likely_prime_p(mpz n, randstate state, uint div)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpz_likely_prime_p(out result, n.Val, state.Val, div);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
     public static int mpz_probab_prime_p(mpz n, uint reps)
     {
         int __retval;
@@ -1814,6 +1858,12 @@ public static partial class mpir
     {
         int __retval;
         __retval= xmpir_mpz_nextprime(rop.Val, op.Val);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static void mpz_next_prime_candidate(mpz rop, mpz op, randstate state)
+    {
+        int __retval;
+        __retval= xmpir_mpz_next_prime_candidate(rop.Val, op.Val, state.Val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_gcd(mpz rop, mpz op1, mpz op2)
@@ -2126,19 +2176,19 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
-    public static void mpz_urandomb(mpz rop, gmp_randstate_t state, ulong n)
+    public static void mpz_urandomb(mpz rop, randstate state, ulong n)
     {
         int __retval;
         __retval= xmpir_mpz_urandomb(rop.Val, state.Val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
-    public static void mpz_urandomm(mpz rop, gmp_randstate_t state, mpz n)
+    public static void mpz_urandomm(mpz rop, randstate state, mpz n)
     {
         int __retval;
         __retval= xmpir_mpz_urandomm(rop.Val, state.Val, n.Val);
         if( __retval!=0 ) HandleError(__retval);
     }
-    public static void mpz_rrandomb(mpz rop, gmp_randstate_t state, ulong n)
+    public static void mpz_rrandomb(mpz rop, randstate state, ulong n)
     {
         int __retval;
         __retval= xmpir_mpz_rrandomb(rop.Val, state.Val, n);
@@ -2216,7 +2266,7 @@ public static partial class mpir
     }
     public static int mpq_set_str(mpq rop, string str, uint _base)
     {
-       int __retval;
+        int __retval;
         int result;
         byte[] __ba_str = System.Text.Encoding.UTF8.GetBytes(str+"\0");
         IntPtr __str;
@@ -2698,13 +2748,18 @@ public static partial class mpir
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
-    public static void mpf_urandomb(mpf rop, gmp_randstate_t state, ulong nbits)
+    public static void mpf_urandomb(mpf rop, randstate state, ulong nbits)
     {
         int __retval;
         __retval= xmpir_mpf_urandomb(rop.Val, state.Val, nbits);
         if( __retval!=0 ) HandleError(__retval);
     }
+    public static void mpf_rrandomb(mpf rop, randstate state, long max_size, long exp)
+    {
+        int __retval;
+        __retval= xmpir_mpf_rrandomb(rop.Val, state.Val, max_size, exp);
+        if( __retval!=0 ) HandleError(__retval);
+    }
 
 }
 }
-
