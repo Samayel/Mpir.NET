@@ -63,6 +63,12 @@ namespace Mpir.NET
 			return this;
 		}
 
+		public override mpz SubtractFrom(mpz x)
+		{
+			mpir.mpz_sub(this, x, this);
+			return this;
+		}
+
 		public override mpz SubtractFrom(uint x)
 		{
 			mpir.mpz_ui_sub(this, x, this);

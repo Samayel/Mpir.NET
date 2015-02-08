@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Math\Algebraic.cs" />
     <Compile Include="Math\Constant.cs" />
     <Compile Include="DynamicLoader.cs" />
+    <Compile Include="Math\Transcendental.cs" />
     <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
       <DependentUpon>Constant.cs</DependentUpon>

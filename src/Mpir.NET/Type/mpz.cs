@@ -240,6 +240,13 @@ namespace Mpir.NET
 			return z;
 		}
 
+		public virtual mpz SubtractFrom(mpz x)
+		{
+			var z = new mpz();
+			mpir.mpz_sub(z, x, this);
+			return z;
+		}
+
 		public mpz SubtractFrom(int x)
 		{
 			return (x >= 0)
@@ -1468,6 +1475,16 @@ namespace Mpir.NET
 			}
 		}
 
+		public mpz ShiftLeft(mpz shiftAmount)
+		{
+			if (shiftAmount < 0)
+				throw new ArgumentOutOfRangeException("shiftAmount");
+
+			return (shiftAmount <= UInt32.MaxValue)
+				? MultiplyBy2Exp((uint) shiftAmount)
+				: Multiply(Two.Power(shiftAmount));
+		}
+
 		public mpz ShiftLeft(uint shiftAmount)
 		{
 			return MultiplyBy2Exp(shiftAmount);
@@ -1476,6 +1493,16 @@ namespace Mpir.NET
 		public mpz ShiftLeft(int shiftAmount)
 		{
 			return MultiplyBy2Exp(shiftAmount);
+		}
+
+		public mpz ShiftRight(mpz shiftAmount)
+		{
+			if (shiftAmount < 0)
+				throw new ArgumentOutOfRangeException("shiftAmount");
+
+			return (shiftAmount <= UInt32.MaxValue)
+				? FDivQ2Exp((uint) shiftAmount)
+				: FDivQ(Two.Power(shiftAmount));
 		}
 
 		public mpz ShiftRight(uint shiftAmount)
