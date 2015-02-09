@@ -19,32 +19,8 @@ namespace Mpir.NET
 			if (digits < 0)
 				throw new ArgumentOutOfRangeException("digits");
 
-			// http://numbers.computation.free.fr/Constants/Algorithms/splitting.html
-			Func<mpz, mpz, PQ> bs = null;
-			bs = (a, b) =>
-			{
-				mpz Pab, Qab;
-				// Directly compute P(a,a+1) and Q(a,a+1)
-				if (b - a == 1)
-				{
-					Pab = mpz.One;
-					Qab = b;
-				}
-				// Recursively compute P(a,b) and Q(a,b)
-				else
-				{
-					// m is the midpoint of a and b
-					var m = (a + b) / 2;
-					// Recursively calculate P(a,m) and Q(a,m)
-					var PQam = bs(a, m);
-					// Recursively calculate P(m,b) and Q(m,b)
-					var PQmb = bs(m, b);
-					// Now combine
-					Pab = PQam.P * PQmb.Q + PQmb.P;
-					Qab = PQam.Q * PQmb.Q;
-				}
-				return new PQ {P = Pab, Q = Qab};
-			};
+			Func<mpz, mpz, Series.PQ> directlyCompute = (a, b) => new Series.PQ { P = mpz.One, Q = b };
+			Func<Series.PQ, Series.PQ, Series.PQ> recursivelyCombine = (am, mb) => new Series.PQ { P = am.P * mb.Q + mb.P, Q = am.Q * mb.Q };
 
 			//how many terms to compute
 			Func<mpz, mpz, mpz, mpz> search = null;
@@ -72,7 +48,7 @@ namespace Mpir.NET
 			var N = search(0, digits, digits);
 
 			// Calclate P(0,N) and Q(0,N)
-			var PQ = bs(0, N);
+			var PQ = Series.SumOfMachinLikeFormulaWithBinarySplitting(0, N, directlyCompute, recursivelyCombine);
 			var one = mpz.Ten.Power(digits);
 
 			return one + (one * PQ.P) / PQ.Q;

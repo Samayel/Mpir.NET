@@ -9,18 +9,6 @@ namespace Mpir.NET
 {
 	public static partial class Constant
 	{
-		private struct PQ
-		{
-			public mpz P;
-			public mpz Q;
-		}
-	
-		private struct PQT
-		{
-			public mpz P;
-			public mpz Q;
-			public mpz T;
-		}
 	}
 }
 

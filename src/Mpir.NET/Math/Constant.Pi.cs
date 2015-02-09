@@ -31,55 +31,42 @@ namespace Mpir.NET
 			 * p(a) = (6*a-5)*(2*a-1)*(6*a-1)
 			 * b(a) = 1
 			 * q(a) = a*a*a*C3_OVER_24
-			 * 
-			 * returns P(a,b), Q(a,b) and T(a,b)
 			 */
-			Func<mpz, mpz, PQT> bs = null;
-			bs = (a, b) =>
+			Func<mpz, mpz, Series.PQT> directlyCompute = (a, b) =>
 			{
-				mpz Pab, Qab, Tab;
-				// Directly compute P(a,a+1), Q(a,a+1) and T(a,a+1)
-				if (b - a == 1)
+				mpz Pab, Qab;
+				if (a == 0)
 				{
-					if (a == 0)
-					{
-						Pab = Qab = mpz.One;
-					}
-					else
-					{
-						Pab = (6 * a - 5) * (2 * a - 1) * (6 * a - 1);
-						Qab = a.Power(3U) * C3_OVER_24;
-					}
-					// a(a) * p(a)
-					Tab = Pab * (13591409 + 545140134 * a);
-					if (a.IsOdd())
-					{
-						Tab = -Tab;
-					}
+					Pab = Qab = mpz.One;
 				}
-				// Recursively compute P(a,b), Q(a,b) and T(a,b)
 				else
 				{
-					// m is the midpoint of a and b
-					var m = (a + b) / 2;
-					// Recursively calculate P(a,m), Q(a,m) and T(a,m)
-					var PQTam = bs(a, m);
-					// Recursively calculate P(m,b), Q(m,b) and T(m,b)
-					var PQTmb = bs(m, b);
-					// Now combine
-					Pab = PQTam.P * PQTmb.P;
-					Qab = PQTam.Q * PQTmb.Q;
-					Tab = PQTmb.Q * PQTam.T + PQTam.P * PQTmb.T;
+					Pab = (6 * a - 5) * (2 * a - 1) * (6 * a - 1);
+					Qab = a.Power(3U) * C3_OVER_24;
 				}
-				return new PQT {P = Pab, Q = Qab, T = Tab};
+
+				// t(a) = a(a) * p(a)
+				var Tab = Pab * (13591409 + 545140134 * a);
+				if (a.IsOdd())
+				{
+					Tab = -Tab;
+				}
+
+				return new Series.PQT { P = Pab, Q = Qab, T = Tab };
+			};
+			Func<Series.PQT, Series.PQT, Series.PQT> recursivelyCombine = (am, mb) => new Series.PQT
+			{
+				P = am.P * mb.P,
+				Q = am.Q * mb.Q,
+				T = mb.Q * am.T + am.P * mb.T
 			};
 
 			//how many terms to compute
 			var DIGITS_PER_TERM = Math.Log10(C3_OVER_24 / 6 / 2 / 6);
 			var N = (digits.ToMpf() / DIGITS_PER_TERM).ToMpz() + 10;
 
-			// Calclate P(0,N) and Q(0,N)
-			var PQT = bs(0, N);
+			// Calclate P(0,N), Q(0,N) and T(0,N)
+			var PQT = Series.SumOfMachinLikeFormulaWithBinarySplitting(0, N, directlyCompute, recursivelyCombine);
 			var one_squared = mpz.Ten.Power(2 * digits);
 			var sqrtC = (10005 * one_squared).Sqrt();
 
