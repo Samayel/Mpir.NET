@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Mpir.NET
 {
-	public static class Transcendental
+	public static partial class Transcendental
 	{
 	}
 }

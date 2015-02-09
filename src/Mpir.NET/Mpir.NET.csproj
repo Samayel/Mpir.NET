@@ -46,9 +46,21 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Math\Algebraic.cs" />
+    <Compile Include="Math\Algebraic.Inverse.cs">
+      <DependentUpon>Algebraic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\Algebraic.Sqrt.cs">
+      <DependentUpon>Algebraic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Constant.cs" />
     <Compile Include="DynamicLoader.cs" />
+    <Compile Include="Math\Prime.SieveOfEratosthenes.cs">
+      <DependentUpon>Prime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Series.cs" />
+    <Compile Include="Math\Series.MachinLikeFormula.cs">
+      <DependentUpon>Series.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Transcendental.cs" />
     <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
