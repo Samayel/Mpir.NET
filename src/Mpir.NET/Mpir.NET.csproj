@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Math\Constant.cs" />
     <Compile Include="DynamicLoader.cs" />
+    <Compile Include="Math\Constant.Ln2.cs">
+      <DependentUpon>Constant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Prime.SieveOfEratosthenes.cs">
       <DependentUpon>Prime.cs</DependentUpon>
     </Compile>

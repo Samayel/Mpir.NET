@@ -10,7 +10,9 @@ namespace Mpir.NET
 		private const int _ARCTAN_OF_INVERSE_SERIES_SUM_DIGITS_SURCHARGE = 10;
 		private const int _ARCTAN_OF_INVERSE_NUMBER_OF_TERMS_SURCHARGE = 10;
 
-		public static mpz ArctanOfInverseSeriesSumZ(mpz digits, IList<mpz> args, IList<mpz> factors, mpz commonFactor)
+		#region arctan series
+
+		public static mpz ArctanOfInverseSeriesSumZ(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
 		{
 			var pq = ArctanOfInverseSeriesSum(digits + _ARCTAN_OF_INVERSE_SERIES_SUM_DIGITS_SURCHARGE, args, factors, commonFactor);
 			var one = mpz.Ten.Power(digits);
@@ -18,23 +20,64 @@ namespace Mpir.NET
 			return pq.P * one / pq.Q;
 		}
 
-		public static mpq ArctanOfInverseSeriesSumQ(mpz digits, IList<mpz> args, IList<mpz> factors, mpz commonFactor)
+		public static mpq ArctanOfInverseSeriesSumQ(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
 		{
 			return new mpq(ArctanOfInverseSeriesSumZ(digits, args, factors, commonFactor), mpz.Ten.Power(digits));
 		}
 
-		public static mpf ArctanOfInverseSeriesSumF(mpz digits, IList<mpz> args, IList<mpz> factors, mpz commonFactor)
+		public static mpf ArctanOfInverseSeriesSumF(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
 		{
 			return ArctanOfInverseSeriesSumQ(digits, args, factors, commonFactor).ToMpf();
 		}
 
-		public static Series.PQ ArctanOfInverseSeriesSum(mpz digits, IList<mpz> args, IList<mpz> factors, mpz commonFactor)
+		public static Series.PQ ArctanOfInverseSeriesSum(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
 		{
 			var terms = args.Select(x => ArctanOfInverse(digits, x)).ToArray();
 			return Series.LinearCombinationOfPQTerms(terms, factors, commonFactor);
 		}
 
+		#endregion
+
+		#region arctanh series
+
+		public static mpz ArctanhOfInverseSeriesSumZ(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
+		{
+			var pq = ArctanhOfInverseSeriesSum(digits + _ARCTAN_OF_INVERSE_SERIES_SUM_DIGITS_SURCHARGE, args, factors, commonFactor);
+			var one = mpz.Ten.Power(digits);
+
+			return pq.P * one / pq.Q;
+		}
+
+		public static mpq ArctanhOfInverseSeriesSumQ(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
+		{
+			return new mpq(ArctanhOfInverseSeriesSumZ(digits, args, factors, commonFactor), mpz.Ten.Power(digits));
+		}
+
+		public static mpf ArctanhOfInverseSeriesSumF(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
+		{
+			return ArctanhOfInverseSeriesSumQ(digits, args, factors, commonFactor).ToMpf();
+		}
+
+		public static Series.PQ ArctanhOfInverseSeriesSum(mpz digits, IList<mpz> args, IList<mpz> factors = null, mpz commonFactor = null)
+		{
+			var terms = args.Select(x => ArctanhOfInverse(digits, x)).ToArray();
+			return Series.LinearCombinationOfPQTerms(terms, factors, commonFactor);
+		}
+
+		#endregion
+
 		public static Series.PQ ArctanOfInverse(mpz digits, mpz x)
+		{
+			return ArctanOfInverse(digits, x, false);
+		}
+
+		public static Series.PQ ArctanhOfInverse(mpz digits, mpz x)
+		{
+			// http://numbers.computation.free.fr/Constants/Log2/log2.html
+			return ArctanOfInverse(digits, x, true);
+		}
+
+		private static Series.PQ ArctanOfInverse(mpz digits, mpz x, bool isHyperbolic)
 		{
 			if (digits == null)
 				throw new ArgumentNullException("digits");
@@ -50,7 +93,7 @@ namespace Mpir.NET
 			{
 				var t = 2 * a + 3;
 				var q = t * x.Square();
-				var p = a.IsEven() ? mpz.NegativeOne : mpz.One;
+				var p = (!isHyperbolic && a.IsEven()) ? mpz.NegativeOne : mpz.One;
 				return new Series.PQT { P = p, Q = q, T = t };
 			};
 			Func<Series.PQT, Series.PQT, Series.PQT> recursivelyCombine = (am, mb) => new Series.PQT { P = mb.Q * am.P + am.T * mb.P, Q = am.Q * mb.Q, T = am.T * mb.T };

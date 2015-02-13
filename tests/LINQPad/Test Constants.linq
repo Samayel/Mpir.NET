@@ -11,4 +11,7 @@ for (int digits = 1; digits <= 9; digits++)
 
 	var e = Mpir.NET.Constant.eZ(mpz.Ten.Power(digits));
 	File.WriteAllText(String.Format(FILENAME, "e", digits), e.ToString());
+
+	var ln2 = Mpir.NET.Constant.Ln2Z(mpz.Ten.Power(digits));
+	File.WriteAllText(String.Format(FILENAME, "ln2", digits), ln2.ToString());
 }
