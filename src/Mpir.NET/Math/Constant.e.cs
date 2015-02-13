@@ -18,6 +18,8 @@ namespace Mpir.NET
 		 */
 		public static mpz eZ(mpz digits)
 		{
+			if (digits == null)
+				throw new ArgumentNullException("digits");
 			if (digits <= 0)
 				throw new ArgumentOutOfRangeException("digits");
 

@@ -11,6 +11,12 @@ namespace Mpir.NET
 
 		public static mpz BinarySearch(mpz a, mpz b, mpz reference, Func<mpz, mpz> f, bool isInDescendingOrder = false, int rangeThreshold = _BINARY_SEARCH_RECURSION_THRESHOLD, bool returnMinimumOfRange = false)
 		{
+			if (a == null)
+				throw new ArgumentNullException("a");
+			if (b == null)
+				throw new ArgumentNullException("b");
+			if (reference == null)
+				throw new ArgumentNullException("reference");
 			if (b < a)
 				throw new ArgumentOutOfRangeException("b");
 			if (f == null)

@@ -37,6 +37,8 @@ namespace Mpir.NET
 
 		public static mpz InverseImpl(ulong x, mpz digits, out mpz e)
 		{
+			if (digits == null)
+				throw new ArgumentNullException("digits");
 			if (digits <= 0)
 				throw new ArgumentOutOfRangeException("digits");
 

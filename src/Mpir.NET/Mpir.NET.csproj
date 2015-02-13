@@ -64,6 +64,9 @@
     <Compile Include="Math\Series.BinarySplitting.cs">
       <DependentUpon>Series.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\Transcendental.Arctan.cs">
+      <DependentUpon>Transcendental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Transcendental.cs" />
     <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
