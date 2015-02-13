@@ -57,8 +57,11 @@
     <Compile Include="Math\Prime.SieveOfEratosthenes.cs">
       <DependentUpon>Prime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\Series.BinarySearch.cs">
+      <DependentUpon>Series.cs</DependentUpon>
+    </Compile>
     <Compile Include="Math\Series.cs" />
-    <Compile Include="Math\Series.MachinLikeFormula.cs">
+    <Compile Include="Math\Series.BinarySplitting.cs">
       <DependentUpon>Series.cs</DependentUpon>
     </Compile>
     <Compile Include="Math\Transcendental.cs" />

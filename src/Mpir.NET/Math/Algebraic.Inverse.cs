@@ -37,6 +37,9 @@ namespace Mpir.NET
 
 		public static mpz InverseImpl(ulong x, mpz digits, out mpz e)
 		{
+			if (digits <= 0)
+				throw new ArgumentOutOfRangeException("digits");
+
 			var r_i_dash = new mpz((1UL << _INVERSE_INITIAL_GUESS_BITS) / ((double) x));
 			var e_i = new mpz(_INVERSE_INITIAL_GUESS_BITS);
 

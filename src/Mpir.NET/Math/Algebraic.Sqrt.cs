@@ -56,6 +56,9 @@ namespace Mpir.NET
 
 		public static mpz InverseSqrtImpl(ulong x, mpz digits, out mpz e)
 		{
+			if (digits <= 0)
+				throw new ArgumentOutOfRangeException("digits");
+
 			var r_i_dash = new mpz((1UL << _SQRT_INITIAL_GUESS_BITS) / Math.Sqrt(x));
 			var e_i = new mpz(_SQRT_INITIAL_GUESS_BITS);
 

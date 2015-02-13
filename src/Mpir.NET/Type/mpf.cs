@@ -529,7 +529,7 @@ namespace Mpir.NET
 
 		public int CompareTo(mpf other)
 		{
-			return mpir.mpf_cmp(this, other);
+			return Math.Sign(mpir.mpf_cmp(this, other));
 		}
 
 		public int CompareTo(mpz other)
@@ -544,12 +544,12 @@ namespace Mpir.NET
 
 		public int CompareTo(int other)
 		{
-			return mpir.mpf_cmp_si(this, other);
+			return Math.Sign(mpir.mpf_cmp_si(this, other));
 		}
 
 		public int CompareTo(uint other)
 		{
-			return mpir.mpf_cmp_ui(this, other);
+			return Math.Sign(mpir.mpf_cmp_ui(this, other));
 		}
 
 		public int CompareTo(long other)
@@ -569,7 +569,7 @@ namespace Mpir.NET
 
 		public int CompareTo(double other)
 		{
-			return mpir.mpf_cmp_d(this, other);
+			return Math.Sign(mpir.mpf_cmp_d(this, other));
 		}
 
 		public static int Compare(mpf x, object y)

@@ -1757,7 +1757,7 @@ namespace Mpir.NET
 
 		public int CompareTo(mpz other)
 		{
-			return mpir.mpz_cmp(this, other);
+			return Math.Sign(mpir.mpz_cmp(this, other));
 		}
 
 		public int CompareTo(mpq other)
@@ -1772,12 +1772,12 @@ namespace Mpir.NET
 
 		public int CompareTo(int other)
 		{
-			return mpir.mpz_cmp_si(this, other);
+			return Math.Sign(mpir.mpz_cmp_si(this, other));
 		}
 
 		public int CompareTo(uint other)
 		{
-			return mpir.mpz_cmp_ui(this, other);
+			return Math.Sign(mpir.mpz_cmp_ui(this, other));
 		}
 
 		public int CompareTo(long other)
@@ -1797,7 +1797,7 @@ namespace Mpir.NET
 
 		public int CompareTo(double other)
 		{
-			return mpir.mpz_cmp_d(this, other);
+			return Math.Sign(mpir.mpz_cmp_d(this, other));
 		}
 
 		public int CompareAbsTo(object obj)
@@ -1834,24 +1834,24 @@ namespace Mpir.NET
 
 		public int CompareAbsTo(mpz other)
 		{
-			return mpir.mpz_cmpabs(this, other);
+			return Math.Sign(mpir.mpz_cmpabs(this, other));
 		}
 
 		public int CompareAbsTo(int other)
 		{
 			return (other >= 0)
-				? mpir.mpz_cmpabs_ui(this, (uint) other)
-				: mpir.mpz_cmpabs_ui(this, (uint) -other);
+				? Math.Sign(mpir.mpz_cmpabs_ui(this, (uint) other))
+				: Math.Sign(mpir.mpz_cmpabs_ui(this, (uint) -other));
 		}
 
 		public int CompareAbsTo(uint other)
 		{
-			return mpir.mpz_cmpabs_ui(this, other);
+			return Math.Sign(mpir.mpz_cmpabs_ui(this, other));
 		}
 
 		public int CompareAbsTo(double other)
 		{
-			return mpir.mpz_cmpabs_d(this, other);
+			return Math.Sign(mpir.mpz_cmpabs_d(this, other));
 		}
 
 		public static int Compare(mpz x, object y)

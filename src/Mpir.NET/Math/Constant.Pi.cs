@@ -10,6 +10,7 @@ namespace Mpir.NET
 	public static partial class Constant
 	{
 		private const int _PI_NUMBER_OF_TERMS_SURCHARGE = 10;
+
 		/*
 		 * Compute int(pi * 10^digits)
 		 *
@@ -17,7 +18,7 @@ namespace Mpir.NET
 		 */
 		public static mpz PiZ(mpz digits)
 		{
-			if (digits < 0)
+			if (digits <= 0)
 				throw new ArgumentOutOfRangeException("digits");
 
 			const long C = 640320;
@@ -69,7 +70,7 @@ namespace Mpir.NET
 			var n = (digits.ToMpf() / digitsPerTerm).ToMpz() + _PI_NUMBER_OF_TERMS_SURCHARGE;
 
 			// Calculate P(0, N), Q(0, N) and T(0, N)
-			var pqt = Series.SumOfMachinLikeFormulaWithBinarySplitting(0, n, directlyCompute, recursivelyCombine);
+			var pqt = Series.BinarySplitting(0, n, directlyCompute, recursivelyCombine);
 			var oneSquared = mpz.Ten.Power(digits << 1);
 			var sqrtC = (10005 * oneSquared).Sqrt();
 

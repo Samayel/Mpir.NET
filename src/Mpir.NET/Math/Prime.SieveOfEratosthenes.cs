@@ -10,6 +10,9 @@ namespace Mpir.NET
 	{
 		public static mpz SieveOfEratosthenes(ulong limit)
 		{
+			if (limit <= 0)
+				throw new ArgumentOutOfRangeException("limit");
+
 			var sieve = mpz.FromZeroBitIndexes(Enumerable.Empty<ulong>(), limit);
 
 			sieve.ClearBit(0);
@@ -34,14 +37,17 @@ namespace Mpir.NET
 
 		public static mpz SieveOfEratosthenes(long limit)
 		{
-			if (limit < 0)
+			if (limit <= 0)
 				throw new ArgumentOutOfRangeException("limit");
 
-			return SieveOfEratosthenes((ulong)limit);
+			return SieveOfEratosthenes((ulong) limit);
 		}
 
 		public static mpz SieveOfEratosthenes(int limit)
 		{
+			if (limit <= 0)
+				throw new ArgumentOutOfRangeException("limit");
+
 			var sieve = new BitArray(limit + 1, true);
 
 			sieve.Set(0, false);
