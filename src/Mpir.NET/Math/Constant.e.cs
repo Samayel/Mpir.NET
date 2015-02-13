@@ -37,7 +37,7 @@ namespace Mpir.NET
 			 *             = n log n - n + 1
 			 *             > n log n - n
 			 */
-			var n = Series.BinarySearch(0, digits, digits + 1, x => (x * (x.Length(10) - _MPZ_DIGITS_IN_BASE_10_UNDERESTIMATION) - x), false, 1);
+			var n = Series.BinarySearch(0, digits, digits + 1, x => (x * ((int) x.Length(10) - _MPZ_DIGITS_IN_BASE_10_UNDERESTIMATION) - x), false, 1);
 
 			// Calculate P(0, N) and Q(0, N)
 			var pq = Series.BinarySplitting(0, n, directlyCompute, recursivelyCombine);
