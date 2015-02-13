@@ -9,6 +9,8 @@ namespace Mpir.NET
 {
 	public static partial class Algebraic
 	{
+		private const int _SQRT_INITIAL_GUESS_BITS = 32;
+
 		/*
 		 * Compute int(sqrt(n) * 10^digits)
 		 *
@@ -54,17 +56,16 @@ namespace Mpir.NET
 
 		public static mpz InverseSqrtImpl(ulong x, mpz digits, out mpz e)
 		{
-			var r_i_dash = new mpz((1UL << 32) / Math.Sqrt(x));
-			var e_i = new mpz(32);
-			var one_i = mpz.One.ShiftLeft(e_i);
+			var r_i_dash = new mpz((1UL << _SQRT_INITIAL_GUESS_BITS) / Math.Sqrt(x));
+			var e_i = new mpz(_SQRT_INITIAL_GUESS_BITS);
 
-			var targetPrecision = 4 * digits;
+			var targetPrecision = digits << 2; // bits per digit = log(10)/log(2) ~ 3.3
 
 			while (e_i <= targetPrecision)
 			{
 				var e_previ = e_i;
 				e_i = e_i << 1;
-				one_i = mpz.One.ShiftLeft(e_i);
+				var one_i = mpz.One.ShiftLeft(e_i);
 
 				/*
 				 * http://www.numberworld.org/y-cruncher/algorithms/invsqrt.html

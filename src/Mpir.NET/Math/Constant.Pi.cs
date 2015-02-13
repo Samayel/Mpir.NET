@@ -9,6 +9,7 @@ namespace Mpir.NET
 {
 	public static partial class Constant
 	{
+		private const int _PI_NUMBER_OF_TERMS_SURCHARGE = 10;
 		/*
 		 * Compute int(pi * 10^digits)
 		 *
@@ -41,11 +42,13 @@ namespace Mpir.NET
 				}
 				else
 				{
-					Pab = (6 * a - 5) * (2 * a - 1) * (6 * a - 1);
+					var a2 = a << 1;
+					var a6 = a2 * 3;
+					Pab = (a6 - 5) * (a2 - 1) * (a6 - 1);
 					Qab = a.Power(3U) * C3_OVER_24;
 				}
 
-				// t(a) = a(a) * p(a)
+				// t(a) = p(a) * a(a)
 				var Tab = Pab * (13591409 + 545140134 * a);
 				if (a.IsOdd())
 				{
@@ -61,16 +64,16 @@ namespace Mpir.NET
 				T = mb.Q * am.T + am.P * mb.T
 			};
 
-			//how many terms to compute
-			var DIGITS_PER_TERM = Math.Log10(C3_OVER_24 / 6 / 2 / 6);
-			var N = (digits.ToMpf() / DIGITS_PER_TERM).ToMpz() + 10;
+			// How many terms to compute
+			var digitsPerTerm = Math.Log10(C3_OVER_24 / 6 / 2 / 6);
+			var n = (digits.ToMpf() / digitsPerTerm).ToMpz() + _PI_NUMBER_OF_TERMS_SURCHARGE;
 
-			// Calclate P(0,N), Q(0,N) and T(0,N)
-			var PQT = Series.SumOfMachinLikeFormulaWithBinarySplitting(0, N, directlyCompute, recursivelyCombine);
-			var one_squared = mpz.Ten.Power(2 * digits);
-			var sqrtC = (10005 * one_squared).Sqrt();
+			// Calculate P(0, N), Q(0, N) and T(0, N)
+			var pqt = Series.SumOfMachinLikeFormulaWithBinarySplitting(0, n, directlyCompute, recursivelyCombine);
+			var oneSquared = mpz.Ten.Power(digits << 1);
+			var sqrtC = (10005 * oneSquared).Sqrt();
 
-			return (PQT.Q * 426880 * sqrtC) / PQT.T;
+			return (pqt.Q * 426880 * sqrtC) / pqt.T;
 		}
 
 		public static mpq PiQ(mpz digits)

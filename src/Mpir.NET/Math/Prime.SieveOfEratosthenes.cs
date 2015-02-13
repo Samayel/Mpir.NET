@@ -47,7 +47,7 @@ namespace Mpir.NET
 			sieve.Set(0, false);
 			sieve.Set(1, false);
 
-			var root = (int)Math.Sqrt(limit);
+			var root = (int) Math.Sqrt(limit);
 
 			for (var n = 2; n <= root; n++)
 			{
