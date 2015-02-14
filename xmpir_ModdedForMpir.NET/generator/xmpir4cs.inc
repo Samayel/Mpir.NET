@@ -51,6 +51,7 @@ using mpz_intptr = IntPtr;
 using mpq_intptr = IntPtr;
 using mpf_intptr = IntPtr;
 using mpfr_intptr = IntPtr;
+using mpc_intptr = IntPtr;
 using gmp_randstate_intptr = IntPtr;
 
 
@@ -244,6 +245,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'mpq_handle':
         case 'mpf_handle':
         case 'mpfr_handle':
+        case 'mpc_handle':
         case 'gmp_randstate_handle':
             $s = "$p[name].Val";
             break;
@@ -253,6 +255,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'mpq_intptr':
         case 'mpf_intptr':
         case 'mpfr_intptr':
+        case 'mpc_intptr':
         case 'gmp_randstate_intptr':
             $s = "$p[name]";
             break;
@@ -340,6 +343,7 @@ function CSharpMPIR_CSharpRawType($type)
         case 'mpq_handle':
         case 'mpf_handle':
         case 'mpfr_handle':
+        case 'mpc_handle':
         case 'gmp_randstate_handle':
             return "IntPtr";
 
@@ -348,6 +352,7 @@ function CSharpMPIR_CSharpRawType($type)
         case 'mpq_intptr':
         case 'mpf_intptr':
         case 'mpfr_intptr':
+        case 'mpc_intptr':
         case 'gmp_randstate_intptr':
             return "IntPtr";
     }
@@ -386,6 +391,8 @@ function CSharpMPIR_CSharpType($type)
             return "mpf";
         case 'mpfr_handle':
             return "mpfr";
+        case 'mpc_handle':
+            return "mpc";
         case 'gmp_randstate_handle':
             return "randstate";
 
@@ -394,6 +401,7 @@ function CSharpMPIR_CSharpType($type)
         case 'mpq_intptr':
         case 'mpf_intptr':
         case 'mpfr_intptr':
+        case 'mpc_intptr':
         case 'gmp_randstate_intptr':
             return $type;
     }

@@ -42,6 +42,8 @@ functions. Use e.g. Kdiff to see exact changes from orginal X-MPIR.
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpir.h>
+#include <mpfr.h>
+#include <mpc.h>
 
 #ifdef XMPIR_FOR_WINDOWS
 #define DLLEXPORT __declspec(dllexport)
@@ -59,6 +61,8 @@ enum
 typedef struct { mpz_t val; } mpz_wrapper;
 typedef struct { mpq_t val; } mpq_wrapper;
 typedef struct { mpf_t val; } mpf_wrapper;
+typedef struct { mpfr_t val; } mpfr_wrapper;
+typedef struct { mpc_t val; } mpc_wrapper;
 typedef struct { gmp_randstate_t val; } gmp_randstate_wrapper;
 
 DLLEXPORT int xmpir_malloc(void **p, int size)
@@ -303,6 +307,8 @@ function XMPIR_CoreType($type)
             return "mpf_wrapper*";
         case 'mpfr_handle':
             return "mpfr_wrapper*";
+        case 'mpc_handle':
+            return "mpc_wrapper*";
         case 'gmp_randstate_handle':
             return "gmp_randstate_wrapper*";
     }

@@ -36,6 +36,7 @@ using mpz_intptr = IntPtr;
 using mpq_intptr = IntPtr;
 using mpf_intptr = IntPtr;
 using mpfr_intptr = IntPtr;
+using mpc_intptr = IntPtr;
 using gmp_randstate_intptr = IntPtr;
 
 

@@ -25,7 +25,7 @@
 @copy .\mpir-precompiled\win32\* _tmp > NUL
 @copy .\src\xmpir.c _tmp > NUL
 @CD _tmp
-@cl /LD /Fexmpir32.dll /DXMPIR_FOR_WINDOWS /I. xmpir.c mpir.lib
+@cl /LD /Fexmpir32.dll /DXMPIR_FOR_WINDOWS /I. xmpir.c mpir.lib mpfr.lib mpc.lib
 @copy xmpir32.dll ..\wrapper > NUL
 @del /Q *
 @cd ..
@@ -49,7 +49,7 @@
 @copy .\mpir-precompiled\win64\* _tmp > NUL
 @copy .\src\xmpir.c _tmp > NUL
 @CD _tmp 
-@cl /LD /Fexmpir64.dll /DXMPIR_FOR_WINDOWS /I. xmpir.c mpir.lib
+@cl /LD /Fexmpir64.dll /DXMPIR_FOR_WINDOWS /I. xmpir.c mpir.lib mpfr.lib mpc.lib
 @copy xmpir64.dll ..\wrapper > NUL
 @del /Q *
 @cd ..

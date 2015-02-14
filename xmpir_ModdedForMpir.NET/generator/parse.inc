@@ -33,7 +33,7 @@ function XGenParse($filename)
         $entity['entitytype'] = $selector;
         if( $selector=='mp_constructor' )
         {
-            if( preg_match("/^mp_constructor<(mpz|mpq|mpf|gmp_randstate)>(\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
+            if( preg_match("/^mp_constructor<(mpz|mpq|mpf|mpfr|mpc|gmp_randstate)>(\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
                 exit("\n'$line' is not correct constructor definition\n");
             $entity['type'] = $matches[1];
             $entity['name'] = $matches[2];
@@ -43,7 +43,7 @@ function XGenParse($filename)
         }
         if( $selector=='mp_destructor' )
         {
-            if( preg_match("/^mp_destructor<(mpz|mpq|mpf|gmp_randstate)>(\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
+            if( preg_match("/^mp_destructor<(mpz|mpq|mpf|mpfr|mpc|gmp_randstate)>(\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
                 exit("\n'$line' is not correct destructor definition\n");
             $entity['type'] = $matches[1];
             $entity['name'] = $matches[2];
@@ -81,7 +81,7 @@ function XGenParseParams($str)
     foreach($arr as $paramstr)
     {
         $paramstr = XGenStripSpaces($paramstr);
-        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle) (\w+)$/", $paramstr, $matches)!=1 )
+        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle|mpc_handle) (\w+)$/", $paramstr, $matches)!=1 )
             exit("\n'$paramstr' is not correct X-gen parameter\n");
         $param = array();
         $param['passingtype'] = $matches[1];
@@ -111,7 +111,7 @@ returns true if $type is multiple precision type
 ************************************************************************/
 function XGenIsMPType($type)
 {
-    return $type=='mpz_handle' or $type=='mpq_handle' or $type=='mpf_handle' or $type=='mpfr_handle' or $type=='gmp_randstate_handle';
+    return $type=='mpz_handle' or $type=='mpq_handle' or $type=='mpf_handle' or $type=='mpfr_handle' or $type=='mpc_handle' or $type=='gmp_randstate_handle';
 }
 
 ?>
