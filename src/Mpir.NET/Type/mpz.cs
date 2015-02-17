@@ -1976,7 +1976,7 @@ namespace Mpir.NET
 		{
 			return new mpf(
 				this,
-				precision.HasValue ? precision.Value : System.Math.Max(mpf.DefaultPrecision, BitLength + 16)
+				precision.HasValue ? precision.Value : Math.Max(mpf.DefaultPrecision, BitLength + 16)
 			);
 		}
 
@@ -1986,6 +1986,15 @@ namespace Mpir.NET
 				throw new ArgumentOutOfRangeException("precision");
 
 			return ToMpf((ulong) precision);
+		}
+
+		public mpfr ToMpfr(long? precision = null)
+		{
+			return new mpfr(
+				this,
+				null,
+				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) BitLength + 16)
+			);
 		}
 
 		public BigInteger ToBigInteger()

@@ -103,16 +103,15 @@ namespace Mpir.NET
 			set { mpir.mpf_set_default_prec(value); }
 		}
 
-		public ulong Precision
+		public virtual ulong Precision
 		{
 			get { return mpir.mpf_get_prec(this); }
-			set
-			{
-				if (value < Precision)
-					throw new ArgumentOutOfRangeException("value");
+			set { throw new InvalidOperationException(); }
+		}
 
-				mpir.mpf_set_prec(this, value);
-			}
+		public ulong VirtualPrecision
+		{
+			set { mpir.mpf_set_prec_raw(this, value); }
 		}
 
 		#endregion
@@ -653,6 +652,11 @@ namespace Mpir.NET
 		public mpq ToMpq()
 		{
 			return new mpq(this);
+		}
+
+		public mpfr ToMpfr()
+		{
+			return new mpfr(this, null, (long) Precision);
 		}
 
 		public double ToDouble(out int exponentOfTwo)

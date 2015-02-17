@@ -20,6 +20,16 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Precision
+
+		public override ulong Precision
+		{
+			get { return mpir.mpf_get_prec(this); }
+			set { mpir.mpf_set_prec(this, value); }
+		}
+
+		#endregion
+
 		#region Basic Arithmetic
 
 		public override mpf Negate()

@@ -592,6 +592,15 @@ namespace Mpir.NET
 			return ToMpf((ulong) precision);
 		}
 
+		public mpfr ToMpfr(long? precision = null)
+		{
+			return new mpfr(
+				this,
+				null,
+				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32)
+			);
+		}
+
 		public override string ToString()
 		{
 			return ToString(_DEFAULT_STRING_BASE);

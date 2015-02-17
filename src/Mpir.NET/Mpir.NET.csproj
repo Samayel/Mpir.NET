@@ -71,6 +71,7 @@
       <DependentUpon>Transcendental.cs</DependentUpon>
     </Compile>
     <Compile Include="Math\Transcendental.cs" />
+    <Compile Include="Type\mpfr.cs" />
     <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
       <DependentUpon>Constant.cs</DependentUpon>
