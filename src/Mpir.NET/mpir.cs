@@ -50,14 +50,14 @@ namespace Mpir.NET
 		//
 		// Our wrappers for dynamic loading functions
 		//
-		public static string GetOSString()
+		private static string GetOSString()
 		{
 			if (System.IO.Path.DirectorySeparatorChar == '/')
 				return "linux";
 			return "windows";
 		}
 
-		public static string LocateLibrary(string name)
+		private static string LocateLibrary(string name)
 		{
 			//
 			// try to locate file using one of two methods:
@@ -89,7 +89,7 @@ namespace Mpir.NET
 			return libpath + System.IO.Path.DirectorySeparatorChar + name;
 		}
 
-		public static string GetXMPIRLibraryPath()
+		private static string GetXMPIRLibraryPath()
 		{
 			string os = GetOSString();
 			string libname = "";
@@ -153,7 +153,7 @@ namespace Mpir.NET
 		private static IntPtr __ptr__Mpir_internal_mpz_import = GetProcAddressSafe(hxmpir, "Mpir_internal_mpz_import");
 		private static __Mpir_internal_mpz_import Mpir_internal_mpz_import = (__Mpir_internal_mpz_import) Marshal.GetDelegateForFunctionPointer(__ptr__Mpir_internal_mpz_import, typeof (__Mpir_internal_mpz_import));
 
-		public static unsafe void Mpir_mpz_import(mpz rop, uint count, int order, uint size, int endian, uint nails, byte[] op)
+		internal static unsafe void Mpir_mpz_import(mpz rop, uint count, int order, uint size, int endian, uint nails, byte[] op)
 		{
 			fixed (void* srcPtr = op)
 			{
@@ -161,7 +161,7 @@ namespace Mpir.NET
 			}
 		}
 
-		public static unsafe void Mpir_mpz_import_by_offset(mpz rop, int startOffset, int endOffset, int order, uint size, int endian, uint nails, byte[] op)
+		internal static unsafe void Mpir_mpz_import_by_offset(mpz rop, int startOffset, int endOffset, int order, uint size, int endian, uint nails, byte[] op)
 		{
 			fixed (byte* srcPtr = op)
 			{
@@ -175,7 +175,7 @@ namespace Mpir.NET
 		private static IntPtr __ptr__Mpir_internal_mpz_export = GetProcAddressSafe(hxmpir, "Mpir_internal_mpz_export");
 		private static __Mpir_internal_mpz_export Mpir_internal_mpz_export = (__Mpir_internal_mpz_export) Marshal.GetDelegateForFunctionPointer(__ptr__Mpir_internal_mpz_export, typeof (__Mpir_internal_mpz_export));
 
-		public static unsafe byte[] Mpir_mpz_export(int order, uint size, int endian, uint nails, mpz op)
+		internal static unsafe byte[] Mpir_mpz_export(int order, uint size, int endian, uint nails, mpz op)
 		{
 			ulong bufSize = (mpir.mpz_sizeinbase(op, 2) + 8 - 1) / 8;
 			var destBuf = new byte[bufSize];

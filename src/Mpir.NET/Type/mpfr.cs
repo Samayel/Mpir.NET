@@ -146,7 +146,7 @@ namespace Mpir.NET
 
 		#endregion
 
-		#region DefaultRoundingMode / Precision
+		#region DefaultRoundingMode / Precision / Exponent
 
 		public static RoundingMode DefaultRoundingMode
 		{
@@ -172,6 +172,29 @@ namespace Mpir.NET
 		{
 			get { return mpir.mpfr_get_prec(this); }
 			set { throw new InvalidOperationException(); }
+		}
+
+		public long MinRequiredPrecision
+		{
+			get { return mpir.mpfr_min_prec(this); }
+		}
+
+		public long Exponent
+		{
+			get { return mpir.mpfr_get_exp(this); }
+			set { throw new InvalidOperationException(); }
+		}
+
+		public static long MinimumExponent
+		{
+			get { return mpir.mpfr_get_emin(); }
+			set { mpir.mpfr_set_emin(value); }
+		}
+
+		public static long MaximumExponent
+		{
+			get { return mpir.mpfr_get_emax(); }
+			set { mpir.mpfr_set_emax(value); }
 		}
 
 		#endregion
@@ -640,11 +663,11 @@ namespace Mpir.NET
 			return f;
 		}
 
-		public void SinCos(out mpfr sin, out mpfr cos, RoundingMode? roundingMode = null)
+		public static void SinCos(mpfr x, out mpfr sin, out mpfr cos, RoundingMode? roundingMode = null)
 		{
-			sin = new mpfr(Precision);
-			cos = new mpfr(Precision);
-			mpir.mpfr_sin_cos(sin, cos, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			sin = new mpfr(x.Precision);
+			cos = new mpfr(x.Precision);
+			mpir.mpfr_sin_cos(sin, cos, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
 		public mpfr Sec(RoundingMode? roundingMode = null)
@@ -717,11 +740,11 @@ namespace Mpir.NET
 			return f;
 		}
 
-		public void SinhCosh(out mpfr sinh, out mpfr cosh, RoundingMode? roundingMode = null)
+		public static void SinhCosh(mpfr x, out mpfr sinh, out mpfr cosh, RoundingMode? roundingMode = null)
 		{
-			sinh = new mpfr(Precision);
-			cosh = new mpfr(Precision);
-			mpir.mpfr_sinh_cosh(sinh, cosh, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			sinh = new mpfr(x.Precision);
+			cosh = new mpfr(x.Precision);
+			mpir.mpfr_sinh_cosh(sinh, cosh, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
 		public mpfr Sech(RoundingMode? roundingMode = null)
@@ -976,6 +999,330 @@ namespace Mpir.NET
 			var f = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_const_catalan(f, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return f;
+		}
+
+		#endregion
+
+		#region Integer and Remainder Related Functions
+
+		public mpfr Rint(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_rint(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr Ceil()
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_ceil(f, this);
+			return f;
+		}
+
+		public mpfr Floor()
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_floor(f, this);
+			return f;
+		}
+
+		public mpfr Round()
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_round(f, this);
+			return f;
+		}
+
+		public mpfr Trunc()
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_trunc(f, this);
+			return f;
+		}
+
+		public mpfr RintCeil(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_rint_ceil(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr RintFloor(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_rint_floor(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr RintRound(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_rint_round(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr RintTrunc(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_rint_trunc(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr Frac(RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_frac(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static void Modf(mpfr x, out mpfr @int, out mpfr frac, RoundingMode? roundingMode = null)
+		{
+			@int = new mpfr(x.Precision);
+			frac = new mpfr(x.Precision);
+			mpir.mpfr_modf(@int, frac, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+		}
+
+		public mpfr Fmod(mpfr y, RoundingMode? roundingMode = null)
+		{
+			var r = new mpfr(Math.Max(Precision, y.Precision));
+			mpir.mpfr_fmod(r, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return r;
+		}
+
+		public mpfr Remainder(mpfr y, RoundingMode? roundingMode = null)
+		{
+			var r = new mpfr(Math.Max(Precision, y.Precision));
+			mpir.mpfr_remainder(r, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return r;
+		}
+
+		public mpfr RemainderQuotient(mpfr y, out int q, RoundingMode? roundingMode = null)
+		{
+			var r = new mpfr(Math.Max(Precision, y.Precision));
+			mpir.mpfr_remquo(r, out q, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return r;
+		}
+
+		#endregion
+
+		#region Rounding Related Functions
+
+		public mpfr PrecisionRound(long precision, RoundingMode? roundingMode = null)
+		{
+			var f = Clone();
+			mpir.mpfr_prec_round(f, precision, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static int CanRound(mpfr b, long error, RoundingMode rnd1, RoundingMode rnd2, long precision)
+		{
+			return mpir.mpfr_can_round(b, error, (int) rnd1, (int) rnd2, precision);
+		}
+
+		#endregion
+
+		#region Miscellaneous Functions
+
+		public mpfr NextToward(mpfr y)
+		{
+			var f = Clone();
+			mpir.mpfr_nexttoward(f, y);
+			return f;
+		}
+
+		public mpfr NextAbove()
+		{
+			var f = Clone();
+			mpir.mpfr_nextabove(f);
+			return f;
+		}
+
+		public mpfr NextBelow()
+		{
+			var f = Clone();
+			mpir.mpfr_nextbelow(f);
+			return f;
+		}
+
+		public static mpfr Min(mpfr x, mpfr y, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Math.Max(x.Precision, y.Precision));
+			mpir.mpfr_min(f, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static mpfr Max(mpfr x, mpfr y, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Math.Max(x.Precision, y.Precision));
+			mpir.mpfr_max(f, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static mpfr GetUniformlyDistributedRandomBits(randstate state, long? precision = null)
+		{
+			var f = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			mpir.mpfr_urandomb(f, state);
+			return f;
+		}
+
+		public static mpfr GetUniformlyDistributedRandomFloat(randstate state, long? precision = null, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			mpir.mpfr_urandom(f, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static mpfr GetGaussianDistributedRandomFloat(randstate state, long? precision = null, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			mpir.mpfr_grandom(f, null, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public static mpfr GetGaussianDistributedRandomFloats(out mpfr float2, randstate state, long? precision = null, RoundingMode? roundingMode = null)
+		{
+			var float1 = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			float2 = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			mpir.mpfr_grandom(float1, float2, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return float1;
+		}
+
+		public int GetSignBit()
+		{
+			return mpir.mpfr_signbit(this);
+		}
+
+		public mpfr SetSignBit(int sign, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_setsign(f, this, sign, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		public mpfr CopySignBit(mpfr sign, RoundingMode? roundingMode = null)
+		{
+			var f = new mpfr(Precision);
+			mpir.mpfr_copysign(f, this, sign, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			return f;
+		}
+
+		#endregion
+
+		#region Exception Related Functions
+
+		public static long GetMinimumExponentMin()
+		{
+			return mpir.mpfr_get_emin_min();
+		}
+
+		public static long GetMinimumExponentMax()
+		{
+			return mpir.mpfr_get_emin_max();
+		}
+
+		public static long GetMaximumExponentMin()
+		{
+			return mpir.mpfr_get_emax_min();
+		}
+
+		public static long GetMaximumExponentMax()
+		{
+			return mpir.mpfr_get_emax_max();
+		}
+
+		public static void ClearFlags()
+		{
+			mpir.mpfr_clear_flags();
+		}
+
+		public static void ClearUnderflowFlag()
+		{
+			mpir.mpfr_clear_underflow();
+		}
+
+		public static void ClearOverflowFlag()
+		{
+			mpir.mpfr_clear_overflow();
+		}
+
+		public static void ClearDivBy0Flag()
+		{
+			mpir.mpfr_clear_divby0();
+		}
+
+		public static void ClearNaNFlag()
+		{
+			mpir.mpfr_clear_nanflag();
+		}
+
+		public static void ClearInexactFlag()
+		{
+			mpir.mpfr_clear_inexflag();
+		}
+
+		public static void ClearErangeFlag()
+		{
+			mpir.mpfr_clear_erangeflag();
+		}
+
+		public static void SetUnderflowFlag()
+		{
+			mpir.mpfr_set_underflow();
+		}
+
+		public static void SetOverflowFlag()
+		{
+			mpir.mpfr_set_overflow();
+		}
+
+		public static void SetDivBy0Flag()
+		{
+			mpir.mpfr_set_divby0();
+		}
+
+		public static void SetNaNFlag()
+		{
+			mpir.mpfr_set_nanflag();
+		}
+
+		public static void SetInexactFlag()
+		{
+			mpir.mpfr_set_inexflag();
+		}
+
+		public static void SetErangeFlag()
+		{
+			mpir.mpfr_set_erangeflag();
+		}
+
+		public static bool GetUnderflowFlag()
+		{
+			return mpir.mpfr_underflow_p() != 0;
+		}
+
+		public static bool GetOverflowFlag()
+		{
+			return mpir.mpfr_overflow_p() != 0;
+		}
+
+		public static bool GetDivBy0Flag()
+		{
+			return mpir.mpfr_divby0_p() != 0;
+		}
+
+		public static bool GetNaNFlag()
+		{
+			return mpir.mpfr_nanflag_p() != 0;
+		}
+
+		public static bool GetInexactFlag()
+		{
+			return mpir.mpfr_inexflag_p() != 0;
+		}
+
+		public static bool GetErangeFlag()
+		{
+			return mpir.mpfr_erangeflag_p() != 0;
 		}
 
 		#endregion
