@@ -591,8 +591,7 @@ namespace Mpir.NET
 		{
 			return new mpf(
 				this, 
-				precision.HasValue ? precision.Value : Math.Max(mpf.DefaultPrecision, Math.Max(Numerator.BitLength, Denominator.BitLength) + 32)
-			);
+				precision: precision.HasValue ? precision.Value : Math.Max(mpf.DefaultPrecision, Math.Max(Numerator.BitLength, Denominator.BitLength) + 32));
 		}
 
 		public mpf ToMpf(long precision)
@@ -607,9 +606,8 @@ namespace Mpir.NET
 		{
 			return new mpfr(
 				this,
-				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
-				null
-			);
+				precision: precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long)Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
+				roundingMode: null);
 		}
 
 		public override string ToString()

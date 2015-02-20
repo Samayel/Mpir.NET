@@ -9,7 +9,7 @@ namespace Mpir.NET
 	{
 		#region Creation and destruction
 
-		public xmpf(mpf op) : base(op, op.Precision)
+		public xmpf(mpf op) : base(op, precision: op.Precision)
 		{
 		}
 
@@ -192,7 +192,7 @@ namespace Mpir.NET
 
 		public override mpf AsImmutable()
 		{
-			return new mpf(this, Precision);
+			return Clone();
 		}
 
 		#endregion

@@ -9,7 +9,7 @@ namespace Mpir.NET
 	{
 		#region Creation and destruction
 
-		internal xmpfr(mpfr op) : base(op.Precision)
+		internal xmpfr(mpfr op) : base(precision: op.Precision)
 		{
 			mpir.mpfr_set(this, op, (int) DefaultRoundingMode);
 		}
@@ -36,9 +36,6 @@ namespace Mpir.NET
 		}
 
 		#endregion
-
-		// All code handling Decimal is commented out, dute to some
-		// unexpected behaviour.
 
 		#region Basic Arithmetic
 

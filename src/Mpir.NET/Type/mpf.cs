@@ -30,42 +30,42 @@ namespace Mpir.NET
 			Val = precision.HasValue ? mpir.mpf_init2(precision.Value) : mpir.mpf_init();
 		}
 
-		public mpf(mpf op, ulong? precision = null) : this(precision)
+		public mpf(mpf op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set(this, op);
 		}
 
-		public mpf(mpz op, ulong? precision = null) : this(precision)
+		public mpf(mpz op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_z(this, op);
 		}
 
-		public mpf(mpq op, ulong? precision = null) : this(precision)
+		public mpf(mpq op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_q(this, op);
 		}
 
-		public mpf(int op, ulong? precision = null) : this(precision)
+		public mpf(int op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_si(this, op);
 		}
 
-		public mpf(uint op, ulong? precision = null) : this(precision)
+		public mpf(uint op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_ui(this, op);
 		}
 
-		public mpf(double op, ulong? precision = null) : this(precision)
+		public mpf(double op, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_d(this, op);
 		}
 
-		public mpf(string s, uint @base, ulong? precision = null) : this(precision)
+		public mpf(string s, uint @base, ulong? precision = null) : this(precision: precision)
 		{
 			mpir.mpf_set_str(this, s, @base);
 		}
 
-		public mpf(string s, ulong? precision = null) : this(s, _DEFAULT_STRING_BASE, precision)
+		public mpf(string s, ulong? precision = null) : this(s, _DEFAULT_STRING_BASE, precision: precision)
 		{
 		}
 
@@ -118,15 +118,15 @@ namespace Mpir.NET
 
 		#region Predefined Values
 
-		public static readonly mpf NegativeTen = new mpf(-10, _DEFAULT_PRECISION);
-		public static readonly mpf NegativeThree = new mpf(-3, _DEFAULT_PRECISION);
-		public static readonly mpf NegativeTwo = new mpf(-2, _DEFAULT_PRECISION);
-		public static readonly mpf NegativeOne = new mpf(-1, _DEFAULT_PRECISION);
-		public static readonly mpf Zero = new mpf(0, _DEFAULT_PRECISION);
-		public static readonly mpf One = new mpf(1, _DEFAULT_PRECISION);
-		public static readonly mpf Two = new mpf(2, _DEFAULT_PRECISION);
-		public static readonly mpf Three = new mpf(3, _DEFAULT_PRECISION);
-		public static readonly mpf Ten = new mpf(10, _DEFAULT_PRECISION);
+		public static readonly mpf NegativeTen = new mpf(-10, precision: _DEFAULT_PRECISION);
+		public static readonly mpf NegativeThree = new mpf(-3, precision: _DEFAULT_PRECISION);
+		public static readonly mpf NegativeTwo = new mpf(-2, precision: _DEFAULT_PRECISION);
+		public static readonly mpf NegativeOne = new mpf(-1, precision: _DEFAULT_PRECISION);
+		public static readonly mpf Zero = new mpf(0, precision: _DEFAULT_PRECISION);
+		public static readonly mpf One = new mpf(1, precision: _DEFAULT_PRECISION);
+		public static readonly mpf Two = new mpf(2, precision: _DEFAULT_PRECISION);
+		public static readonly mpf Three = new mpf(3, precision: _DEFAULT_PRECISION);
+		public static readonly mpf Ten = new mpf(10, precision: _DEFAULT_PRECISION);
 
 		#endregion
 
@@ -139,21 +139,21 @@ namespace Mpir.NET
 
 		public virtual mpf Negate()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_neg(f, this);
 			return f;
 		}
 
 		public virtual mpf Add(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_add(f, this, x);
 			return f;
 		}
 
 		public virtual mpf Add(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_add_ui(f, this, x);
 			return f;
 		}
@@ -167,14 +167,14 @@ namespace Mpir.NET
 
 		public virtual mpf Subtract(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_sub(f, this, x);
 			return f;
 		}
 
 		public virtual mpf Subtract(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_sub_ui(f, this, x);
 			return f;
 		}
@@ -188,14 +188,14 @@ namespace Mpir.NET
 
 		public virtual mpf SubtractFrom(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_sub(f, x, this);
 			return f;
 		}
 
 		public virtual mpf SubtractFrom(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_ui_sub(f, x, this);
 			return f;
 		}
@@ -209,14 +209,14 @@ namespace Mpir.NET
 
 		public virtual mpf Multiply(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_mul(f, this, x);
 			return f;
 		}
 
 		public virtual mpf Multiply(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_mul_ui(f, this, x);
 			return f;
 		}
@@ -235,14 +235,14 @@ namespace Mpir.NET
 
 		public virtual mpf Divide(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_div(f, this, x);
 			return f;
 		}
 
 		public virtual mpf Divide(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_div_ui(f, this, x);
 			return f;
 		}
@@ -256,14 +256,14 @@ namespace Mpir.NET
 
 		public virtual mpf DivideFrom(mpf x)
 		{
-			var f = new mpf(Math.Max(Precision, x.Precision));
+			var f = new mpf(precision: Math.Max(Precision, x.Precision));
 			mpir.mpf_div(f, x, this);
 			return f;
 		}
 
 		public virtual mpf DivideFrom(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_ui_div(f, x, this);
 			return f;
 		}
@@ -282,14 +282,14 @@ namespace Mpir.NET
 
 		public virtual mpf Abs()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_abs(f, this);
 			return f;
 		}
 
 		public virtual mpf Power(uint exponent)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_pow_ui(f, this, exponent);
 			return f;
 		}
@@ -303,7 +303,7 @@ namespace Mpir.NET
 
 		public virtual mpf MultiplyBy2Exp(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_mul_2exp(f, this, x);
 			return f;
 		}
@@ -317,7 +317,7 @@ namespace Mpir.NET
 
 		public virtual mpf DivideBy2Exp(uint x)
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_div_2exp(f, this, x);
 			return f;
 		}
@@ -335,14 +335,14 @@ namespace Mpir.NET
 
 		public virtual mpf Sqrt()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_sqrt(f, this);
 			return f;
 		}
 
 		public static mpf Sqrt(uint x)
 		{
-			var f = new mpf();
+			var f = new mpf(precision: DefaultPrecision);
 			mpir.mpf_sqrt_ui(f, x);
 			return f;
 		}
@@ -361,21 +361,21 @@ namespace Mpir.NET
 
 		public virtual mpf Ceil()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_ceil(f, this);
 			return f;
 		}
 
 		public virtual mpf Floor()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_floor(f, this);
 			return f;
 		}
 
 		public virtual mpf Trunc()
 		{
-			var f = new mpf(Precision);
+			var f = new mpf(precision: Precision);
 			mpir.mpf_trunc(f, this);
 			return f;
 		}
@@ -386,14 +386,14 @@ namespace Mpir.NET
 
 		public static mpf GetUniformlyDistributedRandomBits(randstate state, ulong nbits)
 		{
-			var f = new mpf(Math.Max(DefaultPrecision, nbits));
+			var f = new mpf(precision: Math.Max(DefaultPrecision, nbits));
 			mpir.mpf_urandomb(f, state, nbits);
 			return f;
 		}
 
 		public static mpf GetBiasedRandomBits(randstate state, long maxSize, long exp)
 		{
-			var f = new mpf();
+			var f = new mpf(precision: DefaultPrecision);
 			mpir.mpf_rrandomb(f, state, maxSize, exp);
 			return f;
 		}
@@ -421,7 +421,7 @@ namespace Mpir.NET
 
 		public virtual mpf RelativeDifference(mpf other)
 		{
-			var f = new mpf(Math.Max(Precision, other.Precision));
+			var f = new mpf(precision: Math.Max(Precision, other.Precision));
 			mpir.mpf_reldiff(f, this, other);
 			return f;
 		}
@@ -532,7 +532,7 @@ namespace Mpir.NET
 			if (obj is sbyte)
 				return CompareTo((sbyte) obj);
 			if (obj is string)
-				return CompareTo(new mpf((string) obj, Precision));
+				return CompareTo(new mpf((string) obj, _DEFAULT_STRING_BASE, precision: Precision));
 
 			throw new ArgumentException("Cannot compare to " + obj.GetType());
 		}
@@ -643,7 +643,7 @@ namespace Mpir.NET
 
 		public mpf Clone()
 		{
-			return new mpf(this, Precision);
+			return new mpf(this, precision: Precision);
 		}
 
 		#endregion
@@ -667,7 +667,7 @@ namespace Mpir.NET
 
 		public mpfr ToMpfr()
 		{
-			return new mpfr(this, (long) Precision, null);
+			return new mpfr(this, precision: (long) Precision, roundingMode: null);
 		}
 
 		public double ToDouble(out int exponentOfTwo)
@@ -829,47 +829,47 @@ namespace Mpir.NET
 
 		public static implicit operator mpf(byte value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(int value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(uint value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(short value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(ushort value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(long value)
 		{
-			return new mpf((mpz) value, null);
+			return new mpf((mpz) value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(ulong value)
 		{
-			return new mpf((mpz) value, null);
+			return new mpf((mpz) value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(float value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static implicit operator mpf(double value)
 		{
-			return new mpf(value, null);
+			return new mpf(value, precision: DefaultPrecision);
 		}
 
 		public static explicit operator mpf(mpz value)
@@ -884,7 +884,7 @@ namespace Mpir.NET
 
 		public static explicit operator mpf(string value)
 		{
-			return new mpf(value, _DEFAULT_STRING_BASE, null);
+			return new mpf(value, _DEFAULT_STRING_BASE, precision: DefaultPrecision);
 		}
 
 		public static explicit operator byte(mpf value)

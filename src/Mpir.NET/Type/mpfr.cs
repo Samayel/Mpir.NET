@@ -38,21 +38,11 @@ namespace Mpir.NET
 			DefaultPrecision = _DEFAULT_PRECISION;
 			DefaultRoundingMode = _DEFAULT_ROUNDING_MODE;
 
-			NegativeTen = new mpfr(-10, _DEFAULT_PRECISION);
-			NegativeThree = new mpfr(-3, _DEFAULT_PRECISION);
-			NegativeTwo = new mpfr(-2, _DEFAULT_PRECISION);
-			NegativeOne = new mpfr(-1, _DEFAULT_PRECISION);
-			Zero = new mpfr(0, _DEFAULT_PRECISION);
-			One = new mpfr(1, _DEFAULT_PRECISION);
-			Two = new mpfr(2, _DEFAULT_PRECISION);
-			Three = new mpfr(3, _DEFAULT_PRECISION);
-			Ten = new mpfr(10, _DEFAULT_PRECISION);
-
-			NaN = new mpfr(_DEFAULT_PRECISION);
-			PlusInfinity = new mpfr(_DEFAULT_PRECISION);
-			MinusInfinity = new mpfr(_DEFAULT_PRECISION);
-			PlusZero = new mpfr(_DEFAULT_PRECISION);
-			MinusZero = new mpfr(_DEFAULT_PRECISION);
+			NaN = new mpfr(precision: _DEFAULT_PRECISION);
+			PlusInfinity = new mpfr(precision: _DEFAULT_PRECISION);
+			MinusInfinity = new mpfr(precision: _DEFAULT_PRECISION);
+			PlusZero = new mpfr(precision: _DEFAULT_PRECISION);
+			MinusZero = new mpfr(precision: _DEFAULT_PRECISION);
 
 			mpir.mpfr_set_nan(NaN);
 			mpir.mpfr_set_inf(PlusInfinity, 1);
@@ -66,62 +56,62 @@ namespace Mpir.NET
 			Val = precision.HasValue ? mpir.mpfr_init2(precision.Value) : mpir.mpfr_init();
 		}
 
-		public mpfr(mpfr op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(mpfr op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(mpf op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(mpf op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_f(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(mpz op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(mpz op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_z(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(mpq op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(mpq op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_q(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(int op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(int op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_si(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(uint op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(uint op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_ui(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(double op, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(double op, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_d(this, op, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(mpz op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(mpz op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_z_2exp(this, op, e, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(int op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(int op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_si_2exp(this, op, e, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(uint op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(uint op, long e, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_ui_2exp(this, op, e, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(string s, uint @base, long? precision = null, RoundingMode? roundingMode = null) : this(precision)
+		public mpfr(string s, uint @base, long? precision = null, RoundingMode? roundingMode = null) : this(precision: precision)
 		{
 			mpir.mpfr_set_str(this, s, @base, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
-		public mpfr(string s, long? precision = null, RoundingMode? roundingMode = null) : this(s, _DEFAULT_STRING_BASE, precision, roundingMode)
+		public mpfr(string s, long? precision = null, RoundingMode? roundingMode = null) : this(s, _DEFAULT_STRING_BASE, precision: precision, roundingMode: roundingMode)
 		{
 		}
 
@@ -211,15 +201,15 @@ namespace Mpir.NET
 
 		#region Predefined Values
 
-		public static readonly mpfr NegativeTen;
-		public static readonly mpfr NegativeThree;
-		public static readonly mpfr NegativeTwo;
-		public static readonly mpfr NegativeOne;
-		public static readonly mpfr Zero;
-		public static readonly mpfr One;
-		public static readonly mpfr Two;
-		public static readonly mpfr Three;
-		public static readonly mpfr Ten;
+		public static readonly mpfr NegativeTen = new mpfr(-10, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr NegativeThree = new mpfr(-3, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr NegativeTwo = new mpfr(-2, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr NegativeOne = new mpfr(-1, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr Zero = new mpfr(0, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr One = new mpfr(1, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr Two = new mpfr(2, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr Three = new mpfr(3, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr Ten = new mpfr(10, precision: _DEFAULT_PRECISION, roundingMode: null);
 
 		public static readonly mpfr NaN;
 		public static readonly mpfr PlusInfinity;
@@ -238,238 +228,238 @@ namespace Mpir.NET
 
 		public virtual mpfr Add(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_add(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Add(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_add_ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Add(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_add_si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Add(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_add_d(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Add(mpz x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_add_z(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Add(mpq x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_add_q(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_sub(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sub_ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sub_si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sub_d(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(mpz x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sub_z(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Subtract(mpq x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sub_q(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr SubtractFrom(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_sub(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr SubtractFrom(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_ui_sub(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr SubtractFrom(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_si_sub(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr SubtractFrom(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_d_sub(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr SubtractFrom(mpz x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_z_sub(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_mul(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_d(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(mpz x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_z(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Multiply(mpq x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_q(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Square(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sqr(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_div(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_d(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(mpz x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_z(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Divide(mpq x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_q(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideFrom(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_div(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideFrom(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_ui_div(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideFrom(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_si_div(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideFrom(double x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_d_div(fr, x, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -481,91 +471,91 @@ namespace Mpir.NET
 
 		public virtual mpfr Negate(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_neg(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Abs(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_abs(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Power(mpfr exponent, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_pow(fr, this, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Power(uint exponent, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_pow_ui(fr, this, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Power(int exponent, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_pow_si(fr, this, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Power(mpz exponent, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_pow_z(fr, this, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Power(uint x, uint exponent, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_ui_pow_ui(fr, x, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Power(uint x, mpfr exponent, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_ui_pow(fr, x, exponent, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr PositiveDifference(mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(Precision, x.Precision));
 			mpir.mpfr_dim(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr MultiplyBy2Exp(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_2ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr MultiplyBy2Exp(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_mul_2si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideBy2Exp(uint x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_2ui(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr DivideBy2Exp(int x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_div_2si(fr, this, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -576,14 +566,14 @@ namespace Mpir.NET
 
 		public virtual mpfr Sqrt(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sqrt(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Sqrt(uint x, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_sqrt_ui(fr, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -598,21 +588,21 @@ namespace Mpir.NET
 
 		public virtual mpfr InverseSqrt(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rec_sqrt(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr CubeRoot(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_cbrt(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Root(uint n, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_root(fr, this, n, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -631,196 +621,196 @@ namespace Mpir.NET
 
 		public virtual mpfr Log(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_log(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Log2(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_log2(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Log10(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_log10(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Exp(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_exp(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Exp2(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_exp2(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Exp10(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_exp10(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Cos(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_cos(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Sin(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sin(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Tan(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_tan(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public void SinCos(out mpfr sin, out mpfr cos, RoundingMode? roundingMode = null)
 		{
-			sin = new mpfr(Precision);
-			cos = new mpfr(Precision);
+			sin = new mpfr(precision: Precision);
+			cos = new mpfr(precision: Precision);
 			mpir.mpfr_sin_cos(sin, cos, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
 		public virtual mpfr Sec(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sec(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Csc(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_csc(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Cot(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_cot(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcCos(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_acos(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcSin(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_asin(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcTan(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_atan(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr ArcTan2(mpfr y, mpfr x, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(y.Precision, x.Precision));
+			var fr = new mpfr(precision: Math.Max(y.Precision, x.Precision));
 			mpir.mpfr_atan2(fr, y, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Cosh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_cosh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Sinh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sinh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Tanh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_tanh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public void SinhCosh(out mpfr sinh, out mpfr cosh, RoundingMode? roundingMode = null)
 		{
-			sinh = new mpfr(Precision);
-			cosh = new mpfr(Precision);
+			sinh = new mpfr(precision: Precision);
+			cosh = new mpfr(precision: Precision);
 			mpir.mpfr_sinh_cosh(sinh, cosh, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
 		public virtual mpfr Sech(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_sech(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Csch(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_csch(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Coth(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_coth(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcCosh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_acosh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcSinh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_asinh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr ArcTanh(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_atanh(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Factorial(uint x, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_fac_ui(fr, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -835,70 +825,70 @@ namespace Mpir.NET
 
 		public virtual mpfr Log1p(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_log1p(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Expm1(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_expm1(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Eint(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_eint(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Li2(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_li2(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Gamma(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_gamma(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr LnGamma(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_lngamma(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr LGamma(out int sign, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_lgamma(fr, out sign, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Digamma(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_digamma(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Zeta(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_zeta(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Zeta(uint x, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_zeta_ui(fr, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -913,119 +903,119 @@ namespace Mpir.NET
 
 		public virtual mpfr Erf(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_erf(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Erfc(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_erfc(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr J0(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_j0(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr J1(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_j1(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Jn(int n, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_jn(fr, n, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Y0(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_y0(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Y1(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_y1(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Yn(int n, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_yn(fr, n, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Fma(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_fma(fr, this, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Fms(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_fms(fr, this, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr AGM(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(x.Precision, y.Precision));
+			var fr = new mpfr(precision: Math.Max(x.Precision, y.Precision));
 			mpir.mpfr_agm(fr, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Hypot(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(x.Precision, y.Precision));
+			var fr = new mpfr(precision: Math.Max(x.Precision, y.Precision));
 			mpir.mpfr_hypot(fr, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Ai(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_ai(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr ConstLog2(long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_const_log2(fr, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr ConstPi(long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_const_pi(fr, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr ConstEuler(long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_const_euler(fr, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr ConstCatalan(long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_const_catalan(fr, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -1036,98 +1026,98 @@ namespace Mpir.NET
 
 		public virtual mpfr Rint(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rint(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Ceil()
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_ceil(fr, this);
 			return fr;
 		}
 
 		public virtual mpfr Floor()
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_floor(fr, this);
 			return fr;
 		}
 
 		public virtual mpfr Round()
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_round(fr, this);
 			return fr;
 		}
 
 		public virtual mpfr Trunc()
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_trunc(fr, this);
 			return fr;
 		}
 
 		public virtual mpfr RintCeil(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rint_ceil(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr RintFloor(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rint_floor(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr RintRound(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rint_round(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr RintTrunc(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_rint_trunc(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Frac(RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_frac(fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static void Modf(mpfr x, out mpfr @int, out mpfr frac, RoundingMode? roundingMode = null)
 		{
-			@int = new mpfr(x.Precision);
-			frac = new mpfr(x.Precision);
+			@int = new mpfr(precision: x.Precision);
+			frac = new mpfr(precision: x.Precision);
 			mpir.mpfr_modf(@int, frac, x, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 		}
 
 		public virtual mpfr Fmod(mpfr y, RoundingMode? roundingMode = null)
 		{
-			var r = new mpfr(Math.Max(Precision, y.Precision));
+			var r = new mpfr(precision: Math.Max(Precision, y.Precision));
 			mpir.mpfr_fmod(r, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return r;
 		}
 
 		public virtual mpfr Remainder(mpfr y, RoundingMode? roundingMode = null)
 		{
-			var r = new mpfr(Math.Max(Precision, y.Precision));
+			var r = new mpfr(precision: Math.Max(Precision, y.Precision));
 			mpir.mpfr_remainder(r, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return r;
 		}
 
 		public virtual mpfr RemainderQuotient(mpfr y, out int q, RoundingMode? roundingMode = null)
 		{
-			var r = new mpfr(Math.Max(Precision, y.Precision));
+			var r = new mpfr(precision: Math.Max(Precision, y.Precision));
 			mpir.mpfr_remquo(r, out q, this, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return r;
 		}
@@ -1175,43 +1165,43 @@ namespace Mpir.NET
 
 		public static mpfr Min(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(x.Precision, y.Precision));
+			var fr = new mpfr(precision: Math.Max(x.Precision, y.Precision));
 			mpir.mpfr_min(fr, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr Max(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Math.Max(x.Precision, y.Precision));
+			var fr = new mpfr(precision: Math.Max(x.Precision, y.Precision));
 			mpir.mpfr_max(fr, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr GetUniformlyDistributedRandomBits(randstate state, long? precision = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_urandomb(fr, state);
 			return fr;
 		}
 
 		public static mpfr GetUniformlyDistributedRandomFloat(randstate state, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_urandom(fr, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr GetGaussianDistributedRandomFloat(randstate state, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_grandom(fr, null, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public static mpfr GetGaussianDistributedRandomFloats(out mpfr fr2, randstate state, long? precision = null, RoundingMode? roundingMode = null)
 		{
-			var fr1 = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
-			fr2 = new mpfr(precision.GetValueOrDefault(DefaultPrecision));
+			var fr1 = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
+			fr2 = new mpfr(precision: precision.GetValueOrDefault(DefaultPrecision));
 			mpir.mpfr_grandom(fr1, fr2, state, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr1;
 		}
@@ -1223,14 +1213,14 @@ namespace Mpir.NET
 
 		public virtual mpfr SetSignBit(int sign, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_setsign(fr, this, sign, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr CopySignBit(mpfr sign, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_copysign(fr, this, sign, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -1484,7 +1474,7 @@ namespace Mpir.NET
 			if (obj is sbyte)
 				return CompareTo((sbyte) obj);
 			if (obj is string)
-				return CompareTo(new mpfr((string) obj, Precision, null));
+				return CompareTo(new mpfr((string) obj, _DEFAULT_STRING_BASE, precision: Precision, roundingMode: null));
 
 			throw new ArgumentException("Cannot compare to " + obj.GetType());
 		}
@@ -1675,7 +1665,7 @@ namespace Mpir.NET
 
 		public mpfr Clone()
 		{
-			return new mpfr(this, Precision, null);
+			return new mpfr(this, precision: Precision, roundingMode: null);
 		}
 
 		#endregion
@@ -1703,14 +1693,14 @@ namespace Mpir.NET
 
 		public mpf ToMpf(RoundingMode? roundingMode = null)
 		{
-			var f = new mpf((ulong) Precision);
+			var f = new mpf(precision: (ulong) Precision);
 			mpir.mpfr_get_f(f, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return f;
 		}
 
 		public virtual mpfr ToMpfr2Exp(out long exponentOfTwo, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(Precision);
+			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_frexp(out exponentOfTwo, fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -1889,47 +1879,47 @@ namespace Mpir.NET
 
 		public static implicit operator mpfr(byte value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(int value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(uint value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(short value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(ushort value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(long value)
 		{
-			return new mpfr((mpz) value, null, null);
+			return new mpfr((mpz) value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(ulong value)
 		{
-			return new mpfr((mpz) value, null, null);
+			return new mpfr((mpz) value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(float value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static implicit operator mpfr(double value)
 		{
-			return new mpfr(value, null, null);
+			return new mpfr(value, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static explicit operator mpfr(mpz value)
@@ -1949,7 +1939,7 @@ namespace Mpir.NET
 
 		public static explicit operator mpfr(string value)
 		{
-			return new mpfr(value, _DEFAULT_STRING_BASE, null, null);
+			return new mpfr(value, _DEFAULT_STRING_BASE, precision: DefaultPrecision, roundingMode: null);
 		}
 
 		public static explicit operator byte(mpfr value)
