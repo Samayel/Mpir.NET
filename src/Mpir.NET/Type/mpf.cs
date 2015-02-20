@@ -641,7 +641,7 @@ namespace Mpir.NET
 			return Clone();
 		}
 
-		public mpf Clone()
+		public virtual mpf Clone()
 		{
 			return new mpf(this, precision: Precision);
 		}

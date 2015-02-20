@@ -568,7 +568,7 @@ namespace Mpir.NET
 			return Clone();
 		}
 
-		public mpq Clone()
+		public virtual mpq Clone()
 		{
 			return new mpq(this);
 		}

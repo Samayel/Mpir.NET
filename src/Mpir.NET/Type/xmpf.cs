@@ -178,6 +178,15 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Cloning
+
+		public override mpf Clone()
+		{
+			return new xmpf(this);
+		}
+
+		#endregion
+
 		#region Mutable / Immutable
 
 		public override bool IsMutable
@@ -192,7 +201,7 @@ namespace Mpir.NET
 
 		public override mpf AsImmutable()
 		{
-			return Clone();
+			return new mpf(this, precision: Precision);
 		}
 
 		#endregion

@@ -524,6 +524,15 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Cloning
+
+		public override mpz Clone()
+		{
+			return new xmpz(this);
+		}
+
+		#endregion
+
 		#region Mutable / Immutable
 
 		public override bool IsMutable

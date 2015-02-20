@@ -733,6 +733,15 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Cloning
+
+		public override mpfr Clone()
+		{
+			return new xmpfr(this);
+		}
+
+		#endregion
+
 		#region Conversions
 
 		public override mpfr ToMpfr2Exp(out long exponentOfTwo, RoundingMode? roundingMode = null)
@@ -757,7 +766,7 @@ namespace Mpir.NET
 
 		public override mpfr AsImmutable()
 		{
-			return Clone();
+			return new mpfr(this, precision: Precision, roundingMode: null);
 		}
 
 		#endregion

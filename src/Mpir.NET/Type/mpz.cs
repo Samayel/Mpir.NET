@@ -1955,7 +1955,7 @@ namespace Mpir.NET
 			return Clone();
 		}
 
-		public mpz Clone()
+		public virtual mpz Clone()
 		{
 			return new mpz(this);
 		}

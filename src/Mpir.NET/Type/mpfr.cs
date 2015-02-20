@@ -1663,7 +1663,7 @@ namespace Mpir.NET
 			return Clone();
 		}
 
-		public mpfr Clone()
+		public virtual mpfr Clone()
 		{
 			return new mpfr(this, precision: Precision, roundingMode: null);
 		}
@@ -1734,6 +1734,11 @@ namespace Mpir.NET
 		{
 			long exp;
 			string digits = mpir.mpfr_get_str(null, out exp, @base, maxDigits, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
+			if (!IsNumber())
+			{
+				return digits;
+			}
+
 			string sign = String.Empty;
 
 			if (digits.StartsWith("-"))

@@ -179,6 +179,15 @@ namespace Mpir.NET
 
 		#endregion
 
+		#region Cloning
+
+		public override mpq Clone()
+		{
+			return new xmpq(this);
+		}
+
+		#endregion
+
 		#region Mutable / Immutable
 
 		public override bool IsMutable
