@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Disable warning about missing XML comments.
-#pragma warning disable 1591
-
 namespace Mpir.NET
 {
 	public class randstate : IDisposable, ICloneable

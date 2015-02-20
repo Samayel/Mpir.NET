@@ -7,9 +7,6 @@ using System.Text;
 
 namespace Mpir.NET
 {
-	// Disable warning about missing XML comments.
-	#pragma warning disable 1591
-
 	public class mpz : IDisposable, ICloneable, IConvertible, IComparable, IComparable<mpz>, IComparable<mpq>, IComparable<mpf>, IComparable<int>, IComparable<uint>, IComparable<long>, IComparable<ulong>, IComparable<float>, IComparable<double>, IEquatable<mpz>, IEquatable<mpq>, IEquatable<mpf>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<float>, IEquatable<double>
 	{
 		#region Data
@@ -1992,8 +1989,8 @@ namespace Mpir.NET
 		{
 			return new mpfr(
 				this,
-				null,
-				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) BitLength + 16)
+				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) BitLength + 16),
+				null
 			);
 		}
 

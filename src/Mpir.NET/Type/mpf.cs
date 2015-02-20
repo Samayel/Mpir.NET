@@ -6,9 +6,6 @@ using System.Text;
 
 namespace Mpir.NET
 {
-	// Disable warning about missing XML comments.
-	#pragma warning disable 1591
-
 	public class mpf : IDisposable, ICloneable, IConvertible, IComparable, IComparable<mpz>, IComparable<mpq>, IComparable<mpf>, IComparable<int>, IComparable<uint>, IComparable<long>, IComparable<ulong>, IComparable<float>, IComparable<double>, IEquatable<mpz>, IEquatable<mpq>, IEquatable<mpf>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<float>, IEquatable<double>
 	{
 		#region Data
@@ -189,6 +186,13 @@ namespace Mpir.NET
 				: Add((uint) -x);
 		}
 
+		public virtual mpf SubtractFrom(mpf x)
+		{
+			var f = new mpf(Math.Max(Precision, x.Precision));
+			mpir.mpf_sub(f, x, this);
+			return f;
+		}
+
 		public virtual mpf SubtractFrom(uint x)
 		{
 			var f = new mpf(Precision);
@@ -248,6 +252,13 @@ namespace Mpir.NET
 			return (x >= 0)
 				? Divide((uint) x)
 				: Divide((uint) -x).Negate();
+		}
+
+		public virtual mpf DivideFrom(mpf x)
+		{
+			var f = new mpf(Math.Max(Precision, x.Precision));
+			mpir.mpf_div(f, x, this);
+			return f;
 		}
 
 		public virtual mpf DivideFrom(uint x)
@@ -656,7 +667,7 @@ namespace Mpir.NET
 
 		public mpfr ToMpfr()
 		{
-			return new mpfr(this, null, (long) Precision);
+			return new mpfr(this, (long) Precision, null);
 		}
 
 		public double ToDouble(out int exponentOfTwo)

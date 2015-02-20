@@ -74,6 +74,12 @@ namespace Mpir.NET
 			return this;
 		}
 
+		public override mpq SubtractFrom(mpq x)
+		{
+			mpir.mpq_sub(this, x, this);
+			return this;
+		}
+
 		public override mpq Multiply(mpq x)
 		{
 			mpir.mpq_mul(this, this, x);
@@ -89,6 +95,12 @@ namespace Mpir.NET
 		public override mpq Divide(mpq x)
 		{
 			mpir.mpq_div(this, this, x);
+			return this;
+		}
+
+		public override mpq DivideFrom(mpq x)
+		{
+			mpir.mpq_div(this, x, this);
 			return this;
 		}
 

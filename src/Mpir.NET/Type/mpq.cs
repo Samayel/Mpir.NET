@@ -5,9 +5,6 @@ using System.Text;
 
 namespace Mpir.NET
 {
-	// Disable warning about missing XML comments.
-	#pragma warning disable 1591
-
 	public class mpq : IDisposable, ICloneable, IConvertible, IComparable, IComparable<mpz>, IComparable<mpq>, IComparable<mpf>, IComparable<int>, IComparable<uint>, IComparable<long>, IComparable<ulong>, IComparable<float>, IComparable<double>, IEquatable<mpz>, IEquatable<mpq>, IEquatable<mpf>, IEquatable<int>, IEquatable<uint>, IEquatable<long>, IEquatable<ulong>, IEquatable<float>, IEquatable<double>
 	{
 		#region Data
@@ -189,6 +186,13 @@ namespace Mpir.NET
 			return q;
 		}
 
+		public virtual mpq SubtractFrom(mpq x)
+		{
+			var q = new mpq();
+			mpir.mpq_sub(q, x, this);
+			return q;
+		}
+
 		public virtual mpq Multiply(mpq x)
 		{
 			var q = new mpq();
@@ -219,6 +223,13 @@ namespace Mpir.NET
 		{
 			var q = new mpq();
 			mpir.mpq_div(q, this, x);
+			return q;
+		}
+
+		public virtual mpq DivideFrom(mpq x)
+		{
+			var q = new mpq();
+			mpir.mpq_div(q, x, this);
 			return q;
 		}
 
@@ -596,8 +607,8 @@ namespace Mpir.NET
 		{
 			return new mpfr(
 				this,
-				null,
-				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32)
+				precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
+				null
 			);
 		}
 

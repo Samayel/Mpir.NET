@@ -368,6 +368,7 @@ namespace Mpir.NET
 
 		#region prime
 
+		[Obsolete]
 		public override mpz NextPrime()
 		{
 			mpir.mpz_nextprime(this, this);

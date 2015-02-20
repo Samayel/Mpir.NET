@@ -62,6 +62,12 @@ namespace Mpir.NET
 			return this;
 		}
 
+		public override mpf SubtractFrom(mpf x)
+		{
+			mpir.mpf_sub(this, x, this);
+			return this;
+		}
+
 		public override mpf SubtractFrom(uint x)
 		{
 			mpir.mpf_ui_sub(this, x, this);
@@ -89,6 +95,12 @@ namespace Mpir.NET
 		public override mpf Divide(uint x)
 		{
 			mpir.mpf_div_ui(this, this, x);
+			return this;
+		}
+
+		public override mpf DivideFrom(mpf x)
+		{
+			mpir.mpf_div(this, x, this);
 			return this;
 		}
 
