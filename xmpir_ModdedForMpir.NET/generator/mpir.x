@@ -298,7 +298,7 @@ function sint32 mpfr_frexp (out mpfr_exp_t expptr, in mpfr_handle rop, in mpfr_h
 function mpfr_exp_t mpfr_get_z_2exp (in mpz_handle rop, in mpfr_handle op);
 function sint32 mpfr_get_z (in mpz_handle rop, in mpfr_handle op, in mpfr_rnd_t rnd);
 function sint32 mpfr_get_f (in mpf_handle rop, in mpfr_handle op, in mpfr_rnd_t rnd);
-function str_pointer mpfr_get_str (in str_pointer str, out mpfr_exp_t expptr, in uint32 base, in uint32 n_digits, in mpfr_handle op, in mpfr_rnd_t rnd);
+function str_pointer mpfr_get_str (in str_null_pointer str, out mpfr_exp_t expptr, in uint32 base, in uint32 n_digits, in mpfr_handle op, in mpfr_rnd_t rnd);
 function sint32 mpfr_fits_ulong_p (in mpfr_handle op, in mpfr_rnd_t rnd);
 function sint32 mpfr_fits_slong_p (in mpfr_handle op, in mpfr_rnd_t rnd);
 function sint32 mpfr_fits_uint_p (in mpfr_handle op, in mpfr_rnd_t rnd);

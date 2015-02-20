@@ -4128,17 +4128,11 @@ public static partial class mpir
         int __retval;
         string result;
         IntPtr __result;
-        byte[] __ba_str = System.Text.Encoding.UTF8.GetBytes(str+"\0");
-        IntPtr __str;
-        __retval = xmpir_malloc(out __str, str.Length+1);
-        if( __retval!=0 ) HandleError(__retval);
-        Marshal.Copy(__ba_str, 0, __str, str.Length+1);
+        IntPtr __str = IntPtr.Zero;
         __retval= xmpir_mpfr_get_str(out __result, __str, out expptr, _base, n_digits, op.Val, rnd);
         if( __retval!=0 ) HandleError(__retval);
        result = Marshal.PtrToStringAnsi(__result);
        __retval = xmpir_free(__result);
-       if( __retval!=0 ) HandleError(__retval);
-       __retval = xmpir_free(__str);
        if( __retval!=0 ) HandleError(__retval);
         return result;
     }

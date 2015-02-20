@@ -208,6 +208,8 @@ function XMPIR_GenerateCExports($name, $type, $params)
             $s .= "*";
         if( $p['passingtype']!='in' and $p['passingtype']!='out' and $p['type']=='str_pointer' )
             exit("\nString pointers may be passed as 'in' or 'out' parameters only! 'ref' and 'inout' are not allowed!\n");
+        if( $p['passingtype']!='in' and $p['type']=='str_null_pointer' )
+            exit("\nString null pointers may be passed as 'in' parameters only! 'out', 'ref' and 'inout' are not allowed!\n");
         if( $p['type']=='mp_bitcnt_t' || $p['type']=='mp_size_t' || $p['type']=='mp_exp_t' || $p['type']=='mpfr_prec_t' || $p['type']=='mpfr_exp_t')
             $p['name'] = "__$p[name]";
         $arr[] = "$s $p[name]";        
@@ -292,6 +294,7 @@ function XMPIR_CoreType($type)
         case 'double':
             return "double";
         case 'str_pointer':
+		case 'str_null_pointer':
             return "char*";
         case 'mp_bitcnt_t':
         case 'mpir_ui':

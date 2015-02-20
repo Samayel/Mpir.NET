@@ -38,6 +38,16 @@ namespace Mpir.NET
 			DefaultPrecision = _DEFAULT_PRECISION;
 			DefaultRoundingMode = _DEFAULT_ROUNDING_MODE;
 
+			NegativeTen = new mpfr(-10, _DEFAULT_PRECISION);
+			NegativeThree = new mpfr(-3, _DEFAULT_PRECISION);
+			NegativeTwo = new mpfr(-2, _DEFAULT_PRECISION);
+			NegativeOne = new mpfr(-1, _DEFAULT_PRECISION);
+			Zero = new mpfr(0, _DEFAULT_PRECISION);
+			One = new mpfr(1, _DEFAULT_PRECISION);
+			Two = new mpfr(2, _DEFAULT_PRECISION);
+			Three = new mpfr(3, _DEFAULT_PRECISION);
+			Ten = new mpfr(10, _DEFAULT_PRECISION);
+
 			NaN = new mpfr(_DEFAULT_PRECISION);
 			PlusInfinity = new mpfr(_DEFAULT_PRECISION);
 			MinusInfinity = new mpfr(_DEFAULT_PRECISION);
@@ -201,15 +211,15 @@ namespace Mpir.NET
 
 		#region Predefined Values
 
-		public static readonly mpfr NegativeTen = new mpfr(-10, _DEFAULT_PRECISION);
-		public static readonly mpfr NegativeThree = new mpfr(-3, _DEFAULT_PRECISION);
-		public static readonly mpfr NegativeTwo = new mpfr(-2, _DEFAULT_PRECISION);
-		public static readonly mpfr NegativeOne = new mpfr(-1, _DEFAULT_PRECISION);
-		public static readonly mpfr Zero = new mpfr(0, _DEFAULT_PRECISION);
-		public static readonly mpfr One = new mpfr(1, _DEFAULT_PRECISION);
-		public static readonly mpfr Two = new mpfr(2, _DEFAULT_PRECISION);
-		public static readonly mpfr Three = new mpfr(3, _DEFAULT_PRECISION);
-		public static readonly mpfr Ten = new mpfr(10, _DEFAULT_PRECISION);
+		public static readonly mpfr NegativeTen;
+		public static readonly mpfr NegativeThree;
+		public static readonly mpfr NegativeTwo;
+		public static readonly mpfr NegativeOne;
+		public static readonly mpfr Zero;
+		public static readonly mpfr One;
+		public static readonly mpfr Two;
+		public static readonly mpfr Three;
+		public static readonly mpfr Ten;
 
 		public static readonly mpfr NaN;
 		public static readonly mpfr PlusInfinity;

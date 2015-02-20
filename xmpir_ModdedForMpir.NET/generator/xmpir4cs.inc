@@ -179,6 +179,8 @@ function CSharpMPIR_GenerateDelegate($name, $type, $params)
             $s = "ref $s";
         if( $p['passingtype']!='in' and $p['passingtype']!='out' and $p['type']=='str_pointer' )
             exit("\nString pointers may be passed as 'in' or 'out' parameters only! 'ref' and 'inout' are not allowed!\n");
+        if( $p['passingtype']!='in' and $p['type']=='str_null_pointer' )
+            exit("\nString null pointers may be passed as 'in' parameters only! 'out', 'ref' and 'inout' are not allowed!\n");
         $arr[] = "$s $p[name]";        
     }
     $params = implode(", ",$arr);
@@ -219,6 +221,8 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
                 $s = "ref $s";
             if( $p['passingtype']!='in' and $p['passingtype']!='out' and $p['type']=='str_pointer' )
                 exit("\nString pointers may be passed as 'in' or 'out' parameters only! 'ref' and 'inout' are not allowed!\n");
+			if( $p['passingtype']!='in' and $p['type']=='str_null_pointer' )
+				exit("\nString null pointers may be passed as 'in' parameters only! 'out', 'ref' and 'inout' are not allowed!\n");
             $arr_decl[] = "$s $p[name]";
         }
         
@@ -242,6 +246,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
             $s = "$p[name]";
             break;
         case 'str_pointer':
+		case 'str_null_pointer':
             $s = "__$p[name]";
             break;
         case 'mpz_handle':
@@ -286,6 +291,10 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
             $pre_call_code .= "        Marshal.Copy(__ba_$p[name], 0, __$p[name], $p[name].Length+1);\n";
             $post_call_code .= "       __retval = xmpir_free(__$p[name]);\n";
             $post_call_code .= "       if( __retval!=0 ) HandleError(__retval);\n";
+        }        
+        if( $p['passingtype']=='in' and $p['type']=='str_null_pointer' )
+        {
+            $pre_call_code .= "        IntPtr __$p[name] = IntPtr.Zero;\n";
         }        
         
         //
@@ -345,6 +354,7 @@ function CSharpMPIR_CSharpRawType($type)
         case 'mpfr_exp_t':
             return "long";
         case 'str_pointer':
+		case 'str_null_pointer':
         case 'mpz_handle':
         case 'mpq_handle':
         case 'mpf_handle':
@@ -382,6 +392,7 @@ function CSharpMPIR_CSharpType($type)
         case 'double':
             return "double";
         case 'str_pointer':
+		case 'str_null_pointer':
             return "string";
         case 'mp_bitcnt_t':
         case 'mpir_ui':
