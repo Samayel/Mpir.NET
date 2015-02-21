@@ -404,7 +404,7 @@ namespace Mpir.NET
 
 		public override int GetHashCode()
 		{
-			return ToMpq().GetHashCode();
+			return ToString().GetHashCode();
 		}
 
 		public bool Equals(mpf other)

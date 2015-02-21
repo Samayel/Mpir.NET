@@ -1350,7 +1350,7 @@ namespace Mpir.NET
 
 		public override int GetHashCode()
 		{
-			return ToMpf().GetHashCode();
+			return ToString().GetHashCode();
 		}
 
 		public bool Equals(mpfr other)
