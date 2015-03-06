@@ -73,6 +73,7 @@
       <DependentUpon>Transcendental.cs</DependentUpon>
     </Compile>
     <Compile Include="Math\Transcendental.cs" />
+    <Compile Include="Type\mpc.cs" />
     <Compile Include="Type\mpfr.cs" />
     <Compile Include="Type\randstate.cs" />
     <Compile Include="Math\Constant.e.cs">
@@ -86,6 +87,9 @@
     <Compile Include="mpir.cs" />
     <Compile Include="Type\mpq.cs" />
     <Compile Include="Type\mpz.cs" />
+    <Compile Include="Type\xmpc.cs">
+      <DependentUpon>mpc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Type\xmpf.cs">
       <DependentUpon>mpf.cs</DependentUpon>
     </Compile>

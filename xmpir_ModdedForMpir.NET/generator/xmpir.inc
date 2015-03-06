@@ -290,6 +290,7 @@ function XMPIR_CoreType($type)
             return "unsigned int";
         case 'sint32':
 		case 'mpfr_rnd_t':
+		case 'mpc_rnd_t':
             return "signed int";
         case 'double':
             return "double";

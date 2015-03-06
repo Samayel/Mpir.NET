@@ -243,6 +243,7 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
 		case 'mpfr_prec_t':
 		case 'mpfr_exp_t':
 		case 'mpfr_rnd_t':
+		case 'mpc_rnd_t':
             $s = "$p[name]";
             break;
         case 'str_pointer':
@@ -341,6 +342,7 @@ function CSharpMPIR_CSharpRawType($type)
             return "uint";
         case 'sint32':
 		case 'mpfr_rnd_t':
+		case 'mpc_rnd_t':
             return "int";
         case 'double':
             return "double";
@@ -388,6 +390,7 @@ function CSharpMPIR_CSharpType($type)
             return "uint";
         case 'sint32':
 		case 'mpfr_rnd_t':
+		case 'mpc_rnd_t':
             return "int";
         case 'double':
             return "double";

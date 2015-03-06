@@ -606,7 +606,15 @@ namespace Mpir.NET
 		{
 			return new mpfr(
 				this,
-				precision: precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long)Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
+				precision: precision.HasValue ? precision.Value : Math.Max(mpfr.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
+				roundingMode: null);
+		}
+
+		public mpc ToMpc(long? precision = null)
+		{
+			return new mpc(
+				this,
+				precision: precision.HasValue ? precision.Value : Math.Max(mpc.DefaultPrecision, (long) Math.Max(Numerator.BitLength, Denominator.BitLength) + 32),
 				roundingMode: null);
 		}
 

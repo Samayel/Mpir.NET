@@ -75,10 +75,13 @@ public static partial class mpir
     private static IntPtr __ptr__xmpir_mpfr_init_set_q = GetProcAddressSafe(hxmpir, "xmpir_mpfr_init_set_q");
     private static IntPtr __ptr__xmpir_mpfr_init_set_f = GetProcAddressSafe(hxmpir, "xmpir_mpfr_init_set_f");
     private static IntPtr __ptr__xmpir_mpfr_init_set_str = GetProcAddressSafe(hxmpir, "xmpir_mpfr_init_set_str");
+    private static IntPtr __ptr__xmpir_mpc_init2 = GetProcAddressSafe(hxmpir, "xmpir_mpc_init2");
+    private static IntPtr __ptr__xmpir_mpc_init3 = GetProcAddressSafe(hxmpir, "xmpir_mpc_init3");
     private static IntPtr __ptr__xmpir_mpz_clear = GetProcAddressSafe(hxmpir, "xmpir_mpz_clear");
     private static IntPtr __ptr__xmpir_mpq_clear = GetProcAddressSafe(hxmpir, "xmpir_mpq_clear");
     private static IntPtr __ptr__xmpir_mpf_clear = GetProcAddressSafe(hxmpir, "xmpir_mpf_clear");
     private static IntPtr __ptr__xmpir_mpfr_clear = GetProcAddressSafe(hxmpir, "xmpir_mpfr_clear");
+    private static IntPtr __ptr__xmpir_mpc_clear = GetProcAddressSafe(hxmpir, "xmpir_mpc_clear");
     private static IntPtr __ptr__xmpir_xmpir_dummy = GetProcAddressSafe(hxmpir, "xmpir_xmpir_dummy");
     private static IntPtr __ptr__xmpir_xmpir_dummy_add = GetProcAddressSafe(hxmpir, "xmpir_xmpir_dummy_add");
     private static IntPtr __ptr__xmpir_xmpir_dummy_3mpz = GetProcAddressSafe(hxmpir, "xmpir_xmpir_dummy_3mpz");
@@ -540,6 +543,88 @@ public static partial class mpir
     private static IntPtr __ptr__xmpir_mpfr_nanflag_p = GetProcAddressSafe(hxmpir, "xmpir_mpfr_nanflag_p");
     private static IntPtr __ptr__xmpir_mpfr_inexflag_p = GetProcAddressSafe(hxmpir, "xmpir_mpfr_inexflag_p");
     private static IntPtr __ptr__xmpir_mpfr_erangeflag_p = GetProcAddressSafe(hxmpir, "xmpir_mpfr_erangeflag_p");
+    private static IntPtr __ptr__xmpir_mpc_set_prec = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_prec");
+    private static IntPtr __ptr__xmpir_mpc_get_prec = GetProcAddressSafe(hxmpir, "xmpir_mpc_get_prec");
+    private static IntPtr __ptr__xmpir_mpc_get_prec2 = GetProcAddressSafe(hxmpir, "xmpir_mpc_get_prec2");
+    private static IntPtr __ptr__xmpir_mpc_set = GetProcAddressSafe(hxmpir, "xmpir_mpc_set");
+    private static IntPtr __ptr__xmpir_mpc_set_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_ui");
+    private static IntPtr __ptr__xmpir_mpc_set_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_si");
+    private static IntPtr __ptr__xmpir_mpc_set_d = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_d");
+    private static IntPtr __ptr__xmpir_mpc_set_z = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_z");
+    private static IntPtr __ptr__xmpir_mpc_set_q = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_q");
+    private static IntPtr __ptr__xmpir_mpc_set_f = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_f");
+    private static IntPtr __ptr__xmpir_mpc_set_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_fr");
+    private static IntPtr __ptr__xmpir_mpc_set_ui_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_ui_ui");
+    private static IntPtr __ptr__xmpir_mpc_set_si_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_si_si");
+    private static IntPtr __ptr__xmpir_mpc_set_d_d = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_d_d");
+    private static IntPtr __ptr__xmpir_mpc_set_z_z = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_z_z");
+    private static IntPtr __ptr__xmpir_mpc_set_q_q = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_q_q");
+    private static IntPtr __ptr__xmpir_mpc_set_f_f = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_f_f");
+    private static IntPtr __ptr__xmpir_mpc_set_fr_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_fr_fr");
+    private static IntPtr __ptr__xmpir_mpc_set_nan = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_nan");
+    private static IntPtr __ptr__xmpir_mpc_swap = GetProcAddressSafe(hxmpir, "xmpir_mpc_swap");
+    private static IntPtr __ptr__xmpir_mpc_set_str = GetProcAddressSafe(hxmpir, "xmpir_mpc_set_str");
+    private static IntPtr __ptr__xmpir_mpc_get_str = GetProcAddressSafe(hxmpir, "xmpir_mpc_get_str");
+    private static IntPtr __ptr__xmpir_mpc_cmp = GetProcAddressSafe(hxmpir, "xmpir_mpc_cmp");
+    private static IntPtr __ptr__xmpir_mpc_cmp_si_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_cmp_si_si");
+    private static IntPtr __ptr__xmpir_mpc_cmp_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_cmp_si");
+    private static IntPtr __ptr__xmpir_mpc_real = GetProcAddressSafe(hxmpir, "xmpir_mpc_real");
+    private static IntPtr __ptr__xmpir_mpc_imag = GetProcAddressSafe(hxmpir, "xmpir_mpc_imag");
+    private static IntPtr __ptr__xmpir_mpc_arg = GetProcAddressSafe(hxmpir, "xmpir_mpc_arg");
+    private static IntPtr __ptr__xmpir_mpc_proj = GetProcAddressSafe(hxmpir, "xmpir_mpc_proj");
+    private static IntPtr __ptr__xmpir_mpc_add = GetProcAddressSafe(hxmpir, "xmpir_mpc_add");
+    private static IntPtr __ptr__xmpir_mpc_add_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_add_ui");
+    private static IntPtr __ptr__xmpir_mpc_add_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_add_fr");
+    private static IntPtr __ptr__xmpir_mpc_sub = GetProcAddressSafe(hxmpir, "xmpir_mpc_sub");
+    private static IntPtr __ptr__xmpir_mpc_sub_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_sub_fr");
+    private static IntPtr __ptr__xmpir_mpc_fr_sub = GetProcAddressSafe(hxmpir, "xmpir_mpc_fr_sub");
+    private static IntPtr __ptr__xmpir_mpc_sub_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_sub_ui");
+    private static IntPtr __ptr__xmpir_mpc_ui_sub = GetProcAddressSafe(hxmpir, "xmpir_mpc_ui_sub");
+    private static IntPtr __ptr__xmpir_mpc_ui_ui_sub = GetProcAddressSafe(hxmpir, "xmpir_mpc_ui_ui_sub");
+    private static IntPtr __ptr__xmpir_mpc_neg = GetProcAddressSafe(hxmpir, "xmpir_mpc_neg");
+    private static IntPtr __ptr__xmpir_mpc_mul = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul");
+    private static IntPtr __ptr__xmpir_mpc_mul_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_ui");
+    private static IntPtr __ptr__xmpir_mpc_mul_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_si");
+    private static IntPtr __ptr__xmpir_mpc_mul_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_fr");
+    private static IntPtr __ptr__xmpir_mpc_mul_i = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_i");
+    private static IntPtr __ptr__xmpir_mpc_sqr = GetProcAddressSafe(hxmpir, "xmpir_mpc_sqr");
+    private static IntPtr __ptr__xmpir_mpc_fma = GetProcAddressSafe(hxmpir, "xmpir_mpc_fma");
+    private static IntPtr __ptr__xmpir_mpc_div = GetProcAddressSafe(hxmpir, "xmpir_mpc_div");
+    private static IntPtr __ptr__xmpir_mpc_div_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_div_ui");
+    private static IntPtr __ptr__xmpir_mpc_div_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_div_fr");
+    private static IntPtr __ptr__xmpir_mpc_ui_div = GetProcAddressSafe(hxmpir, "xmpir_mpc_ui_div");
+    private static IntPtr __ptr__xmpir_mpc_fr_div = GetProcAddressSafe(hxmpir, "xmpir_mpc_fr_div");
+    private static IntPtr __ptr__xmpir_mpc_conj = GetProcAddressSafe(hxmpir, "xmpir_mpc_conj");
+    private static IntPtr __ptr__xmpir_mpc_abs = GetProcAddressSafe(hxmpir, "xmpir_mpc_abs");
+    private static IntPtr __ptr__xmpir_mpc_norm = GetProcAddressSafe(hxmpir, "xmpir_mpc_norm");
+    private static IntPtr __ptr__xmpir_mpc_mul_2ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_2ui");
+    private static IntPtr __ptr__xmpir_mpc_mul_2si = GetProcAddressSafe(hxmpir, "xmpir_mpc_mul_2si");
+    private static IntPtr __ptr__xmpir_mpc_div_2ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_div_2ui");
+    private static IntPtr __ptr__xmpir_mpc_div_2si = GetProcAddressSafe(hxmpir, "xmpir_mpc_div_2si");
+    private static IntPtr __ptr__xmpir_mpc_sqrt = GetProcAddressSafe(hxmpir, "xmpir_mpc_sqrt");
+    private static IntPtr __ptr__xmpir_mpc_pow = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow");
+    private static IntPtr __ptr__xmpir_mpc_pow_d = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow_d");
+    private static IntPtr __ptr__xmpir_mpc_pow_si = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow_si");
+    private static IntPtr __ptr__xmpir_mpc_pow_ui = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow_ui");
+    private static IntPtr __ptr__xmpir_mpc_pow_z = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow_z");
+    private static IntPtr __ptr__xmpir_mpc_pow_fr = GetProcAddressSafe(hxmpir, "xmpir_mpc_pow_fr");
+    private static IntPtr __ptr__xmpir_mpc_exp = GetProcAddressSafe(hxmpir, "xmpir_mpc_exp");
+    private static IntPtr __ptr__xmpir_mpc_log = GetProcAddressSafe(hxmpir, "xmpir_mpc_log");
+    private static IntPtr __ptr__xmpir_mpc_log10 = GetProcAddressSafe(hxmpir, "xmpir_mpc_log10");
+    private static IntPtr __ptr__xmpir_mpc_sin = GetProcAddressSafe(hxmpir, "xmpir_mpc_sin");
+    private static IntPtr __ptr__xmpir_mpc_cos = GetProcAddressSafe(hxmpir, "xmpir_mpc_cos");
+    private static IntPtr __ptr__xmpir_mpc_sin_cos = GetProcAddressSafe(hxmpir, "xmpir_mpc_sin_cos");
+    private static IntPtr __ptr__xmpir_mpc_tan = GetProcAddressSafe(hxmpir, "xmpir_mpc_tan");
+    private static IntPtr __ptr__xmpir_mpc_sinh = GetProcAddressSafe(hxmpir, "xmpir_mpc_sinh");
+    private static IntPtr __ptr__xmpir_mpc_cosh = GetProcAddressSafe(hxmpir, "xmpir_mpc_cosh");
+    private static IntPtr __ptr__xmpir_mpc_tanh = GetProcAddressSafe(hxmpir, "xmpir_mpc_tanh");
+    private static IntPtr __ptr__xmpir_mpc_asin = GetProcAddressSafe(hxmpir, "xmpir_mpc_asin");
+    private static IntPtr __ptr__xmpir_mpc_acos = GetProcAddressSafe(hxmpir, "xmpir_mpc_acos");
+    private static IntPtr __ptr__xmpir_mpc_atan = GetProcAddressSafe(hxmpir, "xmpir_mpc_atan");
+    private static IntPtr __ptr__xmpir_mpc_asinh = GetProcAddressSafe(hxmpir, "xmpir_mpc_asinh");
+    private static IntPtr __ptr__xmpir_mpc_acosh = GetProcAddressSafe(hxmpir, "xmpir_mpc_acosh");
+    private static IntPtr __ptr__xmpir_mpc_atanh = GetProcAddressSafe(hxmpir, "xmpir_mpc_atanh");
+    private static IntPtr __ptr__xmpir_mpc_urandom = GetProcAddressSafe(hxmpir, "xmpir_mpc_urandom");
 
 
 
@@ -597,6 +682,10 @@ public static partial class mpir
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_str(out IntPtr result, IntPtr str, uint _base, int rnd);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_init2(out IntPtr result, long prec);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_init3(out IntPtr result, long prec_r, long prec_i);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_clear(IntPtr v);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_clear(IntPtr v);
@@ -604,6 +693,8 @@ public static partial class mpir
     private delegate int __xmpir_mpf_clear(IntPtr v);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear(IntPtr v);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_clear(IntPtr v);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_xmpir_dummy();
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -1526,6 +1617,170 @@ public static partial class mpir
     private delegate int __xmpir_mpfr_inexflag_p(out int result);
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_erangeflag_p(out int result);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_prec(IntPtr x, long prec);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_get_prec(out long result, IntPtr x);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_get_prec2(out long pr, out long pi, IntPtr x);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_ui(out int result, IntPtr rop, uint op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_si(out int result, IntPtr rop, int op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_d(out int result, IntPtr rop, double op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_z(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_q(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_f(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_fr(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_ui_ui(out int result, IntPtr rop, uint op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_si_si(out int result, IntPtr rop, int op1, int op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_d_d(out int result, IntPtr rop, double op1, double op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_z_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_q_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_f_f(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_fr_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_nan(IntPtr rop);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_swap(IntPtr op1, IntPtr op2);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_set_str(out int result, IntPtr rop, IntPtr str, int _base, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_get_str(out IntPtr result, int _base, uint n, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_cmp(out int result, IntPtr op1, IntPtr op2);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_cmp_si_si(out int result, IntPtr op1, int op2r, int op2i);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_cmp_si(out int result, IntPtr op1, int op2);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_real(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_imag(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_arg(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_proj(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_add(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_add_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_add_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sub_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_fr_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sub_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_ui_sub(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_ui_ui_sub(out int result, IntPtr rop, uint re1, uint im1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_neg(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_i(out int result, IntPtr rop, IntPtr op, int sgn, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sqr(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_fma(out int result, IntPtr rop, IntPtr op1, IntPtr op2, IntPtr op3, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_div(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_div_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_div_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_ui_div(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_fr_div(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_conj(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_abs(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_norm(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_mul_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_div_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_div_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sqrt(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_pow_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_exp(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_log(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_log10(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_cos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sin_cos(out int result, IntPtr rop_sin, IntPtr rop_cos, IntPtr op, int rnd_sin, int rnd_cos);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_tan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_sinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_cosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_tanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_asin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_acos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_atan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_asinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_acosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_atanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate int __xmpir_mpc_urandom(out int result, IntPtr rop, IntPtr state);
 
 
 
@@ -1557,10 +1812,13 @@ public static partial class mpir
     private static __xmpir_mpfr_init_set_q xmpir_mpfr_init_set_q = (__xmpir_mpfr_init_set_q)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_init_set_q, typeof(__xmpir_mpfr_init_set_q));
     private static __xmpir_mpfr_init_set_f xmpir_mpfr_init_set_f = (__xmpir_mpfr_init_set_f)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_init_set_f, typeof(__xmpir_mpfr_init_set_f));
     private static __xmpir_mpfr_init_set_str xmpir_mpfr_init_set_str = (__xmpir_mpfr_init_set_str)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_init_set_str, typeof(__xmpir_mpfr_init_set_str));
+    private static __xmpir_mpc_init2 xmpir_mpc_init2 = (__xmpir_mpc_init2)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_init2, typeof(__xmpir_mpc_init2));
+    private static __xmpir_mpc_init3 xmpir_mpc_init3 = (__xmpir_mpc_init3)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_init3, typeof(__xmpir_mpc_init3));
     private static __xmpir_mpz_clear xmpir_mpz_clear = (__xmpir_mpz_clear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpz_clear, typeof(__xmpir_mpz_clear));
     private static __xmpir_mpq_clear xmpir_mpq_clear = (__xmpir_mpq_clear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpq_clear, typeof(__xmpir_mpq_clear));
     private static __xmpir_mpf_clear xmpir_mpf_clear = (__xmpir_mpf_clear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpf_clear, typeof(__xmpir_mpf_clear));
     private static __xmpir_mpfr_clear xmpir_mpfr_clear = (__xmpir_mpfr_clear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_clear, typeof(__xmpir_mpfr_clear));
+    private static __xmpir_mpc_clear xmpir_mpc_clear = (__xmpir_mpc_clear)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_clear, typeof(__xmpir_mpc_clear));
     private static __xmpir_xmpir_dummy xmpir_xmpir_dummy = (__xmpir_xmpir_dummy)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_xmpir_dummy, typeof(__xmpir_xmpir_dummy));
     private static __xmpir_xmpir_dummy_add xmpir_xmpir_dummy_add = (__xmpir_xmpir_dummy_add)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_xmpir_dummy_add, typeof(__xmpir_xmpir_dummy_add));
     private static __xmpir_xmpir_dummy_3mpz xmpir_xmpir_dummy_3mpz = (__xmpir_xmpir_dummy_3mpz)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_xmpir_dummy_3mpz, typeof(__xmpir_xmpir_dummy_3mpz));
@@ -2022,6 +2280,88 @@ public static partial class mpir
     private static __xmpir_mpfr_nanflag_p xmpir_mpfr_nanflag_p = (__xmpir_mpfr_nanflag_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_nanflag_p, typeof(__xmpir_mpfr_nanflag_p));
     private static __xmpir_mpfr_inexflag_p xmpir_mpfr_inexflag_p = (__xmpir_mpfr_inexflag_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_inexflag_p, typeof(__xmpir_mpfr_inexflag_p));
     private static __xmpir_mpfr_erangeflag_p xmpir_mpfr_erangeflag_p = (__xmpir_mpfr_erangeflag_p)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpfr_erangeflag_p, typeof(__xmpir_mpfr_erangeflag_p));
+    private static __xmpir_mpc_set_prec xmpir_mpc_set_prec = (__xmpir_mpc_set_prec)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_prec, typeof(__xmpir_mpc_set_prec));
+    private static __xmpir_mpc_get_prec xmpir_mpc_get_prec = (__xmpir_mpc_get_prec)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_get_prec, typeof(__xmpir_mpc_get_prec));
+    private static __xmpir_mpc_get_prec2 xmpir_mpc_get_prec2 = (__xmpir_mpc_get_prec2)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_get_prec2, typeof(__xmpir_mpc_get_prec2));
+    private static __xmpir_mpc_set xmpir_mpc_set = (__xmpir_mpc_set)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set, typeof(__xmpir_mpc_set));
+    private static __xmpir_mpc_set_ui xmpir_mpc_set_ui = (__xmpir_mpc_set_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_ui, typeof(__xmpir_mpc_set_ui));
+    private static __xmpir_mpc_set_si xmpir_mpc_set_si = (__xmpir_mpc_set_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_si, typeof(__xmpir_mpc_set_si));
+    private static __xmpir_mpc_set_d xmpir_mpc_set_d = (__xmpir_mpc_set_d)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_d, typeof(__xmpir_mpc_set_d));
+    private static __xmpir_mpc_set_z xmpir_mpc_set_z = (__xmpir_mpc_set_z)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_z, typeof(__xmpir_mpc_set_z));
+    private static __xmpir_mpc_set_q xmpir_mpc_set_q = (__xmpir_mpc_set_q)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_q, typeof(__xmpir_mpc_set_q));
+    private static __xmpir_mpc_set_f xmpir_mpc_set_f = (__xmpir_mpc_set_f)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_f, typeof(__xmpir_mpc_set_f));
+    private static __xmpir_mpc_set_fr xmpir_mpc_set_fr = (__xmpir_mpc_set_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_fr, typeof(__xmpir_mpc_set_fr));
+    private static __xmpir_mpc_set_ui_ui xmpir_mpc_set_ui_ui = (__xmpir_mpc_set_ui_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_ui_ui, typeof(__xmpir_mpc_set_ui_ui));
+    private static __xmpir_mpc_set_si_si xmpir_mpc_set_si_si = (__xmpir_mpc_set_si_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_si_si, typeof(__xmpir_mpc_set_si_si));
+    private static __xmpir_mpc_set_d_d xmpir_mpc_set_d_d = (__xmpir_mpc_set_d_d)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_d_d, typeof(__xmpir_mpc_set_d_d));
+    private static __xmpir_mpc_set_z_z xmpir_mpc_set_z_z = (__xmpir_mpc_set_z_z)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_z_z, typeof(__xmpir_mpc_set_z_z));
+    private static __xmpir_mpc_set_q_q xmpir_mpc_set_q_q = (__xmpir_mpc_set_q_q)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_q_q, typeof(__xmpir_mpc_set_q_q));
+    private static __xmpir_mpc_set_f_f xmpir_mpc_set_f_f = (__xmpir_mpc_set_f_f)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_f_f, typeof(__xmpir_mpc_set_f_f));
+    private static __xmpir_mpc_set_fr_fr xmpir_mpc_set_fr_fr = (__xmpir_mpc_set_fr_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_fr_fr, typeof(__xmpir_mpc_set_fr_fr));
+    private static __xmpir_mpc_set_nan xmpir_mpc_set_nan = (__xmpir_mpc_set_nan)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_nan, typeof(__xmpir_mpc_set_nan));
+    private static __xmpir_mpc_swap xmpir_mpc_swap = (__xmpir_mpc_swap)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_swap, typeof(__xmpir_mpc_swap));
+    private static __xmpir_mpc_set_str xmpir_mpc_set_str = (__xmpir_mpc_set_str)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_set_str, typeof(__xmpir_mpc_set_str));
+    private static __xmpir_mpc_get_str xmpir_mpc_get_str = (__xmpir_mpc_get_str)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_get_str, typeof(__xmpir_mpc_get_str));
+    private static __xmpir_mpc_cmp xmpir_mpc_cmp = (__xmpir_mpc_cmp)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_cmp, typeof(__xmpir_mpc_cmp));
+    private static __xmpir_mpc_cmp_si_si xmpir_mpc_cmp_si_si = (__xmpir_mpc_cmp_si_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_cmp_si_si, typeof(__xmpir_mpc_cmp_si_si));
+    private static __xmpir_mpc_cmp_si xmpir_mpc_cmp_si = (__xmpir_mpc_cmp_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_cmp_si, typeof(__xmpir_mpc_cmp_si));
+    private static __xmpir_mpc_real xmpir_mpc_real = (__xmpir_mpc_real)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_real, typeof(__xmpir_mpc_real));
+    private static __xmpir_mpc_imag xmpir_mpc_imag = (__xmpir_mpc_imag)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_imag, typeof(__xmpir_mpc_imag));
+    private static __xmpir_mpc_arg xmpir_mpc_arg = (__xmpir_mpc_arg)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_arg, typeof(__xmpir_mpc_arg));
+    private static __xmpir_mpc_proj xmpir_mpc_proj = (__xmpir_mpc_proj)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_proj, typeof(__xmpir_mpc_proj));
+    private static __xmpir_mpc_add xmpir_mpc_add = (__xmpir_mpc_add)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_add, typeof(__xmpir_mpc_add));
+    private static __xmpir_mpc_add_ui xmpir_mpc_add_ui = (__xmpir_mpc_add_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_add_ui, typeof(__xmpir_mpc_add_ui));
+    private static __xmpir_mpc_add_fr xmpir_mpc_add_fr = (__xmpir_mpc_add_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_add_fr, typeof(__xmpir_mpc_add_fr));
+    private static __xmpir_mpc_sub xmpir_mpc_sub = (__xmpir_mpc_sub)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sub, typeof(__xmpir_mpc_sub));
+    private static __xmpir_mpc_sub_fr xmpir_mpc_sub_fr = (__xmpir_mpc_sub_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sub_fr, typeof(__xmpir_mpc_sub_fr));
+    private static __xmpir_mpc_fr_sub xmpir_mpc_fr_sub = (__xmpir_mpc_fr_sub)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_fr_sub, typeof(__xmpir_mpc_fr_sub));
+    private static __xmpir_mpc_sub_ui xmpir_mpc_sub_ui = (__xmpir_mpc_sub_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sub_ui, typeof(__xmpir_mpc_sub_ui));
+    private static __xmpir_mpc_ui_sub xmpir_mpc_ui_sub = (__xmpir_mpc_ui_sub)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_ui_sub, typeof(__xmpir_mpc_ui_sub));
+    private static __xmpir_mpc_ui_ui_sub xmpir_mpc_ui_ui_sub = (__xmpir_mpc_ui_ui_sub)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_ui_ui_sub, typeof(__xmpir_mpc_ui_ui_sub));
+    private static __xmpir_mpc_neg xmpir_mpc_neg = (__xmpir_mpc_neg)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_neg, typeof(__xmpir_mpc_neg));
+    private static __xmpir_mpc_mul xmpir_mpc_mul = (__xmpir_mpc_mul)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul, typeof(__xmpir_mpc_mul));
+    private static __xmpir_mpc_mul_ui xmpir_mpc_mul_ui = (__xmpir_mpc_mul_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_ui, typeof(__xmpir_mpc_mul_ui));
+    private static __xmpir_mpc_mul_si xmpir_mpc_mul_si = (__xmpir_mpc_mul_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_si, typeof(__xmpir_mpc_mul_si));
+    private static __xmpir_mpc_mul_fr xmpir_mpc_mul_fr = (__xmpir_mpc_mul_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_fr, typeof(__xmpir_mpc_mul_fr));
+    private static __xmpir_mpc_mul_i xmpir_mpc_mul_i = (__xmpir_mpc_mul_i)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_i, typeof(__xmpir_mpc_mul_i));
+    private static __xmpir_mpc_sqr xmpir_mpc_sqr = (__xmpir_mpc_sqr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sqr, typeof(__xmpir_mpc_sqr));
+    private static __xmpir_mpc_fma xmpir_mpc_fma = (__xmpir_mpc_fma)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_fma, typeof(__xmpir_mpc_fma));
+    private static __xmpir_mpc_div xmpir_mpc_div = (__xmpir_mpc_div)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_div, typeof(__xmpir_mpc_div));
+    private static __xmpir_mpc_div_ui xmpir_mpc_div_ui = (__xmpir_mpc_div_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_div_ui, typeof(__xmpir_mpc_div_ui));
+    private static __xmpir_mpc_div_fr xmpir_mpc_div_fr = (__xmpir_mpc_div_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_div_fr, typeof(__xmpir_mpc_div_fr));
+    private static __xmpir_mpc_ui_div xmpir_mpc_ui_div = (__xmpir_mpc_ui_div)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_ui_div, typeof(__xmpir_mpc_ui_div));
+    private static __xmpir_mpc_fr_div xmpir_mpc_fr_div = (__xmpir_mpc_fr_div)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_fr_div, typeof(__xmpir_mpc_fr_div));
+    private static __xmpir_mpc_conj xmpir_mpc_conj = (__xmpir_mpc_conj)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_conj, typeof(__xmpir_mpc_conj));
+    private static __xmpir_mpc_abs xmpir_mpc_abs = (__xmpir_mpc_abs)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_abs, typeof(__xmpir_mpc_abs));
+    private static __xmpir_mpc_norm xmpir_mpc_norm = (__xmpir_mpc_norm)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_norm, typeof(__xmpir_mpc_norm));
+    private static __xmpir_mpc_mul_2ui xmpir_mpc_mul_2ui = (__xmpir_mpc_mul_2ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_2ui, typeof(__xmpir_mpc_mul_2ui));
+    private static __xmpir_mpc_mul_2si xmpir_mpc_mul_2si = (__xmpir_mpc_mul_2si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_mul_2si, typeof(__xmpir_mpc_mul_2si));
+    private static __xmpir_mpc_div_2ui xmpir_mpc_div_2ui = (__xmpir_mpc_div_2ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_div_2ui, typeof(__xmpir_mpc_div_2ui));
+    private static __xmpir_mpc_div_2si xmpir_mpc_div_2si = (__xmpir_mpc_div_2si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_div_2si, typeof(__xmpir_mpc_div_2si));
+    private static __xmpir_mpc_sqrt xmpir_mpc_sqrt = (__xmpir_mpc_sqrt)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sqrt, typeof(__xmpir_mpc_sqrt));
+    private static __xmpir_mpc_pow xmpir_mpc_pow = (__xmpir_mpc_pow)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow, typeof(__xmpir_mpc_pow));
+    private static __xmpir_mpc_pow_d xmpir_mpc_pow_d = (__xmpir_mpc_pow_d)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow_d, typeof(__xmpir_mpc_pow_d));
+    private static __xmpir_mpc_pow_si xmpir_mpc_pow_si = (__xmpir_mpc_pow_si)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow_si, typeof(__xmpir_mpc_pow_si));
+    private static __xmpir_mpc_pow_ui xmpir_mpc_pow_ui = (__xmpir_mpc_pow_ui)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow_ui, typeof(__xmpir_mpc_pow_ui));
+    private static __xmpir_mpc_pow_z xmpir_mpc_pow_z = (__xmpir_mpc_pow_z)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow_z, typeof(__xmpir_mpc_pow_z));
+    private static __xmpir_mpc_pow_fr xmpir_mpc_pow_fr = (__xmpir_mpc_pow_fr)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_pow_fr, typeof(__xmpir_mpc_pow_fr));
+    private static __xmpir_mpc_exp xmpir_mpc_exp = (__xmpir_mpc_exp)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_exp, typeof(__xmpir_mpc_exp));
+    private static __xmpir_mpc_log xmpir_mpc_log = (__xmpir_mpc_log)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_log, typeof(__xmpir_mpc_log));
+    private static __xmpir_mpc_log10 xmpir_mpc_log10 = (__xmpir_mpc_log10)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_log10, typeof(__xmpir_mpc_log10));
+    private static __xmpir_mpc_sin xmpir_mpc_sin = (__xmpir_mpc_sin)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sin, typeof(__xmpir_mpc_sin));
+    private static __xmpir_mpc_cos xmpir_mpc_cos = (__xmpir_mpc_cos)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_cos, typeof(__xmpir_mpc_cos));
+    private static __xmpir_mpc_sin_cos xmpir_mpc_sin_cos = (__xmpir_mpc_sin_cos)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sin_cos, typeof(__xmpir_mpc_sin_cos));
+    private static __xmpir_mpc_tan xmpir_mpc_tan = (__xmpir_mpc_tan)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_tan, typeof(__xmpir_mpc_tan));
+    private static __xmpir_mpc_sinh xmpir_mpc_sinh = (__xmpir_mpc_sinh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_sinh, typeof(__xmpir_mpc_sinh));
+    private static __xmpir_mpc_cosh xmpir_mpc_cosh = (__xmpir_mpc_cosh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_cosh, typeof(__xmpir_mpc_cosh));
+    private static __xmpir_mpc_tanh xmpir_mpc_tanh = (__xmpir_mpc_tanh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_tanh, typeof(__xmpir_mpc_tanh));
+    private static __xmpir_mpc_asin xmpir_mpc_asin = (__xmpir_mpc_asin)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_asin, typeof(__xmpir_mpc_asin));
+    private static __xmpir_mpc_acos xmpir_mpc_acos = (__xmpir_mpc_acos)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_acos, typeof(__xmpir_mpc_acos));
+    private static __xmpir_mpc_atan xmpir_mpc_atan = (__xmpir_mpc_atan)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_atan, typeof(__xmpir_mpc_atan));
+    private static __xmpir_mpc_asinh xmpir_mpc_asinh = (__xmpir_mpc_asinh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_asinh, typeof(__xmpir_mpc_asinh));
+    private static __xmpir_mpc_acosh xmpir_mpc_acosh = (__xmpir_mpc_acosh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_acosh, typeof(__xmpir_mpc_acosh));
+    private static __xmpir_mpc_atanh xmpir_mpc_atanh = (__xmpir_mpc_atanh)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_atanh, typeof(__xmpir_mpc_atanh));
+    private static __xmpir_mpc_urandom xmpir_mpc_urandom = (__xmpir_mpc_urandom)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_mpc_urandom, typeof(__xmpir_mpc_urandom));
 
     
     
@@ -2249,6 +2589,22 @@ public static partial class mpir
        if( __retval!=0 ) HandleError(__retval);
         return result;
     }
+    public static mpc_intptr mpc_init2(long prec)
+    {
+        int __retval;
+        mpc_intptr result;
+        __retval= xmpir_mpc_init2(out result, prec);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static mpc_intptr mpc_init3(long prec_r, long prec_i)
+    {
+        int __retval;
+        mpc_intptr result;
+        __retval= xmpir_mpc_init3(out result, prec_r, prec_i);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
     public static void mpz_clear(mpz v)
     {
         int __retval;
@@ -2271,6 +2627,12 @@ public static partial class mpir
     {
         int __retval;
         __retval= xmpir_mpfr_clear(v.Val);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static void mpc_clear(mpc v)
+    {
+        int __retval;
+        __retval= xmpir_mpc_clear(v.Val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void xmpir_dummy()
@@ -5689,6 +6051,665 @@ public static partial class mpir
         int __retval;
         int result;
         __retval= xmpir_mpfr_erangeflag_p(out result);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static void mpc_set_prec(mpc x, long prec)
+    {
+        int __retval;
+        __retval= xmpir_mpc_set_prec(x.Val, prec);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static long mpc_get_prec(mpc x)
+    {
+        int __retval;
+        long result;
+        __retval= xmpir_mpc_get_prec(out result, x.Val);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static void mpc_get_prec2(out long pr, out long pi, mpc x)
+    {
+        int __retval;
+        __retval= xmpir_mpc_get_prec2(out pr, out pi, x.Val);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static int mpc_set(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_ui(mpc rop, uint op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_ui(out result, rop.Val, op, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_si(mpc rop, int op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_si(out result, rop.Val, op, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_d(mpc rop, double op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_d(out result, rop.Val, op, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_z(mpc rop, mpz op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_z(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_q(mpc rop, mpq op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_q(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_f(mpc rop, mpf op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_f(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_fr(mpc rop, mpfr op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_fr(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_ui_ui(mpc rop, uint op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_ui_ui(out result, rop.Val, op1, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_si_si(mpc rop, int op1, int op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_si_si(out result, rop.Val, op1, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_d_d(mpc rop, double op1, double op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_d_d(out result, rop.Val, op1, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_z_z(mpc rop, mpz op1, mpz op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_z_z(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_q_q(mpc rop, mpq op1, mpq op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_q_q(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_f_f(mpc rop, mpf op1, mpf op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_f_f(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_set_fr_fr(mpc rop, mpfr op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_set_fr_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static void mpc_set_nan(mpc rop)
+    {
+        int __retval;
+        __retval= xmpir_mpc_set_nan(rop.Val);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static void mpc_swap(mpc op1, mpc op2)
+    {
+        int __retval;
+        __retval= xmpir_mpc_swap(op1.Val, op2.Val);
+        if( __retval!=0 ) HandleError(__retval);
+    }
+    public static int mpc_set_str(mpc rop, string str, int _base, int rnd)
+    {
+        int __retval;
+        int result;
+        byte[] __ba_str = System.Text.Encoding.UTF8.GetBytes(str+"\0");
+        IntPtr __str;
+        __retval = xmpir_malloc(out __str, str.Length+1);
+        if( __retval!=0 ) HandleError(__retval);
+        Marshal.Copy(__ba_str, 0, __str, str.Length+1);
+        __retval= xmpir_mpc_set_str(out result, rop.Val, __str, _base, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+       __retval = xmpir_free(__str);
+       if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static string mpc_get_str(int _base, uint n, mpc op, int rnd)
+    {
+        int __retval;
+        string result;
+        IntPtr __result;
+        __retval= xmpir_mpc_get_str(out __result, _base, n, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+       result = Marshal.PtrToStringAnsi(__result);
+       __retval = xmpir_free(__result);
+       if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_cmp(mpc op1, mpc op2)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_cmp(out result, op1.Val, op2.Val);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_cmp_si_si(mpc op1, int op2r, int op2i)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_cmp_si_si(out result, op1.Val, op2r, op2i);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_cmp_si(mpc op1, int op2)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_cmp_si(out result, op1.Val, op2);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_real(mpfr rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_real(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_imag(mpfr rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_imag(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_arg(mpfr rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_arg(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_proj(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_proj(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_add(mpc rop, mpc op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_add(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_add_ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_add_ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_add_fr(mpc rop, mpc op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_add_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sub(mpc rop, mpc op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sub(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sub_fr(mpc rop, mpc op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sub_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_fr_sub(mpc rop, mpfr op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_fr_sub(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sub_ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sub_ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_ui_sub(mpc rop, uint op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_ui_sub(out result, rop.Val, op1, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_ui_ui_sub(mpc rop, uint re1, uint im1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_ui_ui_sub(out result, rop.Val, re1, im1, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_neg(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_neg(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul(mpc rop, mpc op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_si(mpc rop, mpc op1, int op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_si(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_fr(mpc rop, mpc op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_i(mpc rop, mpc op, int sgn, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_i(out result, rop.Val, op.Val, sgn, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sqr(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sqr(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_fma(mpc rop, mpc op1, mpc op2, mpc op3, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_fma(out result, rop.Val, op1.Val, op2.Val, op3.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_div(mpc rop, mpc op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_div(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_div_ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_div_ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_div_fr(mpc rop, mpc op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_div_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_ui_div(mpc rop, uint op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_ui_div(out result, rop.Val, op1, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_fr_div(mpc rop, mpfr op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_fr_div(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_conj(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_conj(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_abs(mpfr rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_abs(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_norm(mpfr rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_norm(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_2ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_2ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_mul_2si(mpc rop, mpc op1, int op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_mul_2si(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_div_2ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_div_2ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_div_2si(mpc rop, mpc op1, int op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_div_2si(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sqrt(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sqrt(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow(mpc rop, mpc op1, mpc op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow_d(mpc rop, mpc op1, double op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow_d(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow_si(mpc rop, mpc op1, int op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow_si(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow_ui(mpc rop, mpc op1, uint op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow_ui(out result, rop.Val, op1.Val, op2, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow_z(mpc rop, mpc op1, mpz op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow_z(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_pow_fr(mpc rop, mpc op1, mpfr op2, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_pow_fr(out result, rop.Val, op1.Val, op2.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_exp(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_exp(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_log(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_log(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_log10(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_log10(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sin(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sin(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_cos(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_cos(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sin_cos(mpc rop_sin, mpc rop_cos, mpc op, int rnd_sin, int rnd_cos)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sin_cos(out result, rop_sin.Val, rop_cos.Val, op.Val, rnd_sin, rnd_cos);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_tan(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_tan(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_sinh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_sinh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_cosh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_cosh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_tanh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_tanh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_asin(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_asin(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_acos(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_acos(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_atan(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_atan(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_asinh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_asinh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_acosh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_acosh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_atanh(mpc rop, mpc op, int rnd)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_atanh(out result, rop.Val, op.Val, rnd);
+        if( __retval!=0 ) HandleError(__retval);
+        return result;
+    }
+    public static int mpc_urandom(mpc rop, randstate state)
+    {
+        int __retval;
+        int result;
+        __retval= xmpir_mpc_urandom(out result, rop.Val, state.Val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }

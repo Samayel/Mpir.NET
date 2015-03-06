@@ -1992,6 +1992,14 @@ namespace Mpir.NET
 				roundingMode: null);
 		}
 
+		public mpc ToMpc(long? precision = null)
+		{
+			return new mpc(
+				this,
+				precision: precision.HasValue ? precision.Value : Math.Max(mpc.DefaultPrecision, (long) BitLength + 16),
+				roundingMode: null);
+		}
+
 		public BigInteger ToBigInteger()
 		{
 			return new BigInteger(ToByteArray(-1));

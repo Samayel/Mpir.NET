@@ -670,6 +670,11 @@ namespace Mpir.NET
 			return new mpfr(this, precision: (long) Precision, roundingMode: null);
 		}
 
+		public mpc ToMpc()
+		{
+			return new mpc(this, precision: (long) Precision, roundingMode: null);
+		}
+
 		public double ToDouble(out int exponentOfTwo)
 		{
 			return mpir.mpf_get_d_2exp(out exponentOfTwo, this);

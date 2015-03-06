@@ -53,7 +53,7 @@ function XGenParse($filename)
         }
         if( $selector=='function' )
         {
-            if( preg_match("/^function (void|str_pointer|str_null_pointer|uint32|sint32|double|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|mpfr_prec_t|mpfr_exp_t|mpfr_rnd_t) (\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
+            if( preg_match("/^function (void|str_pointer|str_null_pointer|uint32|sint32|double|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|mpfr_prec_t|mpfr_exp_t|mpfr_rnd_t|mpc_rnd_t) (\w+)\(([^\)]*)\);$/", $line, $matches)!=1 )
                 exit("\n'$line' is not correct function definition\n");
             $entity['type'] = $matches[1];
             $entity['name'] = $matches[2];
@@ -81,7 +81,7 @@ function XGenParseParams($str)
     foreach($arr as $paramstr)
     {
         $paramstr = XGenStripSpaces($paramstr);
-        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|str_null_pointer|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|mpfr_prec_t|mpfr_exp_t|mpfr_rnd_t|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle|mpc_handle) (\w+)$/", $paramstr, $matches)!=1 )
+        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|str_null_pointer|mp_bitcnt_t|mp_size_t|mp_exp_t|mpir_ui|mpir_si|mpfr_prec_t|mpfr_exp_t|mpfr_rnd_t|mpc_rnd_t|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle|mpc_handle) (\w+)$/", $paramstr, $matches)!=1 )
             exit("\n'$paramstr' is not correct X-gen parameter\n");
         $param = array();
         $param['passingtype'] = $matches[1];

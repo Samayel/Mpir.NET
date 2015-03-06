@@ -255,6 +255,27 @@ DLLEXPORT int xmpir_mpfr_init_set_str(mpfr_wrapper** result, char* str, unsigned
     mpfr_init_set_str((*result)->val, str, base, rnd);
     return XMPIR_OK;
 }
+DLLEXPORT int xmpir_mpc_init2(mpc_wrapper** result, signed long long __prec)
+{
+    volatile mpfr_prec_t prec;
+    prec = __prec;
+    if( prec!=__prec ) return XMPIR_32_64_ERROR;
+    *result = (mpc_wrapper*)malloc(sizeof(mpc_wrapper));
+    mpc_init2((*result)->val, prec);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_init3(mpc_wrapper** result, signed long long __prec_r, signed long long __prec_i)
+{
+    volatile mpfr_prec_t prec_i;
+    volatile mpfr_prec_t prec_r;
+    prec_r = __prec_r;
+    if( prec_r!=__prec_r ) return XMPIR_32_64_ERROR;
+    prec_i = __prec_i;
+    if( prec_i!=__prec_i ) return XMPIR_32_64_ERROR;
+    *result = (mpc_wrapper*)malloc(sizeof(mpc_wrapper));
+    mpc_init3((*result)->val, prec_r, prec_i);
+    return XMPIR_OK;
+}
 DLLEXPORT int xmpir_mpz_clear(mpz_wrapper* _v)
 {
     mpz_clear(_v->val);
@@ -276,6 +297,12 @@ DLLEXPORT int xmpir_mpf_clear(mpf_wrapper* _v)
 DLLEXPORT int xmpir_mpfr_clear(mpfr_wrapper* _v)
 {
     mpfr_clear(_v->val);
+    free(_v);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_clear(mpc_wrapper* _v)
+{
+    mpc_clear(_v->val);
     free(_v);
     return XMPIR_OK;
 }
@@ -2723,5 +2750,422 @@ DLLEXPORT int xmpir_mpfr_inexflag_p(signed int* result)
 DLLEXPORT int xmpir_mpfr_erangeflag_p(signed int* result)
 {
     *result = mpfr_erangeflag_p();
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_prec(mpc_wrapper* x, signed long long __prec)
+{
+    volatile mpfr_prec_t prec;
+    prec = __prec;
+    if( prec!=__prec ) return XMPIR_32_64_ERROR;
+    mpc_set_prec(x->val, prec);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_get_prec(signed long long* __result, mpc_wrapper* x)
+{
+    *__result = mpc_get_prec(x->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_get_prec2(signed long long* __pr, signed long long* __pi, mpc_wrapper* x)
+{
+    mpfr_prec_t pi;
+    mpfr_prec_t pr;
+    mpc_get_prec2(&pr, &pi, x->val);
+    *__pr = pr;
+    *__pi = pi;
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_set(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_ui(signed int* result, mpc_wrapper* rop, unsigned int op, signed int rnd)
+{
+    *result = mpc_set_ui(rop->val, op, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_si(signed int* result, mpc_wrapper* rop, signed int op, signed int rnd)
+{
+    *result = mpc_set_si(rop->val, op, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_d(signed int* result, mpc_wrapper* rop, double op, signed int rnd)
+{
+    *result = mpc_set_d(rop->val, op, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_z(signed int* result, mpc_wrapper* rop, mpz_wrapper* op, signed int rnd)
+{
+    *result = mpc_set_z(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_q(signed int* result, mpc_wrapper* rop, mpq_wrapper* op, signed int rnd)
+{
+    *result = mpc_set_q(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_f(signed int* result, mpc_wrapper* rop, mpf_wrapper* op, signed int rnd)
+{
+    *result = mpc_set_f(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_fr(signed int* result, mpc_wrapper* rop, mpfr_wrapper* op, signed int rnd)
+{
+    *result = mpc_set_fr(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_ui_ui(signed int* result, mpc_wrapper* rop, unsigned int op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_set_ui_ui(rop->val, op1, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_si_si(signed int* result, mpc_wrapper* rop, signed int op1, signed int op2, signed int rnd)
+{
+    *result = mpc_set_si_si(rop->val, op1, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_d_d(signed int* result, mpc_wrapper* rop, double op1, double op2, signed int rnd)
+{
+    *result = mpc_set_d_d(rop->val, op1, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_z_z(signed int* result, mpc_wrapper* rop, mpz_wrapper* op1, mpz_wrapper* op2, signed int rnd)
+{
+    *result = mpc_set_z_z(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_q_q(signed int* result, mpc_wrapper* rop, mpq_wrapper* op1, mpq_wrapper* op2, signed int rnd)
+{
+    *result = mpc_set_q_q(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_f_f(signed int* result, mpc_wrapper* rop, mpf_wrapper* op1, mpf_wrapper* op2, signed int rnd)
+{
+    *result = mpc_set_f_f(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_fr_fr(signed int* result, mpc_wrapper* rop, mpfr_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_set_fr_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_nan(mpc_wrapper* rop)
+{
+    mpc_set_nan(rop->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_swap(mpc_wrapper* op1, mpc_wrapper* op2)
+{
+    mpc_swap(op1->val, op2->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_set_str(signed int* result, mpc_wrapper* rop, char* str, signed int base, signed int rnd)
+{
+    *result = mpc_set_str(rop->val, str, base, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_get_str(char** result, signed int base, unsigned int n, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_get_str(base, n, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_cmp(signed int* result, mpc_wrapper* op1, mpc_wrapper* op2)
+{
+    *result = mpc_cmp(op1->val, op2->val);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_cmp_si_si(signed int* result, mpc_wrapper* op1, signed int op2r, signed int op2i)
+{
+    *result = mpc_cmp_si_si(op1->val, op2r, op2i);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_cmp_si(signed int* result, mpc_wrapper* op1, signed int op2)
+{
+    *result = mpc_cmp_si(op1->val, op2);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_real(signed int* result, mpfr_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_real(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_imag(signed int* result, mpfr_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_imag(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_arg(signed int* result, mpfr_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_arg(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_proj(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_proj(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_add(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_add(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_add_ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_add_ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_add_fr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_add_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sub(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_sub(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sub_fr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_sub_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_fr_sub(signed int* result, mpc_wrapper* rop, mpfr_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_fr_sub(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sub_ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_sub_ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_ui_sub(signed int* result, mpc_wrapper* rop, unsigned int op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_ui_sub(rop->val, op1, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_ui_ui_sub(signed int* result, mpc_wrapper* rop, unsigned int re1, unsigned int im1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_ui_ui_sub(rop->val, re1, im1, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_neg(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_neg(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_mul(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_mul_ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_si(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, signed int op2, signed int rnd)
+{
+    *result = mpc_mul_si(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_fr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_mul_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_i(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int sgn, signed int rnd)
+{
+    *result = mpc_mul_i(rop->val, op->val, sgn, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sqr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_sqr(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_fma(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, mpc_wrapper* op3, signed int rnd)
+{
+    *result = mpc_fma(rop->val, op1->val, op2->val, op3->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_div(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_div(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_div_ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_div_ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_div_fr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_div_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_ui_div(signed int* result, mpc_wrapper* rop, unsigned int op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_ui_div(rop->val, op1, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_fr_div(signed int* result, mpc_wrapper* rop, mpfr_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_fr_div(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_conj(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_conj(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_abs(signed int* result, mpfr_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_abs(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_norm(signed int* result, mpfr_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_norm(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_2ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_mul_2ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_mul_2si(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, signed int op2, signed int rnd)
+{
+    *result = mpc_mul_2si(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_div_2ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_div_2ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_div_2si(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, signed int op2, signed int rnd)
+{
+    *result = mpc_div_2si(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sqrt(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_sqrt(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpc_wrapper* op2, signed int rnd)
+{
+    *result = mpc_pow(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow_d(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, double op2, signed int rnd)
+{
+    *result = mpc_pow_d(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow_si(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, signed int op2, signed int rnd)
+{
+    *result = mpc_pow_si(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow_ui(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, unsigned int op2, signed int rnd)
+{
+    *result = mpc_pow_ui(rop->val, op1->val, op2, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow_z(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpz_wrapper* op2, signed int rnd)
+{
+    *result = mpc_pow_z(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_pow_fr(signed int* result, mpc_wrapper* rop, mpc_wrapper* op1, mpfr_wrapper* op2, signed int rnd)
+{
+    *result = mpc_pow_fr(rop->val, op1->val, op2->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_exp(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_exp(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_log(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_log(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_log10(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_log10(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sin(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_sin(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_cos(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_cos(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sin_cos(signed int* result, mpc_wrapper* rop_sin, mpc_wrapper* rop_cos, mpc_wrapper* op, signed int rnd_sin, signed int rnd_cos)
+{
+    *result = mpc_sin_cos(rop_sin->val, rop_cos->val, op->val, rnd_sin, rnd_cos);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_tan(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_tan(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_sinh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_sinh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_cosh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_cosh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_tanh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_tanh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_asin(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_asin(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_acos(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_acos(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_atan(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_atan(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_asinh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_asinh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_acosh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_acosh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_atanh(signed int* result, mpc_wrapper* rop, mpc_wrapper* op, signed int rnd)
+{
+    *result = mpc_atanh(rop->val, op->val, rnd);
+    return XMPIR_OK;
+}
+DLLEXPORT int xmpir_mpc_urandom(signed int* result, mpc_wrapper* rop, gmp_randstate_wrapper* state)
+{
+    *result = mpc_urandom(rop->val, state->val);
     return XMPIR_OK;
 }

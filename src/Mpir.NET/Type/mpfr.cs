@@ -201,15 +201,15 @@ namespace Mpir.NET
 
 		#region Predefined Values
 
-		public static readonly mpfr NegativeTen = new mpfr(-10, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr NegativeThree = new mpfr(-3, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr NegativeTwo = new mpfr(-2, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr NegativeOne = new mpfr(-1, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr Zero = new mpfr(0, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr One = new mpfr(1, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr Two = new mpfr(2, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr Three = new mpfr(3, precision: _DEFAULT_PRECISION, roundingMode: null);
-		public static readonly mpfr Ten = new mpfr(10, precision: _DEFAULT_PRECISION, roundingMode: null);
+		public static readonly mpfr NegativeTen = new mpfr(-10, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr NegativeThree = new mpfr(-3, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr NegativeTwo = new mpfr(-2, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr NegativeOne = new mpfr(-1, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr Zero = new mpfr(0, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr One = new mpfr(1, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr Two = new mpfr(2, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr Three = new mpfr(3, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
+		public static readonly mpfr Ten = new mpfr(10, precision: _DEFAULT_PRECISION, roundingMode: _DEFAULT_ROUNDING_MODE);
 
 		public static readonly mpfr NaN;
 		public static readonly mpfr PlusInfinity;
@@ -959,14 +959,14 @@ namespace Mpir.NET
 
 		public virtual mpfr Fma(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision: Precision);
+			var fr = new mpfr(precision: Math.Max(Precision, Math.Max(x.Precision, y.Precision)));
 			mpir.mpfr_fma(fr, this, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
 
 		public virtual mpfr Fms(mpfr x, mpfr y, RoundingMode? roundingMode = null)
 		{
-			var fr = new mpfr(precision: Precision);
+			var fr = new mpfr(precision: Math.Max(Precision, Math.Max(x.Precision, y.Precision)));
 			mpir.mpfr_fms(fr, this, x, y, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
 		}
@@ -1703,6 +1703,11 @@ namespace Mpir.NET
 			var fr = new mpfr(precision: Precision);
 			mpir.mpfr_frexp(out exponentOfTwo, fr, this, (int) roundingMode.GetValueOrDefault(DefaultRoundingMode));
 			return fr;
+		}
+
+		public mpc ToMpc()
+		{
+			return new mpc(this, precision: Precision, roundingMode: null);
 		}
 
 		public int ToInt32(RoundingMode? roundingMode = null)
