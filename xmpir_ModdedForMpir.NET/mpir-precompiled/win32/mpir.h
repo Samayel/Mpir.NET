@@ -21,6 +21,7 @@ along with the GNU MP Library.  If not, see http://www.gnu.org/licenses/.  */
 #include <stdarg.h>   /* on Sun Studio */
 #endif 
 #if defined (__cplusplus)
+#include <cstddef>     /* for size_t */
 #include <iosfwd>   /* for std::istream, std::ostream, std::string */
 #include <cstdio>
 #endif
@@ -45,9 +46,7 @@ along with the GNU MP Library.  If not, see http://www.gnu.org/licenses/.  */
 #ifndef __GNU_MP__
 #define __GNU_MP__ 4
 #define __need_size_t  /* tell gcc stddef.h we only want size_t */
-#if defined (__cplusplus)
-#include <cstddef>     /* for size_t */
-#else
+#if ! defined (__cplusplus)
 #include <stddef.h>    /* for size_t */
 #endif
 #undef __need_size_t
@@ -453,9 +452,6 @@ typedef __mpq_struct *mpq_ptr;
 #else
 #define __GMP_LIKELY(cond)    (cond)
 #define __GMP_UNLIKELY(cond)  (cond)
-#endif
-#if defined( _STDINT_H ) || defined ( _STDINT_H_ ) || defined ( _STDINT )
-#define MPIR_HAVE_STDINT 1
 #endif
 /* Allow direct user access to numerator and denominator of a mpq_t object.  */
 #define mpq_numref(Q) (&((Q)->_mp_num))
@@ -931,7 +927,8 @@ __GMP_DECLSPEC void mpz_urandomm __GMP_PROTO ((mpz_ptr, gmp_randstate_t, mpz_src
 #define mpz_eor __gmpz_xor
 __GMP_DECLSPEC void mpz_xor __GMP_PROTO ((mpz_ptr, mpz_srcptr, mpz_srcptr));
 /****** Integer (i.e. Z) routines for intmaax_t/uintmax_t types ******/
-#if defined(MPIR_HAVE_STDINT)
+/* if stdint.h is available -- n.b: we do NOT include stdint.h ourselves */
+#if defined(INTMAX_MAX)
 #define __GMP_BITS_PER_UINTMAX  (8*sizeof(uintmax_t))
 #define mpz_get_ux __gmpz_get_ux
 __GMP_DECLSPEC uintmax_t mpz_get_ux __GMP_PROTO ((mpz_srcptr));
