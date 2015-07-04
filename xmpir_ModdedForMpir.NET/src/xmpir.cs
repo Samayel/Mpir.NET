@@ -25,6 +25,7 @@ binary import/export functions etc.
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security;
 
 // Disable warning about missing XML comments.
 #pragma warning disable 1591
@@ -631,1154 +632,1729 @@ public static partial class mpir
     //
     // Automatically generated code: definitions
     //
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init2(out IntPtr result, ulong prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init_set(out IntPtr result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init_set_ui(out IntPtr result, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init_set_si(out IntPtr result, int op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init_set_d(out IntPtr result, double op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_init_set_str(out IntPtr result, IntPtr str, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_init(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init2(out IntPtr result, ulong prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init_set(out IntPtr result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init_set_ui(out IntPtr result, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init_set_si(out IntPtr result, int op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init_set_d(out IntPtr result, double op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_init_set_str(out IntPtr result, IntPtr str, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init2(out IntPtr result, long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set(out IntPtr result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_ui(out IntPtr result, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_si(out IntPtr result, int op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_d(out IntPtr result, double op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_z(out IntPtr result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_q(out IntPtr result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_f(out IntPtr result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_init_set_str(out IntPtr result, IntPtr str, uint _base, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_init2(out IntPtr result, long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_init3(out IntPtr result, long prec_r, long prec_i);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_clear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_clear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_clear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_clear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_xmpir_dummy();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_xmpir_dummy_add(out int result, int a, int b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_xmpir_dummy_3mpz(out int result, IntPtr op0, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_default(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_mt(out IntPtr result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_lc_2exp(out IntPtr result, IntPtr a, uint c, ulong m2exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_lc_2exp_size(out IntPtr result, ulong size);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randinit_set(out IntPtr result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randclear(IntPtr v);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randseed(IntPtr state, IntPtr seed);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_randseed_ui(IntPtr state, uint seed);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_urandomb_ui(out uint result, IntPtr state, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_gmp_urandomm_ui(out uint result, IntPtr state, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_realloc2(IntPtr x, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_si(IntPtr rop, int op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_d(IntPtr rop, double op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_q(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_f(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_set_str(out int result, IntPtr rop, IntPtr str, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_swap(IntPtr rop1, IntPtr rop2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_get_ui(out uint result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_get_si(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_get_d(out double result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_get_d_2exp(out double result, out int expptr, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_get_string(out IntPtr result, uint _base, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_add(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_add_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sub(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sub_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_ui_sub(IntPtr rop, uint op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mul(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mul_si(IntPtr rop, IntPtr op1, int op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mul_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_addmul(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_addmul_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_submul(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_submul_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mul_2exp(IntPtr rop, IntPtr op1, ulong op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_neg(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_abs(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_q(IntPtr q, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_r(IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_qr(IntPtr q, IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_q_ui(out uint result, IntPtr q, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_r_ui(out uint result, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_qr_ui(out uint result, IntPtr q, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_ui(out uint result, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_q_2exp(IntPtr q, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cdiv_r_2exp(IntPtr r, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_q(IntPtr q, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_r(IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_qr(IntPtr q, IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_q_ui(out uint result, IntPtr q, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_r_ui(out uint result, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_qr_ui(out uint result, IntPtr q, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_ui(out uint result, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_q_2exp(IntPtr q, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fdiv_r_2exp(IntPtr r, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_q(IntPtr q, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_r(IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_qr(IntPtr q, IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_q_ui(out uint result, IntPtr q, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_r_ui(out uint result, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_qr_ui(out uint result, IntPtr q, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_ui(out uint result, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_q_2exp(IntPtr q, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tdiv_r_2exp(IntPtr r, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mod(IntPtr r, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mod_ui(out uint result, IntPtr r, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_divexact(IntPtr q, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_divexact_ui(IntPtr q, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_divisible_p(out int result, IntPtr n, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_divisible_ui_p(out int result, IntPtr n, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_divisible_2exp_p(out int result, IntPtr n, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_congruent_p(out int result, IntPtr n, IntPtr c, IntPtr d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_congruent_ui_p(out int result, IntPtr n, uint c, uint d);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_congruent_2exp_p(out int result, IntPtr n, IntPtr c, ulong b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_powm(IntPtr rop, IntPtr _base, IntPtr _exp, IntPtr _mod);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_powm_ui(IntPtr rop, IntPtr _base, uint _exp, IntPtr _mod);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_pow_ui(IntPtr rop, IntPtr _base, uint _exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_ui_pow_ui(IntPtr rop, uint _base, uint _exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_root(out int result, IntPtr rop, IntPtr op, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_nthroot(IntPtr rop, IntPtr op, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_rootrem(IntPtr root, IntPtr rem, IntPtr u, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sqrt(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sqrtrem(IntPtr rop1, IntPtr rop2, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_perfect_power_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_perfect_square_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_probable_prime_p(out int result, IntPtr n, IntPtr state, int prob, uint div);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_likely_prime_p(out int result, IntPtr n, IntPtr state, uint div);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_probab_prime_p(out int result, IntPtr n, uint reps);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_nextprime(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_next_prime_candidate(IntPtr rop, IntPtr op, IntPtr state);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_gcd(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_gcd_ui(out uint result, IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_gcdext(IntPtr g, IntPtr s, IntPtr t, IntPtr a, IntPtr b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_lcm(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_lcm_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_invert(out int result, IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_jacobi(out int result, IntPtr a, IntPtr b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_legendre(out int result, IntPtr a, IntPtr p);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_kronecker(out int result, IntPtr a, IntPtr b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_kronecker_si(out int result, IntPtr a, int b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_kronecker_ui(out int result, IntPtr a, uint b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_si_kronecker(out int result, int a, IntPtr b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_ui_kronecker(out int result, uint a, IntPtr b);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_remove(out ulong result, IntPtr rop, IntPtr op, IntPtr f);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fac_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_2fac_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_mfac_uiui(IntPtr rop, uint op, uint m);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_primorial_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_bin_ui(IntPtr rop, IntPtr n, uint k);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_bin_uiui(IntPtr rop, uint n, uint k);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fib_ui(IntPtr fn, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fib2_ui(IntPtr fn, IntPtr fnsub1, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_lucnum_ui(IntPtr ln, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_lucnum2_ui(IntPtr ln, IntPtr lnsub1, uint n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmp(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmp_d(out int result, IntPtr op1, double op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmp_si(out int result, IntPtr op1, int op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmp_ui(out int result, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmpabs(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmpabs_d(out int result, IntPtr op1, double op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_cmpabs_ui(out int result, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sgn(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_and(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_ior(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_xor(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_com(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_popcount(out ulong result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_hamdist(out ulong result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_scan0(out ulong result, IntPtr op, ulong starting_bit);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_scan1(out ulong result, IntPtr op, ulong starting_bit);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_setbit(IntPtr rop, ulong bit_index);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_clrbit(IntPtr rop, ulong bit_index);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_combit(IntPtr rop, ulong bit_index);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_tstbit(out int result, IntPtr op, ulong bit_index);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_urandomb(IntPtr rop, IntPtr state, ulong n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_urandomm(IntPtr rop, IntPtr state, IntPtr n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_rrandomb(IntPtr rop, IntPtr state, ulong n);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_ulong_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_slong_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_uint_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_sint_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_ushort_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_fits_sshort_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_odd_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_even_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpz_sizeinbase(out ulong result, IntPtr op, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_canonicalize(IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_z(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_ui(IntPtr rop, uint op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_si(IntPtr rop, int op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_str(out int result, IntPtr rop, IntPtr str, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_swap(IntPtr rop1, IntPtr rop2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_get_d(out double result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_d(IntPtr rop, double op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_f(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_get_string(out IntPtr result, uint _base, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_add(IntPtr sum, IntPtr addend1, IntPtr addend2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_sub(IntPtr difference, IntPtr minuend, IntPtr subtrahend);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_mul(IntPtr product, IntPtr multiplier, IntPtr multiplicand);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_mul_2exp(IntPtr rop, IntPtr op1, ulong op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_div(IntPtr quotient, IntPtr dividend, IntPtr divisor);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_div_2exp(IntPtr rop, IntPtr op1, ulong op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_neg(IntPtr negated_operand, IntPtr operand);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_abs(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_inv(IntPtr inverted_number, IntPtr number);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_cmp(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_cmp_ui(out int result, IntPtr op1, uint num2, uint den2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_cmp_si(out int result, IntPtr op1, int num2, uint den2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_sgn(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_equal(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_get_num(IntPtr numerator, IntPtr rational);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_get_den(IntPtr denominator, IntPtr rational);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_num(IntPtr rational, IntPtr numerator);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpq_set_den(IntPtr rational, IntPtr denominator);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_default_prec(ulong prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_default_prec(out ulong result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_prec(out ulong result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_prec(IntPtr rop, ulong prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_prec_raw(IntPtr rop, ulong prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_si(IntPtr rop, int op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_d(IntPtr rop, double op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_z(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_q(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_set_str(out int result, IntPtr rop, IntPtr str, uint _base);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_swap(IntPtr rop1, IntPtr rop2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_d(out double result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_d_2exp(out double result, out int expptr, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_si(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_ui(out uint result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_get_string(out IntPtr result, out long expptr, uint _base, uint n_digits, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_add(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_add_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_sub(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_ui_sub(IntPtr rop, uint op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_sub_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_mul(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_mul_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_div(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_ui_div(IntPtr rop, uint op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_div_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_sqrt(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_sqrt_ui(IntPtr rop, uint op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_pow_ui(IntPtr rop, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_neg(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_abs(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_mul_2exp(IntPtr rop, IntPtr op1, ulong op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_div_2exp(IntPtr rop, IntPtr op1, ulong op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_cmp(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_cmp_d(out int result, IntPtr op1, double op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_cmp_ui(out int result, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_cmp_si(out int result, IntPtr op1, int op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_eq(out int result, IntPtr op1, IntPtr op2, ulong op3);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_reldiff(IntPtr rop, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_sgn(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_ceil(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_floor(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_trunc(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_integer_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_ulong_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_slong_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_uint_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_sint_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_ushort_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_fits_sshort_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_urandomb(IntPtr rop, IntPtr state, ulong nbits);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpf_rrandomb(IntPtr rop, IntPtr state, long max_size, long exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_default_prec(long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_default_prec(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_prec(IntPtr rop, long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_prec(out long result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_ui(out int result, IntPtr rop, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_si(out int result, IntPtr rop, int op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_d(out int result, IntPtr rop, double op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_z(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_q(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_f(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_str(out int result, IntPtr rop, IntPtr str, uint _base, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_ui_2exp(out int result, IntPtr rop, uint op, long e, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_si_2exp(out int result, IntPtr rop, int op, long e, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_z_2exp(out int result, IntPtr rop, IntPtr op, long e, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_nan(IntPtr rop);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_inf(IntPtr rop, int sign);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_zero(IntPtr rop, int sign);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_swap(IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_d(out double result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_si(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_ui(out uint result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_d_2exp(out double result, out int expptr, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_frexp(out int result, out long expptr, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_z_2exp(out long result, IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_z(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_f(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_str(out IntPtr result, IntPtr str, out long expptr, uint _base, uint n_digits, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_ulong_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_slong_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_uint_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_sint_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_ushort_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fits_sshort_p(out int result, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_add_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ui_sub(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_si_sub(out int result, IntPtr rop, int op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_d_sub(out int result, IntPtr rop, double op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_z_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sub_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sqr(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ui_div(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_si_div(out int result, IntPtr rop, int op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_d_div(out int result, IntPtr rop, double op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sqrt(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sqrt_ui(out int result, IntPtr rop, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rec_sqrt(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cbrt(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_root(out int result, IntPtr rop, IntPtr op, uint k, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_pow(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_pow_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_pow_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_pow_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ui_pow_ui(out int result, IntPtr rop, uint op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ui_pow(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_neg(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_abs(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_dim(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_mul_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_div_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_d(out int result, IntPtr op1, double op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_ui(out int result, IntPtr op1, uint op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_si(out int result, IntPtr op1, int op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_z(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_q(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_f(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_ui_2exp(out int result, IntPtr op1, uint op2, long e);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmp_si_2exp(out int result, IntPtr op1, int op2, long e);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cmpabs(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_nan_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_inf_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_number_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_zero_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_regular_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sgn(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_greater_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_greaterequal_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_less_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_lessequal_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_equal_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_lessgreater_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_unordered_p(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_log(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_log2(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_log10(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_exp(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_exp2(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_exp10(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_tan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sin_cos(out int result, IntPtr sop, IntPtr cop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sec(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_csc(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cot(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_acos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_asin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_atan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_atan2(out int result, IntPtr rop, IntPtr y, IntPtr x, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_cosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_tanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sinh_cosh(out int result, IntPtr sop, IntPtr cop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_sech(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_csch(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_coth(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_acosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_asinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_atanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fac_ui(out int result, IntPtr rop, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_log1p(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_expm1(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_eint(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_li2(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_gamma(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_lngamma(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_lgamma(out int result, IntPtr rop, out int signp, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_digamma(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_zeta(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_zeta_ui(out int result, IntPtr rop, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_erf(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_erfc(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_j0(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_j1(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_jn(out int result, IntPtr rop, int n, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_y0(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_y1(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_yn(out int result, IntPtr rop, int n, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fma(out int result, IntPtr rop, IntPtr op1, IntPtr op2, IntPtr op3, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fms(out int result, IntPtr rop, IntPtr op1, IntPtr op2, IntPtr op3, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_agm(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_hypot(out int result, IntPtr rop, IntPtr x, IntPtr y, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ai(out int result, IntPtr rop, IntPtr x, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_const_log2(out int result, IntPtr rop, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_const_pi(out int result, IntPtr rop, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_const_euler(out int result, IntPtr rop, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_const_catalan(out int result, IntPtr rop, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_free_cache();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rint(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_ceil(out int result, IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_floor(out int result, IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_round(out int result, IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_trunc(out int result, IntPtr rop, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rint_ceil(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rint_floor(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rint_round(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_rint_trunc(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_frac(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_modf(out int result, IntPtr iop, IntPtr fop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_fmod(out int result, IntPtr r, IntPtr x, IntPtr y, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_remainder(out int result, IntPtr r, IntPtr x, IntPtr y, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_remquo(out int result, IntPtr r, out int q, IntPtr x, IntPtr y, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_integer_p(out int result, IntPtr op);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_default_rounding_mode(int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_default_rounding_mode(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_prec_round(out int result, IntPtr x, long prec, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_can_round(out int result, IntPtr b, long err, int rnd1, int rnd2, long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_min_prec(out long result, IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_nexttoward(IntPtr x, IntPtr y);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_nextabove(IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_nextbelow(IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_min(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_max(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_urandomb(out int result, IntPtr rop, IntPtr state);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_urandom(out int result, IntPtr rop, IntPtr state, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_grandom(out int result, IntPtr rop1, IntPtr rop2, IntPtr state, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_exp(out long result, IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_exp(out int result, IntPtr x, long e);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_signbit(out int result, IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_setsign(out int result, IntPtr rop, IntPtr op, int s, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_copysign(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_buildopt_tls_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_buildopt_decimal_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emin(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emax(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_emin(out int result, long exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_emax(out int result, long exp);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emin_min(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emin_max(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emax_min(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_get_emax_max(out long result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_check_range(out int result, IntPtr x, int t, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_subnormalize(out int result, IntPtr x, int t, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_underflow();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_overflow();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_divby0();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_nanflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_inexflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_erangeflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_clear_flags();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_underflow();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_overflow();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_divby0();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_nanflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_inexflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_set_erangeflag();
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_underflow_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_overflow_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_divby0_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_nanflag_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_inexflag_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpfr_erangeflag_p(out int result);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_prec(IntPtr x, long prec);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_get_prec(out long result, IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_get_prec2(out long pr, out long pi, IntPtr x);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_ui(out int result, IntPtr rop, uint op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_si(out int result, IntPtr rop, int op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_d(out int result, IntPtr rop, double op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_z(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_q(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_f(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_fr(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_ui_ui(out int result, IntPtr rop, uint op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_si_si(out int result, IntPtr rop, int op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_d_d(out int result, IntPtr rop, double op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_z_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_q_q(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_f_f(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_fr_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_nan(IntPtr rop);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_swap(IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_set_str(out int result, IntPtr rop, IntPtr str, int _base, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_get_str(out IntPtr result, int _base, uint n, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_cmp(out int result, IntPtr op1, IntPtr op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_cmp_si_si(out int result, IntPtr op1, int op2r, int op2i);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_cmp_si(out int result, IntPtr op1, int op2);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_real(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_imag(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_arg(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_proj(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_add(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_add_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_add_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sub_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_fr_sub(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sub_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_ui_sub(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_ui_ui_sub(out int result, IntPtr rop, uint re1, uint im1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_neg(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_i(out int result, IntPtr rop, IntPtr op, int sgn, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sqr(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_fma(out int result, IntPtr rop, IntPtr op1, IntPtr op2, IntPtr op3, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_div(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_div_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_div_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_ui_div(out int result, IntPtr rop, uint op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_fr_div(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_conj(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_abs(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_norm(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_mul_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_div_2ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_div_2si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sqrt(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow_d(out int result, IntPtr rop, IntPtr op1, double op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow_si(out int result, IntPtr rop, IntPtr op1, int op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow_ui(out int result, IntPtr rop, IntPtr op1, uint op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow_z(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_pow_fr(out int result, IntPtr rop, IntPtr op1, IntPtr op2, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_exp(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_log(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_log10(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_cos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sin_cos(out int result, IntPtr rop_sin, IntPtr rop_cos, IntPtr op, int rnd_sin, int rnd_cos);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_tan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_sinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_cosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_tanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_asin(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_acos(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_atan(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_asinh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_acosh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_atanh(out int result, IntPtr rop, IntPtr op, int rnd);
+    [SuppressUnmanagedCodeSecurity]
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate int __xmpir_mpc_urandom(out int result, IntPtr rop, IntPtr state);
 
