@@ -40,6 +40,7 @@ binary import/export functions etc.
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security;
 
 // Disable warning about missing XML comments.
 #pragma warning disable 1591
@@ -106,6 +107,7 @@ EOS;
         if( $definition['entitytype']=='function' )
         {
             $s_ptrs .= "    private static IntPtr __ptr__xmpir_$definition[name] = GetProcAddressSafe(hxmpir, \"xmpir_$definition[name]\");\n";
+            $s_delegate_defs .= "    [SuppressUnmanagedCodeSecurity]\n";
             $s_delegate_defs .= "    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]\n";
             $s_delegate_defs .= "    ".CSharpMPIR_GenerateDelegate($definition['name'], $definition['type'], $definition['params']).";\n";
             $s_delegates .= "    private static __xmpir_$definition[name] xmpir_$definition[name] = (__xmpir_$definition[name])Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_$definition[name], typeof(__xmpir_$definition[name]));\n";
